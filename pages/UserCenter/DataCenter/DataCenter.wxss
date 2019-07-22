@@ -1,0 +1,43 @@
+
+
+.title{
+	margin-top: 100rpx;
+	font: 24rpx; 
+	width: 690rpx;
+	height: auto;
+	color: #666;
+	margin-left: 30rpx;
+}
+
+.input{
+	width: 650rpx;
+	height: 90rpx;
+	border: 1px solid #ececec;
+	margin-left: 50rpx;
+	margin-top: 50rpx;
+	text-align: center;
+}
+
+.button-bg{width: 690rpx; height: 90rpx; display: flex; flex-wrap: wrap;
+	margin-top: 100rpx;
+}
+
+.button{
+	width: 200rpx;
+	height: 80rpx;
+	line-height: 80rpx;
+	text-align: center;
+	background-color: #ff5173;
+	font-size: 30rpx;
+	margin-left: 30rpx;
+	color: #fff;
+}
+
+.result{
+	width: 690rpx;
+	height: auto;
+	margin-left: 30rpx;
+	margin-top: 50rpx;
+	font-size: 30rpx;
+	color: #666;
+}

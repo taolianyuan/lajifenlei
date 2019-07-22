@@ -1,0 +1,20 @@
+/* pages/Home/Dinner/Choice/Choice.wxss */
+
+.choice-title{
+  text-align: center;
+  font-size: 36rpx;
+}
+
+
+.choice-con{
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.choice-li{
+  width: 46%;
+  background: red;
+  /* margin-left: 1%; */
+  height: 100rpx;
+  margin:30rpx auto
+}

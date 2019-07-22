@@ -1,0 +1,45 @@
+<!--pages/sharePage/sharePage.wxml-->
+
+<!-- <block wx:if="{{isfrom == 'mine'}}"> -->
+  <view class='share-wrap'>
+    <view class='share-top'>
+      <image wx:if="{{pageInfo.avatarUrl != ''}}" class='avatarUrl' src='{{pageInfo.avatarUrl}}'></image>
+      <view class="share-top-title {{pageInfo.avatarUrl == '' ? ' empty' : ''}}" >{{pageInfo.title}}</view>
+    </view>
+    <view class='share-middle'>
+      <image class='share-middle-image' src='{{pageInfo.sharePage}}'></image>
+    </view>
+    <view class='share-bottom'>
+      <image class='QR-code' src='{{pageInfo.QRCode}}'></image>
+      <view class='bottom-toast'>
+        <view class='toast-top'>{{pageInfo.longTap}}</view>
+        <view class='toast-bottom'>{{pageInfo.bottomTitle}}</view>
+      </view>
+    </view>
+  </view>
+
+<!-- </block> -->
+
+<canvasdrawer painting="{{painting}}" class="canvasdrawer" bind:getImage="eventGetImage" />
+
+ <!-- <image src="{{shareImage}}" class="share-image"></image> -->
+
+<view class='choose-btns'>
+  <view class='left-wrap'>
+    <image class='weixin-icon' src='/img/weixin-icon.png'></image>
+    <view class='weixin-title'>微信好友</view>
+    <button class='share-btn' open-type='share'></button>
+  </view>
+
+  <view class='center-wrap' bindtap='skipDynamic' wx:if="{{isfrom == 'potato'}}">
+    <image class='weixin-icon' src='/img/dynamic.png'></image>
+    <view class='weixin-title'>我的职场故事</view>
+  </view>
+
+  <view class='right-wrap' bindtap='savePhotoAlbum'>
+    <image class='baocun-icon' src='/img/baocun.png'></image>
+    <view class='baocun-title'>保存完整至相册</view>
+  </view>
+</view>
+
+<!-- <image src="{{shareImage}}"></image> -->

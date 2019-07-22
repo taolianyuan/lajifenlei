@@ -1,0 +1,116 @@
+
+.bg-view{
+	width: 100vw;
+	height: 100vh;
+	background-color: rgba(0,0,0,0.4);
+	position: fixed;
+	left: 0;
+	top: 0;
+	z-index: 1000000;
+}
+
+.title-image{
+	width: 370rpx;
+	height: 42rpx;
+	margin-left: 221rpx;
+	margin-top: 68rpx;
+	vertical-align: middle;
+}
+
+.time{
+	width:351rpx;
+	height:95rpx;
+	margin-left:196rpx;
+	margin-top:45rpx;
+	color:#F2D766;
+	font-size:100rpx;
+	text-align: center;
+}
+
+.alert-image{
+	margin-left: 26rpx;
+	margin-top: 70rpx;
+	width: 698rpx;
+	height: 512rpx;
+	vertical-align: middle;
+}
+
+.alert-times{
+	width:45rpx;
+	height:66rpx;
+	color:#fff;
+	font-size:86rpx;
+	position:absolute;
+	left:350rpx;
+	top:421rpx;
+	z-index:100;
+}
+
+.btn{
+	width: 197rpx;
+	height: 47rpx;
+	position: absolute;
+	top: 900rpx;
+	left: 141rpx;
+}
+
+.btn.right{
+	left: 415rpx;
+}
+
+.alert-comment{
+	width: 714rpx;
+	height: 568rpx;
+	margin-top: 256rpx;
+	margin-left: 18rpx;
+	vertical-align: middle;
+}
+
+.comment{
+	width: 174rpx;
+	height: 57rpx;
+	margin-left: 442rpx;
+	margin-top: 67rpx;
+	vertical-align: middle;
+}
+
+.comment-image{
+	width: 714rpx;
+	height: 590rpx;
+	position: absolute;
+	left: 18rpx;
+	bottom: 160rpx;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

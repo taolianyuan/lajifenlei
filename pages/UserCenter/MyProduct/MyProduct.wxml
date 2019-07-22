@@ -1,0 +1,116 @@
+<!-- <view class="bg">
+	<view class="scroll-view" scroll-y="true">
+		<view class="header">
+			<view class=header-title">发动态</view>
+			<image class="header-img" bindtap="goReleaseMode" src="../../../img/camera_release.png"></image>
+		</view>
+
+		<block wx:if="{{status == 1}}">
+			<view class="cell" wx:for="{{postList}}" wx:for-item="item" wx:key="cookbookList">
+				
+				<block wx:if="{{item.post.postContent.photoList.length > 0 && item.post.postContent.photoList != null}}">
+					<view class="cell-content-bg" bindtap="goPostDetail" data-id="{{item.post.postId}}">
+						<view class="header-img-box">
+							<image class="{{item.post.postContent.photoList.length == 1 ? 'header-img-l' : (item.post.postContent.photoList.length == 4 ? 'header-img-s' : 'header-img-m')}}" mode="aspectFill" wx:for="{{item.post.postContent.photoList}}" wx:for-item="url" wx:key="photoList" src="{{imgDomain+url}}" />
+						</view>
+						<view class="cell-content"  >
+							<view class="cell-content-title">{{item.post.postContent.postText}}</view>
+							<view class="cell-content-time">{{item.post.timeAt}}</view>
+						</view>
+					</view>
+				</block>
+				
+				<block wx:else>
+					<view class="text-bg">
+						<view class="text-title">{{item.post.postContent.postText}}</view>
+						<view class="text-time" >{{item.post.timeAt}}</view>
+					</view>
+				</block>
+			</view>
+			<view class="loading" hidden="{{!showLoading}}">加载中</view>  
+          	<view class="loading complete" hidden="{{!noMoreData}}">已加载全部</view>
+		</block>  
+
+
+
+		<block wx:else>
+	       <empty-view status="{{status}}" bind:confirmEvent='confirmEvent'></empty-view>
+	    </block>  
+	</view>
+</view>
+ -->
+
+ <view class='bg'>
+    <view class='menu-bg'>
+      <view class='menu-item-bg'  wx:for="{{menuList}}" wx:key="menuList" wx:for-item="item" wx:for-index="index" >
+          <view class="menu-item {{item.isChecked ? 'isChecked' : ''}}" bindtap="swiperChange" data-index="{{index}}">{{item.title}}</view>
+      </view>
+    </view>
+
+<block wx:if="{{status == 1}}">
+
+  <block wx:if='{{current === 0}}'>
+        <view class="header">
+          <view class="header-title">发动态</view>
+          <image class="header-img" bindtap="goReleaseMode" src="../../../img/camera_release.png"></image>
+        </view>
+
+    	<view class="cell" wx:for="{{passList}}" wx:for-item="item" wx:key="passList">
+				<!-- <block wx:if="{{item.post.postContent.photoList.length > 0 && item.post.postContent.photoList != null}}"> -->
+					<view class="cell-content-bg" bindtap="goPostDetail" data-id="{{item.postId}}">
+						<view class="header-img-box">
+							<image class="{{item.postContent.photoList.length == 1 ? 'header-img-l' : (item.postContent.photoList.length == 4 ? 'header-img-s' : 'header-img-m')}}" mode="aspectFill" wx:for="{{item.postContent.photoList}}" wx:for-item="url" wx:key="photoList" src="{{imgDomain+url}}" />
+						</view>
+						<view class="cell-content"  >
+							<view class="cell-content-title">{{item.postContent.postText}}</view>
+							<view class="cell-content-time">{{item.timeAt}}</view>
+						</view>
+					</view>
+				<!-- </block> -->
+      </view>
+  </block>
+
+  <block wx:elif='{{current === 1}}'>
+    <view class="cell" wx:for="{{passList}}" wx:for-item="item" wx:key="passList">
+				<!-- <block wx:if="{{item.post.postContent.photoList.length > 0 && item.post.postContent.photoList != null}}"> -->
+					<view class="cell-content-bg" bindtap="goPostDetail" data-id="{{item.postId}}">
+						<view class="header-img-box">
+							<image class="{{item.postContent.photoList.length == 1 ? 'header-img-l' : (item.postContent.photoList.length == 4 ? 'header-img-s' : 'header-img-m')}}" mode="aspectFill" wx:for="{{item.postContent.photoList}}" wx:for-item="url" wx:key="photoList" src="{{imgDomain+url}}" />
+						</view>
+						<view class="cell-content"  >
+							<view class="cell-content-title">{{item.postContent.postText}}</view>
+							<view class="cell-content-time">{{item.timeAt}}</view>
+						</view>
+					</view>
+				<!-- </block> -->
+      </view>
+  </block>
+
+   <block wx:else>
+    <view class="cell" wx:for="{{passList}}" wx:for-item="item" wx:key="passList">
+				<!-- <block wx:if="{{item.post.postContent.photoList.length > 0 && item.post.postContent.photoList != null}}"> -->
+					<view class="cell-content-bg" bindtap="goPostDetail" data-id="{{item.postId}}">
+						<view class="header-img-box">
+							<image class="{{item.postContent.photoList.length == 1 ? 'header-img-l' : (item.postContent.photoList.length == 4 ? 'header-img-s' : 'header-img-m')}}" mode="aspectFill" wx:for="{{item.postContent.photoList}}" wx:for-item="url" wx:key="photoList" src="{{imgDomain+url}}" />
+						</view>
+						<view class="cell-content"  >
+							<view class="cell-content-title">{{item.postContent.postText}}</view>
+							<view class="cell-content-time">{{item.timeAt}}</view>
+						</view>
+					</view>
+				<!-- </block> -->
+      </view>
+  </block>
+
+  	<view class="loading" hidden="{{!showLoading}}">加载中</view>  
+    <view class="loading complete" hidden="{{!noMoreData}}">已加载全部</view>
+</block>
+
+
+
+<block wx:else>
+      <empty-view status="{{status}}" autoLayout="false" bind:confirmEvent='confirmEvent'></empty-view>
+</block>  
+</view>
+
+

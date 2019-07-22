@@ -1,0 +1,38 @@
+<!--pages/Home/GeneratedBills.wxml-->
+<view>
+	<block wx:if='{{status == 1}}'>
+		<view class="image-wrap">
+			<image class="count-image" src="https://7465-test-9cd88e-1258312722.tcb.qcloud.la/count/count.png?sign=cf7d7a7629e92315bf5cc5a53da2f60d&t=1554111777"></image>
+		</view>
+		<view class="tip-title">左右滑动选喜欢的文字模版</view>
+		<swiper class="swiper" current="{{current}}" bindanimationfinish='bindanimationfinish'>
+			<swiper-item wx:for='{{text}}' wx:key='text'>
+				{{item}}
+			</swiper-item>
+		</swiper>
+
+		<view class="statement">免责声明：纯属娱乐 搏君一笑</view>
+		<view class="bottom-wrap">
+			<view class="friend">邀请朋友玩</view>
+			<button open-type="share" class="btn"></button>
+			<view class="save" bindtap='saveImageToLocal'>保存到相册</view>
+		</view>
+	</block>
+
+
+	<block wx:else>
+		<empty-view status="{{ status }}" confirmText='刷新试试?' autoLayout="false" bind:confirmEvent='onPullDownRefresh'></empty-view>
+	</block>
+</view>
+
+
+<block wx:if="{{!isLogin}}">
+	<dialog id='dialog' title='登录提示' content='小程序需要您的授权才能提供更好的服务哦' confirmText='去授权' bind:cancleEvent='cancleEvent'
+	 bind:confirmEvent='confirmEvent' bind:bindGetUserInfo='bindGetUserInfo'></dialog>
+</block>
+
+<block wx:if='{{isfirst && status == 1}}'>
+	<view catchtouchmove="ture" class="mask" bindtap='hideMask'>
+		<image class="mask-image" src="https://7465-test-9cd88e-1258312722.tcb.qcloud.la/count/textMask.png?sign=9c735da6d6d477da952ba1e02f5e0187&t=1554173216"></image>
+	</view>
+</block>

@@ -1,0 +1,5 @@
+{
+  "navigationBarTitleText": "最新菜谱",
+  "usingComponents": {},
+  "enablePullDownRefresh": true
+}

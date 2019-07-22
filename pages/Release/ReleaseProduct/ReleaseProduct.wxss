@@ -1,0 +1,46 @@
+.header{width: 100%; height: auto; background: #fff;}
+
+.header-input-bg{width: 690rpx; height: 460rpx; padding: 30rpx;}
+
+.header-input{width: 100%; height: 300rpx;}
+
+.tips{width: 100%; height: 90rpx; line-height: 90rpx; text-align: center; color: #999; font-size: 20rpx;}
+
+.weui-uploader__bd {
+  margin-bottom: -4px;
+  margin-right: -9px;
+  overflow: hidden;
+}
+
+
+.weui-uploader__file {
+  float: left;
+  padding:30rpx 10rpx 0 0;
+}
+
+.weui-uploader__img {
+  display: block;
+  width: 210rpx;
+  height: 210rpx;
+  margin: 15rpx;
+}
+
+
+
+.third-page-step-add{
+	width: 690rpx; 
+	height: 90rpx; 
+	margin-left: 30rpx; 
+	line-height: 90rpx; 
+	text-align: center; 
+	font-size: 32rpx; 
+	background-color: #FF5173; 
+	position: absolute; 
+	bottom: 30rpx; 
+	color: #fff;}
+
+.next-last-btn-bg{width: 100%; height: 150rpx; background: #fff; position: relative;}
+
+
+
+

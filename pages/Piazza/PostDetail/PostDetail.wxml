@@ -1,0 +1,118 @@
+<view class="bg">
+	<block wx:if="{{status == 1}}">
+		<scroll-view class="scroll-view" scroll-y="true">
+			<view class="header-bg">
+				<view class="header-left-bg">
+					<image class="header-img" bindtap="goOthersCenter" src='{{postDetail.avatarUrl}}'></image>
+					<view class="header-time">{{postDetail.post.timeAt}}</view>
+				</view>
+
+				<view class="header-info-bg">
+					<view class="header-name-bg">
+						<view class="header-name">{{postDetail.nickName}}</view>
+						<image class="content-level-img" src="{{imgDomain + postDetail.userLevel.levelPhoto}}"></image>
+					</view>
+					<view class="header-product-tags-bg">
+						<view class="header-product">作品: {{postDetail.worksNumber}} </view>
+						<!-- <view class="header-tags-item" wx:for="{{postDetail.post.tags}}" wx:key="tags">{{item.tag}}</view> -->
+					</view>
+				</view>
+			</view>
+
+			<view class="body-bg">
+				<view class="body-content-text">{{postText}}</view>
+
+				<block wx:if="{{photoList.length == 1}}">
+					<image class="body-img-one" mode="widthFix" src="{{imgDomain + photoList[0]}}" data-src="{{imgDomain+photoList[0]}}"
+					 bindtap="goPreview"></image>
+				</block>
+
+				<block wx:elif="{{photoList.length == 2}}">
+					<view class="body-imgs-bg">
+						<image class="body-imgs-two" mode="aspectFill" wx:for="{{photoList}}" wx:key="photoList" wx:for-item="img" src='{{imgDomain+img}}'
+						 data-src="{{imgDomain+img}}" bindtap="goPreview"></image>
+					</view>
+				</block>
+
+				<block wx:elif="{{photoList.length == 3}}">
+					<view class="body-imgs-bg">
+						<image class="body-imgs-more" mode="aspectFill" src="{{imgDomain+photoList[0]}}" data-src="{{imgDomain+photoList[0]}}"
+						 bindtap="goPreview"></image>
+						<image class="body-imgs-more" mode="aspectFill" src="{{imgDomain+photoList[1]}}" data-src="{{imgDomain+photoList[1]}}"
+						 bindtap="goPreview"></image>
+						<image class="body-imgs-more" mode="aspectFill" src="{{imgDomain+photoList[2]}}" data-src="{{imgDomain+photoList[2]}}"
+						 bindtap="goPreview"></image>
+					</view>
+				</block>
+
+				<block wx:else>
+					<view class="body-imgs-bg">
+						<image class="body-imgs-more" mode="aspectFill" wx:for="{{photoList}}" wx:key="photoList" wx:for-item="img" src='{{imgDomain+img}}'
+						 data-src="{{imgDomain+img}}" bindtap="goPreview"></image>
+					</view>
+				</block>
+
+			</view>
+
+			<view class="content-title">评价 ({{commentList.length }})</view>
+
+			<view class="content-cell" wx:for="{{commentList}}" wx:for-item="item" wx:key="commentList">
+				<image class="content-img" src='{{item.avatar}}'></image>
+				<view class="content-info-bg" bindtap='addCommentReply' data-index='{{index}}' data-cid='{{item.commentReply.cId}}'
+				 data-userid='{{item.cUserId}}'>
+
+
+
+					<view class="content-name-bg">
+						<block wx:if='{{item.rUserId == null && item.rNickName == null}}'>
+							<view class="header-name">{{item.nickName || item.nickname}}</view>
+							<image class="content-level-img" src="{{imgDomain + item.userLevelPhoto}}"></image>
+						</block>
+
+						<block wx:else>
+							<view class="header-name">{{item.nickname || item.nickName}}</view>
+							<image class="content-level-img" src="{{imgDomain + item.userLevelPhoto}}"></image>
+
+							<text class='reply-icon'>回复</text>
+
+							<view class="header-name reply-name">{{item.rNickName}}</view>
+							<image class="content-level-img" src="{{imgDomain + item.rUserLevelPhoto}}"></image>
+						</block>
+						<view class="content-time">{{item.commentReply.createAt}}</view>
+					</view>
+					<view class="content-text">{{item.commentReply.content}}</view>
+
+
+				</view>
+			</view>
+			<view class="comment-more" wx:if="{{commentList.length > 4 }}" bindtap="goCommentList">查看更多</view>
+		</scroll-view>
+
+		<view class="comment-bg" wx:if="{{isComment}}">
+			<input class="comment-input" bindblur="cancelComment" value="{{contentText}}" placeholder="{{placeholder}}"
+			 cursor-spacing="30" focus="{{isComment}}" adjust-position></input>
+			<view class="comment-item" bindtap="sendComment">发送</view>
+		</view>
+
+		<view class="bottom-view">
+			<view class='bottom-item' bindtap='shareFriends'>
+				<image class='bottom-icon' src='/img/piazza_share.png'></image>
+				<view class="bottom-btn">分享</view>
+			</view>
+
+			<view class="line-v"></view>
+
+			<view class='bottom-item' bindtap="comment">
+				<image class='bottom-icon' src='/img/piazza_comment.png'></image>
+				<view class="bottom-btn">评论</view>
+			</view>
+
+		</view>
+	</block>
+
+	<block wx:else>
+		<empty-view status="{{status}}" autoLayout='false' bind:confirmEvent='confirmEvent'></empty-view>
+	</block>
+
+
+</view>

@@ -1,0 +1,145 @@
+<view class="bg">
+  <block wx:if="{{status == 1}}">
+    <swiper class="swiper" current="{{current}}" autoplay circular='true' indicator-active-color='#EEEE00' indicator-color='#fff' indicator-dots="{{banners.length == 1 ? false : true}}">
+      <swiper-item wx:for="{{banners}}" wx:for-item="item" wx:key="banners">
+        <image class="swiper" lazy-load='true' src="{{imgDomain+item.adImgUrl}}" data-index="{{index}}" bindtap='bannerClick'></image>
+      </swiper-item>
+    </swiper>
+
+    <!-- <image class="college-btn" lazy-load='true' bindtap="goCollege" src="https://7465-test-9cd88e-1258312722.tcb.qcloud.la/images/college.png?sign=8d94f404bee0a83f31c764049150eb0d&t=1554107629"></image> -->
+
+    <view class='fenlei'>
+      <image src='https://7465-test-9cd88e-1258312722.tcb.qcloud.la/images/laji.png?sign=40beeb9181eec97f4cbeadd36762dc76&t=1561528194' lazy-load='true' bindtap="goAssitant" class='ljfl'></image>
+
+      <image src='https://7465-test-9cd88e-1258312722.tcb.qcloud.la/images/msxy.png?sign=17efd61288ea2ac9b27500480b0a97a4&t=1561528248' class='fenlei-msxy' lazy-load='true' bindtap="goCollege"></image>
+    </view>
+  
+    <!-- <view class="asd">
+      <input type="text" placeholder="请输入" bindinput='bindInputName'></input>
+       <view class="dianji" bindtap="asd">点击</view>
+    </view> -->
+
+ 
+    <block wx:if="{{todayMeal.dishName != null && todayMeal.dishName != ''}}">
+      <view class="model-title-bg">
+        <view class='model-title'>今日餐桌</view>
+        <view class='model-btn' bindtap="clickMore" data-index="1">更多</view>
+        <image lazy-load='true' class='arrow-right' src='../../../img/arrow-right.png'></image>
+      </view>
+      <!-- background-size: 100% 100%; background-image: url({{todayMeal == null ? '../../../img/placeholder_img_s.png' : imgDomain+todayMeal.defPhoto}}) -->
+
+      <view class="today-meal-img" bindtap="goTodayMealDetail">
+        <image lazy-load='true' class="todayMeal-image" mode="widthFix" src="{{todayMeal == null ? '../../../img/placeholder_img_s.png' : imgDomain+todayMeal.defPhoto}}"></image>
+        <view class='today-meal-mask'>
+          <view class="today-meal-title">{{todayMeal.dishName}}</view>
+          <view class="today-like-bg">
+            <view class='likeWrap'>
+              <image class="today-like-icon" lazy-load='true' src="../../../img/follow_board.png"></image>
+              <view class="today-like-count">{{todayMeal.aboutInfo.count.likeCount == null ? 0 : todayMeal.aboutInfo.count.likeCount}}</view>
+            </view>
+            <!-- <view class="today-duration" hidden='{{todayMeal.duration == 0 || todayMeal.duration == null}}'>{{todayMeal.duration == null ? 0 : todayMeal.duration}}分钟</view> -->
+          </view>
+        </view>
+      </view>
+    </block>
+
+    <block wx:if="{{activities.length > 0 && activities != ''}}">
+      <view class="model-title-bg">
+        <view class='model-title'>精彩活动</view>
+      </view>
+
+      <scroll-view class="activity-bg" scroll-x>
+        <view class="activity-item-bg" wx:for="{{activities}}" wx:key="activities" wx:for-index="index" wx:for-item="item">
+          <image class="activity-img" lazy-load='true' src="{{imgDomain+item.defPhoto}}" bindtap='goActivities' data-index="{{index}}"></image>
+          <view class="activity-title">{{item.actName}}</view>
+        </view>
+      </scroll-view>
+    </block>
+
+
+    <!-- <view bindtap='dianji'> 点击约饭</view> -->
+
+    <block wx:if="{{recommendList.length != 0 && recommendList != undefined}}">
+      <view class='recommend-bg'>
+        <view class="model-title-bg">
+          <view class='model-title'>最新</view>
+          <view class='model-btn' bindtap="clickMore" data-index="2">
+            <text>更多</text>
+            <image class='arrow-right' lazy-load='true' src='../../../img/arrow-right.png'></image>
+          </view>
+        </view>
+
+        <view class='recommend'>
+          <view class='recommend-cell' wx:for="{{recommendList}}" wx:for-item="item" wx:for-index="index" wx:key="recommendList" data-index="{{item.dishId}}" bindtap='goDetail'>
+            <view class="show-image-wrap">
+              <image class='recommend-cell-icon' lazy-load='true' mode='aspectFill' src="{{item.defPhoto == null ? '../../../img/placeholder_img_s.png' : imgDomain + item.defPhoto}}"></image>
+            </view>
+
+            <view class='recommend-cell-right-view'>
+              <view class='recommend-cell-title'>{{item.dishName}}</view>
+              <!-- <view class="recommend-cell-tags">
+              <view class="recommend-cell-tag" wx:if='{{item.sauceList[index] !== null}}' wx:for="{{item.sauceList}}" wx:for-item="sauce" wx:key="sauceList">{{sauce.sauceName}}</view>
+            </view> -->
+              <view class='recommend-cell-creater-bg'>
+
+                <!-- <image class="recommend-cell-creater-head" mode="aspectFill" src="{{item.avatar}}"></image> -->
+
+                <!-- <view class='recommend-cell-creater-text'>{{item.nickname}}</view> -->
+
+                <image class="recommend-cell-creater-icon" src="../../../img/follow_recommend.png"></image>
+                <view class='recommend-cell-creater-text'>{{item.likeCount == null ? 0 : item.likeCount}}</view>
+                <image class="recommend-cell-creater-icon recommend-cell-creater-icons " src="../../../img/eye_black.png"></image>
+                <view class='recommend-cell-creater-text'>{{item.browerCount == null ? 0 : item.browerCount}}</view>
+              </view>
+            </view>
+          </view>
+        </view>
+
+      </view>
+    </block>
+
+    <!-- <image class="add-icon" bindtap="showAction" src="../../../img/tabbar/tabbar_add_s.png"></image> -->
+
+    <view class="end-line"> - 我是底线 - </view>
+    <!-- <view class="test {{isTop? 'tranTest' : ''}}"></view> -->
+    
+
+     <view class="discounts" bindtap="discount">
+      <image src="https://img.jishantech.com/common/waste_temporary/垃圾桶优惠券新.gif"></image>
+     </view>
+    
+  </block>
+
+  <block wx:else>
+    <empty-view status="{{ status }}" confirmText='刷新试试?' autoLayout="false" bind:confirmEvent='onPullDownRefresh'></empty-view>
+  </block>
+</view>
+
+
+
+<block wx:if="{{!isLogin}}">
+  <dialog id='dialog' title='登录提示' content='小程序需要您的授权才能提供更好的服务哦' confirmText='去授权' bind:cancleEvent='cancleEvent' bind:confirmEvent='confirmEvent' bind:bindGetUserInfo='bindGetUserInfo'></dialog>
+</block>
+
+
+
+<block wx:if='{{isfirst}}'>
+  <view class='toastWrap' catchtouchmove="ture" bindtap='hiddenMark'>
+    <image class='toast-image' src='https://7465-test-9cd88e-1258312722.tcb.qcloud.la/images/shareToast.png?sign=5a35292ea0b7e96cb7f4f9f7e1d323a6&t=1551409042'></image>
+  </view>
+</block>
+
+
+
+
+<!-- <home wx:if="{{choose_index==0}}"></home>
+<laboratory wx:if="{{choose_index==1}}"></laboratory>
+<piazza wx:if="{{choose_index==3}}"></piazza>
+<mine wx:if="{{choose_index==4}}"></mine>
+
+<block wx:if="{{isIphoneX==1}}">
+  <tabbar-x bindchange="tabChange" data="{{tabbar}}"></tabbar-x>
+</block>
+<block wx:else>
+  <tabbar bindchange="tabChange" data="{{tabbar}}"></tabbar>
+</block> -->

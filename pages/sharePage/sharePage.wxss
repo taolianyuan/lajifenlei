@@ -1,0 +1,168 @@
+/* pages/sharePage/sharePage.wxss */
+
+.share-wrap {
+	width: 602rpx;
+	height: 789rpx;
+	background: rgba(255, 255, 255, 1);
+	box-shadow: 0px 2rpx 8rpx 2rpx rgba(0, 0, 0, 0.15);
+	-webkit-box-shadow: 0px 2rpx 8rpx 2rpx rgba(0, 0, 0, 0.15);
+	border-radius: 4rpx;
+	margin: 86rpx 74rpx 0 74rpx;
+}
+
+.share-image {
+	/* width: 600rpx;
+	height: 888rpx;
+	margin: 0 75rpx;
+	border: 1px solid black; */
+  width: 100%;
+  height: 1500rpx;
+}
+
+
+.choose-btns {
+	width: 100%;
+	height: 174rpx;
+	display: flex;
+	align-items: center;
+	justify-content: space-around;
+	background: rgba(250, 250, 250, 1);
+	position: fixed;
+	left: 0;
+	bottom: 0;
+}
+
+.left-wrap {
+	display: inline-block;
+	text-align: center;
+	position: relative;
+	flex: 1;
+}
+
+.weixin-icon,
+.baocun-icon {
+	width: 84rpx;
+	height: 84rpx;
+	margin-top: 10rpx;
+}
+
+.weixin-title,
+.baocun-title {
+	font-size: 26rpx;
+	color: #000;
+	margin-top: 11rpx;
+}
+
+.right-wrap {
+	color: #000;
+	display: inline-block;
+	text-align: center;
+	flex: 1;
+}
+
+.share-top {
+	width: 100%;
+	height: 117rpx;
+	padding-top: 30rpx;
+	display: flex;
+}
+
+.avatarUrl {
+	width: 85rpx;
+	height: 85rpx;
+	margin-left: 30rpx;
+	border-radius: 50%;
+}
+
+.share-top-title {
+	width: 448rpx;
+	height: 100rpx;
+	font-size: 34rpx;
+	font-weight: 400;
+	color: rgba(51, 51, 51, 1);
+	padding: 15rpx 0 0 15rpx;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	display: -webkit-box;
+	-webkit-line-clamp: 2;
+	-webkit-box-orient: vertical;
+	text-align: center;
+}
+
+.share-top-title.empty{
+	width: 100%;
+	height: 100rpx;
+	font-size: 34rpx;
+	font-weight: 554;
+	padding: 0 30rpx;
+}
+
+.share-middle {
+	width: 100%;
+	height: 421rpx;
+	margin-top: 12rpx;
+}
+
+.share-middle-image {
+	width: 100%;
+	height: 100%;
+}
+
+.share-bottom {
+	width: 100%;
+	height: 156rpx;
+	margin-top: 25rpx;
+}
+
+.QR-code {
+	width: 156rpx;
+	height: 156rpx;
+	border-radius: 50%;
+	float: left;
+	margin-left: 21rpx;
+}
+
+.bottom-toast {
+	width: 384rpx;
+	height: 100%;
+	float: left;
+	margin-left: 19rpx;
+}
+
+.toast-top {
+	width: 100%;
+	height: 90rpx;
+	font-size: 32rpx;
+	color: #333;
+	margin-top: 17rpx;
+}
+
+.toast-bottom {
+	width: 100%;
+	height: 28rpx;
+	font-size: 28rpx;
+	color: #9B9B9B;
+}
+
+.share-name {
+	color: #D0021B;
+}
+
+.share-btn {
+	width: 100%;
+	height: 100%;
+	position: absolute;
+	left: 0;
+	top: 0;
+	background: transparent;
+}
+
+.center-wrap {
+	display: inline-block;
+	text-align: center;
+	flex: 1;
+}
+
+button::after {
+	border: none
+}

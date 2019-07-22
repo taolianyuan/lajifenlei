@@ -1,0 +1,14 @@
+
+<view class='navbar-wrap' style='height:{{navbarHeight}}px;padding-top:{{statusBarHeight}}px;line-height:{{navbarHeight}}px; '>
+  <view class="navbar-text" style='line-height:{{navbarBtn.height + navbarBtn.top*2}}px;color:{{navbarData.textColor ? navbarData.textColor : "#fff"}};'>
+     垃圾分类助手
+  </view>
+
+  <view class="navbar-icon" wx:if='{{navbarData.showCapsule ? navbarData.showCapsule : true}}' style="top:{{navbarBtn.top + statusBarHeight}}px;height:{{navbarBtn.height}}px;">
+    <!-- <image wx:if='{{haveBack}}' bindtap="_goBack" class="floatL" src="/img/navbar_back_{{navbarData.iconColor ? navbarData.iconColor : 'black'}}.png"></image> -->
+
+      <!-- <view wx:if='{{haveBack}}' bindtap="_goBack" class="floatL" >dvd</view> -->
+    <!-- <view wx:if='{{haveBack}}' class="floatL" style="border-color:{{navbarData.borderColor ? navbarData.borderColor : 'rgba(0,0,0,0.3)'}}"></view> -->
+    <image bindtap="_goHome" src="/img/Pin.png"></image>
+  </view>
+</view>

@@ -1,0 +1,36 @@
+<block wx:if="{{status == 1}}">
+  <view class="comment-list-bg">
+    <view class="comment-cell" wx:for="{{commentList}}" wx:for-item="item" wx:key="commentList">
+      <view class="comment-name-icon-bg">
+        <image class="comment-icon" src="{{item.avatar}}"></image>
+        <block wx:if='{{item.ruserId == null && item.rnickName == null}}'>
+          <view class="comment-name">
+            <text>{{item.nickName || item.nickname}}</text>
+            <image class="creater-right-level" src="{{imgDomain + item.userLevelPhoto}}"></image>
+          </view>
+        </block>
+
+        <block wx:else>
+          <view class="comment-name">
+            <text>{{item.nickName || item.nickname}}</text>
+            <image class="creater-right-level" src="{{imgDomain + item.userLevelPhoto}}"></image>
+          </view>
+          <text class='reply-icon'>回复</text>
+          <view class="comment-name right-name">
+            <text>{{item.rnickName}}</text>
+            <image class="creater-right-level" src="{{imgDomain + item.ruserLevelPhoto}}"></image>
+          </view>
+        </block>
+
+      </view>
+      <view class="comment-content">{{item.commentReply.content}}</view>
+      <view class="comment-time">{{item.commentReply.createAt}}</view>
+    </view>
+    <view class="loading" hidden="{{!showLoading}}">加载中</view>
+    <view class="loading complete" hidden="{{!noMoreData}}">已加载全部</view>
+  </view>
+</block>
+
+<block wx:else>
+  <empty-view status="{{status}}" autoLayout='false' bind:confirmEvent='confirmEvent'></empty-view>
+</block>

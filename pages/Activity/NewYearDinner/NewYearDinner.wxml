@@ -1,0 +1,56 @@
+<!--pages/Home/NewYearDinner/NewYearDinner.wxml-->
+
+<!-- <view class='activityWrap' wx:for='{{dinnerList}}' wx:key='dinnerList' bindtap='goToDetail' data-index='{{index}}'>
+
+   <view class='leftWrap'>
+    <image mode='aspectFill' class='cover' src='{{imgUrl+item.dish.defPhoto}}'></image>
+  </view>
+  <view class='rightWrap'>
+    <text class='title'>{{item.dish.dishName}}</text>
+    <text class='completeCount'>{{item.worksNumber}}人已完成</text>
+  </view>
+
+</view> -->
+
+<scroll-view scroll-y='true'>
+  <view class='item-wrap' wx:for='{{dinnerList}}' wx:key='dinnerList' wx:for-item='item' wx:for-index='index'>
+  <view class='date' style="background-color:{{item.list[0].status === 1? 'rgba(46,104,111,1)': '#ccc'}}">
+    {{item.title}}
+  </view>
+
+  <view class='list-item'>
+
+      <view class='item'  data-section='{{section}}' data-index='{{index}}' bindtap='goToDetail' wx:for='{{item.list}}' wx:key='item.list' wx:for-item='lesson' wx:for-index='section'>
+
+        <image src='/img/empty_view.png' class='item-image' wx:if='{{isShow}}'></image>
+        <image mode='aspectFill' lazy-load="true" src='{{imgUrl+lesson.dish.defPhoto}}' wx:else class='item-image '></image>
+        
+        <view class='description'>
+          <text class='title'>{{lesson.dish.dishName}}</text>
+          <view class='item-bottomWrap'>
+            <text class='watchingCount'>{{lesson.count === null ? 0 :lesson.count.browerCount}}浏览</text>
+            <view class='btn'>
+              <image  class='study' wx:if='{{lesson.status !== 0}}' src='/img/study.jpg'></image>
+              <image class='study' wx:else src='/img/coming.jpg'></image>
+            </view>
+          </view>
+        </view>
+      </view>
+
+          <!-- <view class='item'>
+        <image src='' class='item-image'></image>
+        <view class='description'>
+          <text class='title'>葱爆帝王蟹</text>
+          <view class='item-bottomWrap'>
+            <text class='watchingCount'>9999浏览</text>
+            <view class='btn'>
+              <image class='study' src='/img/study.png'></image>
+            </view>
+          </view>
+        </view>
+      </view>-->
+  </view> 
+</view>
+
+</scroll-view>
+

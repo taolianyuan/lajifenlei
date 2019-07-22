@@ -1,0 +1,54 @@
+/* pages/Home/NewYearDinner/NewYearDinner.wxss */
+/* .activityWrap{width: 100%; height: 200rpx; box-sizing: border-box; padding: 0 24rpx; display: flex;  margin-top: 24rpx;} */
+
+/* .paddingWrap{width: 100%; height: 100%; border: 1px solid #ccc; display: flex;} */
+
+/* .leftWrap{width: 200rpx; height: 100%;}
+
+.cover{width: 100%; height: 100%;}
+
+.rightWrap{ box-sizing: border-box; padding: 0 24rpx; display: flex; flex-direction: column; font-size: 32rpx;}
+
+.title{color: #333; margin-top: 24rpx;}
+
+.completeCount{margin-top: 50rpx; font-size: 24rpx; color: #999;} */
+
+page{
+  width: 100%;
+  height: 100%;
+  background-color: #F0F2F5;
+}
+
+.item-wrap{width: 702rpx; margin-left: 24rpx; margin-top: 24rpx; height:600rpx; background:rgba(255,255,255,1); border-radius:24rpx;}
+
+.date{width: 88rpx; height: 280rpx; background-color:rgba(46,104,111,1); box-sizing: border-box; border-radius: 8rpx; margin: 160rpx 32rpx 160rpx 32rpx; float: left; font-size: 40rpx; color: #fff; text-align: center; padding: 57rpx 22rpx 55rpx 26rpx; font-weight: bold;}
+
+.list-item{float: left; width: 550rpx; height: 100%; }
+
+.item{width: 100%; height: 240rpx; margin-top: 40rpx; }
+
+.item-image{width: 240rpx; height: 240rpx; float: left;}
+
+.description{float: left; margin-left: 24rpx;}
+
+.title{font-size: 28rpx; font-weight: 600; color: #666;}
+
+.item-bottomWrap{width: 100%; display: flex; align-content: center; margin-top: 130rpx; position: relative;}
+
+.watchingCount{font-size: 24rpx; color: #999; font-family:PingFang-SC-Regular; margin-top: 15rpx;}
+
+.btn{width: 168rpx; height: 72rpx; margin-left: 14rpx; position: absolute; left: 95rpx; top: 3rpx;}
+
+.study{width: 100%; height: 100%;}
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+
+

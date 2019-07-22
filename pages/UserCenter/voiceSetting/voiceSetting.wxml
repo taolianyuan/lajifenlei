@@ -1,0 +1,20 @@
+<view wx:if='{{status == 1}}'>
+	<view class="voice-bg">语音选择</view>
+	<radio-group bindchange="radioChange">
+		<view class="voiceWrap" >
+			<view class="voice" wx:for='{{voiceList}}' wx:key='voiceList'>
+				<view class="voice-title">{{index+1}}、{{item.title}}</view>
+				<view class="btn-wrap" data-index='{{index}}' bindtap='handleAudio'>
+					<image class="btn" src="{{currentId == index ? '../../../img/audio_pause.png' : '../../../img/audio_play.png'}}"></image>
+					<text class="btn-text">{{currentId == index ? '停止' : '试听'}}</text>
+				</view>
+				<radio value="{{index}}" checked="{{checkedId == index}}"></radio>
+			</view>
+		</view>
+	</radio-group>
+
+</view>
+
+	<block wx:else>
+		<empty-view status="{{status}}" autoLayout='false' bind:confirmEvent='confirmEvent'></empty-view>
+	</block>

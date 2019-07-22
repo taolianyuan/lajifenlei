@@ -1,0 +1,39 @@
+
+<view class="bg">
+    <block wx:if="{{status == 1}}">
+        <view class="scroll-view"> 
+            <view class="page">
+                <view class="list-masonry">
+                    <block wx:for="{{testList}}" wx:for-item="item" wx:for-index="index" wx:key="{{sauce+section}}">
+                        <view class="item-masonry" bindtap="didSelectedItem" data-index="{{index}}">
+                            <image class="image" mode="aspectFill" src="{{item.status == 0 ? '/img/sauceCheck.png' : imgDomain+item.evaluatePhotos[0]}}"></image>
+                            <!-- <view class='creater-title'>{{item.content}}</view> -->
+                            <view class="creater-info">
+                                <image class="creater-icon" src="{{item.avatar}}"></image>
+                                <view class="creater-name">{{item.nickName}}</view>
+                            </view>
+                            <view class="sauce-content">{{item.content}}</view>
+                            <view class="sauce-count-bg">
+                                <image class="sauce-count-img" src="../../../img/zan.png"></image>
+                                <view class="sauce-count-figure">{{item.likeCount != null ? item.likeCount : '0'}}</view>
+                            </view>
+                        </view>
+                    </block>
+                </view>
+            </view>
+        </view> 
+    </block>
+
+    <block wx:else>
+        <empty-view 
+              status="{{status}}"
+              autoLayout='false'
+              bind:confirmEvent='confirmEvent'></empty-view>
+    </block>
+</view>
+
+
+
+
+
+

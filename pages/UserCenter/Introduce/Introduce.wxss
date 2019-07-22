@@ -1,0 +1,27 @@
+.btn{width: 690rpx; height: 100rpx; margin-left: 30rpx; position: absolute; bottom: 50rpx; color: #fff; background-color: #fc5375; border-radius: 10rpx; line-height: 100rpx; text-align: center}
+
+.first-page-food-story-input{width: 702rpx; height: 20vh; box-sizing: border-box; padding: 24rpx 0 0 24rpx; background: #fff; margin: 24rpx; color: #333; font-size: 32rpx;  background: #F7F7F7; border-radius: 8rpx;}
+
+.first-page-food-story-char-count{ height: 80rpx; line-height: 80rpx; font-size: 26rpx; color: #666; padding-right: 30rpx; text-align: right; background: #fff;}
+
+.placeholder-into{font-size: 32rpx; color: #ccc;}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

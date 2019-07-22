@@ -1,0 +1,17 @@
+<!--pages/Home/classification/classification.wxml-->
+
+
+
+
+<canvas canvas-id="shareImg" style='width:{{windowWidth}}px; height:{{windowHeight}}px'></canvas>
+  
+<!-- 预览区域  -->
+<view hidden='{{hidden}}' class='preview'>
+  <image src='{{prurl}}' mode='widthFix'></image>
+  <button type='primary' size='mini' bindtap='save'>保存分享图</button>
+</view>
+
+<button class='share' type='primary' bindtap='share'>生成分享图</button>
+
+
+

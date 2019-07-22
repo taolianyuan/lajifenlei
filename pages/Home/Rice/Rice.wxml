@@ -1,0 +1,81 @@
+<view class="bg">
+	<image class="rice-cover" src="{{riceCover}}"></image>
+	<progress class="process-line"
+			  percent="{{percent}}" 
+			  active="true" 
+			  stroke-width="84rpx" 
+			  activeColor="#AB061C" 
+			  backgroundColor="#0646AB"
+			  border-radius="42rpx"/>
+	<view class="score-rect">
+		<view class="score">{{number}}%</view>
+		<view class="score r">{{numberRight}}%</view>
+	</view>	  
+	
+	<block wx:if="{{currentSection != null && JSON.stringify(currentSection) != '{}'}}">
+		<view class="section">
+			<view class="dish-rect">
+				<view class="dish-name">{{currentSection.dishes[0].dishName}}</view>
+				<image class="dish-image" src="{{imgDomain + currentSection.dishes[0].defPhoto}}" bindtap="goDetail" data-grade="{{currentSection.grade}}" data-dish="{{currentSection.dishes[0].dishId}}"></image>
+				<image class="rice-btn" bindtap="ifRecordRiceVotes" data-grade="{{currentSection.grade}}" data-dish="{{currentSection.dishes[0].dishId}}" src="{{voteR}}"></image>
+			</view>
+			<view style="width: 130rpx; height: 450rpx;"></view>
+			<image class="vs" src="{{riceVS}}"></image>
+			<view class="dish-rect r">
+				<view class="dish-name">{{currentSection.dishes[1].dishName}}</view>
+				<image class="dish-image" src="{{imgDomain + currentSection.dishes[1].defPhoto}}" bindtap="goDetail" data-grade="{{currentSection.grade}}" data-dish="{{currentSection.dishes[1].dishId}}"></image>
+				<image class="rice-btn" bindtap="ifRecordRiceVotes" data-grade="{{currentSection.grade}}" data-dish="{{currentSection.dishes[1].dishId}}" src="{{voteB}}"></image>
+			</view>
+		</view>
+	</block>
+	
+	<block wx:for="{{unVoteArr}}" wx:key="unVoteArr" wx:for-index="index" wx:for-item="section">
+		<image class="roundx" src="{{rounds[section.grade - 1]}}"></image>
+		<view class="section">
+			<view class="dish-rect" style="margin-right: 64rpx;">
+				<view class="dish-name">{{section.dishes[0].dishName}}</view>
+				<image class="dish-image" src="{{imgDomain + section.dishes[0].defPhoto}}"></image>
+				<image class="rice-btn" bindtap="goDetail" data-grade="{{section.grade}}" data-dish="{{section.dishes[0].dishId}}" src="{{checkR}}"></image>
+			</view>
+		    <image class="vs1" src="{{riceVss}}"></image>
+			<view class="dish-rect r">
+				<view class="dish-name">{{section.dishes[1].dishName}}</view>
+				<image class="dish-image" src="{{imgDomain + section.dishes[1].defPhoto}}"></image>
+				<image class="rice-btn" bindtap="goDetail" data-grade="{{section.grade}}" data-dish="{{section.dishes[1].dishId}}" src="{{checkB}}"></image>
+			</view>
+		</view>
+	</block>
+	
+	<image wx:if="{{historyArr.length > 0}}" class="roundx" src="{{historyTitle}}"></image>
+	<block wx:for="{{historyArr}}" wx:key="historyArr" wx:for-index="index" wx:for-item="section">
+		
+		<view class="section">
+			<view class="dish-rect" style="margin-right: 64rpx;">
+				<view class="dish-name">{{section.dishes[0].dishName}}</view>
+				<view class="dish-image" style="background-image: url({{imgDomain + section.dishes[0].defPhoto}});">
+					<image wx:if="{{section.aboutInfo.winner == 0}}" class="rice-victory" src="{{riceVictory}}"></image>
+				</view>
+				<image class="rice-btn" bindtap="goDetail" data-grade="{{section.grade}}" data-dish="{{section.dishes[0].dishId}}" src="{{checkR}}"></image>
+			</view>
+		
+			<view class="dish-rect r">
+				<view class="dish-name">{{section.dishes[1].dishName}}</view>
+				<view class="dish-image" style="background-image: url({{imgDomain + section.dishes[1].defPhoto}});">
+					<image class="rice-victory" wx:if="{{section.aboutInfo.winner == 1}}" src="{{riceVictory}}"></image>
+				</view>
+				<image class="rice-btn" bindtap="goDetail" data-grade="{{section.grade}}" data-dish="{{section.dishes[1].dishId}}" src="{{checkB}}"></image>
+			</view>
+		</view>
+	</block>
+	
+	
+	
+	
+	<view class="rice-share" bindtap="share"> 解开好友米饭的知识盲区</view>
+</view>
+
+
+<block wx:if="{{!isLogin}}">
+	<dialog id='dialog' title='登录提示' content='小程序需要您的授权才能提供更好的服务哦' confirmText='去授权' bind:cancleEvent='cancleEvent'
+	 bind:confirmEvent='confirmEvent' bind:bindGetUserInfo='bindGetUserInfo'></dialog>
+</block>

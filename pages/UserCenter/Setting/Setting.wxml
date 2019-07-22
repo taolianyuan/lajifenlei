@@ -1,0 +1,19 @@
+<!--pages/UserCenter/Setting/Setting.wxml-->
+<view>
+	<view class="toast {{showToast? 'toast-active' : ''}}">
+		<view class="toastTitle">点击这里添加到桌面</view>
+		<view class="toastIcon"></view>
+	</view>
+	<view class="placeholder"></view>
+	<view class="item" bindtap='clickItem' wx:for='{{setting}}' wx:key='setting' data-id='{{item.id}}' data-path='{{item.path}}'>
+
+		<block wx:if="{{item.id == 1}}">
+			<button class="cellTitle" style='width: 100%' hover-class='btn_hover' open-type='feedback'>{{item.title}}</button>
+		</block>
+
+		<block wx:else>
+			<view class="cellTitle">{{item.title}}</view>
+		</block>
+		<image class="right-icon" src="../../../img/arrow-right.png"></image>
+	</view>
+</view>

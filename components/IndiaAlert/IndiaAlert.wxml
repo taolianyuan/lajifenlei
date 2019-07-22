@@ -1,0 +1,20 @@
+<view class="bg-view" catchtouchmove="true">
+	
+	<block wx:if="{{comment == false}}">
+		
+		<image class="title-image" src="{{mark}}"></image>
+		<view class="time">{{interval}}</view>
+		<text class="alert-times">{{times}}</text>
+		<image class="alert-image" src="{{alert}}"></image>
+		<image wx:if="{{times > 0}}" class="btn" src="{{goon}}" bindtap="goOn"></image>
+		<image wx:if="{{times == 0}}" class="btn" src="{{challenge}}" bindtap="goOn"></image>
+		<image wx:if="{{times > 0}}" class="btn right" src="{{invitation}}" bindtap="invitation"></image>
+		<image wx:if="{{times == 0}}" class="btn right" src="{{commentImg}}" bindtap="goComment"></image>
+
+	</block>
+	
+	<block wx:else>
+		<image class="comment-image" src="{{dishComment}}" bindtap="hideSelf"></image>
+	</block>
+	
+</view>

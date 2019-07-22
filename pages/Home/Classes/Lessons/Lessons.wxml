@@ -1,0 +1,36 @@
+<!--pages/Home/Classes/Lessons/Lessons.wxml-->
+<!-- <web-view src="http://172.16.1.63:10010/" bindmessage="reportMessage"></web-view> -->
+<view class="bg">
+  <image class="banner1" src="https://img.jishantech.com/common/homePage/banner.jpg"></image>
+  <image class="banner2" src="https://img.jishantech.com/common/homePage/banner1.jpg"></image>
+
+  <image class="banner3" src="https://img.jishantech.com/common/homePage/banner2.jpg"></image>
+  <image class="banner4" src="https://img.jishantech.com/common/homePage/banner3.jpg"></image>
+
+  <!-- <image class="banner5" src="https://img.jishantech.com/common/homePage/banner4.jpg"></image> -->
+
+  <image class='banner5' src='/img/banner4.jpg'></image>
+
+  <view class='phone'>
+    <view class='phone-fz'>详细咨询:</view>
+     <view class='phon-lr'>
+         <view class='phone-fz1' bindtap='phone'>13501624424</view>
+         <view class='wexin-fz'>(点击可拨打电话/微信同号)</view>
+     </view>
+  </view>
+
+
+  <view class="green-bg">
+    <view class="signUp-bg">
+      <button class="share-btn" plain='true' style=" background-image: url({{share}})" bindtap="goShare" data-index='1'>
+      </button>
+      <!-- <image src="{{signUp}}" class="signUp-btn" bindtap="goSignUp"></image> -->
+    </view>
+  </view>
+
+
+  <block wx:if="{{!isLogin}}">
+    <dialog id='dialog' title='登录提示' content='小程序需要您的授权才能提供更好的服务哦' confirmText='去授权' bind:cancleEvent='cancleEvent' bind:confirmEvent='confirmEvent' bind:bindGetUserInfo='bindGetUserInfo'></dialog>
+  </block>
+
+</view>

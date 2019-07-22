@@ -1,0 +1,45 @@
+<!--pages/Activity/createPic/createPic.wxml-->
+
+<view class='workContent' style='width: 100%; height:{{imgheight}}rpx;'>
+  	<view class='border' style=' height:{{imgheight}}rpx; width:{{imgwidth}}rpx;'>
+		<image class='image-mask' src='{{imgUrl}}' bindload='imageLoad' style='width:{{imgwidth}}rpx; height:{{imgheight}}rpx;'></image>
+
+		<image class='userImage-{{actId+current}}' style='width:{{imgwidth2}}rpx; height:{{imgheight2}}rpx;' bindload='imageLoad2' src='{{userImageUrl}}'></image>
+
+		<image src='{{iconUrl}}' bindload='imageLoad1' style='width:{{imgwidth1}}rpx; height:{{imgheight1}}rpx;' class='icon-{{actId+current}}'></image>
+
+		<image src='{{code}}' class='code-{{actId+current}}' style='width:{{imgwidth3}}rpx; height:{{imgheight3}}rpx;' bindload='imageLoad3'></image>
+
+		<view class="font-wrap{{actId+current}}"  style="{{usersText.length == 1 ? 'line-height: 60rpx; font-size: 36rpx;' : ''}}" >
+		  {{usersText}}
+		</view>
+	</view>
+</view>
+
+
+<block wx:if='{{isShow}}'>
+<view class='inputWrap'>
+	  <input type='text' class='input' bindinput='bindinput' placeholder='输入文字描述吧（{{maxlength}}字以内哦~）' placeholder-class='input-icon' maxlength='{{maxlength}}' adjust-position='true' value='{{value}}'></input>
+	  <view class='confirm' bindtap='confirm'>确定</view>
+</view>
+
+<view class='btn-wrap'>
+	<view bindtap='showAction' class='choose-btn'>选择图片</view>
+	<view class='choose-btn' bindtap='createImage'>点击预览图片</view>
+</view>
+
+</block>
+
+
+<!-- <block wx:else>
+  <view class='loadingWrap'> 
+    <image class='waittingImage' src='/img/waitting.gif'></image>
+  </view>
+</block> -->
+
+<!-- <canvas canvas-id='canvas'></canvas> -->
+
+<!-- <view>
+  <image src='{{lastImage}}'></image>
+</view> -->
+

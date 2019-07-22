@@ -1,0 +1,106 @@
+<import src='../../../wxParse/wxParse.wxml' />
+<block wx:if='{{status == 1}}'>
+	<view scroll-top="{{scrollTop}}" scroll-y="true" class="wrap">
+		<block wx:if='{{pageShowStatus == 0}}'>
+			<view class="title">
+				<view>厨房好声音，谁的最好听？</view>
+				<view>邀好友助力</view>
+				<view>(参与投票，有机会得爆米花机)</view>
+			</view>
+
+			<view class="checkWrap">
+				<view class="check-top">
+					<view class="left-title">选项（单选）</view>
+					<view class="right-title">选中投票</view>
+				</view>
+				<radio-group class="radio-group" bindchange="radioChange">
+					<view class="check-item" wx:for='{{dishIds.voteInfo}}' wx:key='dishIds.voteInfo'>
+						<text class="item-title">{{index+1}}、{{item.title}}</text>
+						<image class="icon" data-index='{{index}}' bindtap='handleAudio' src="{{currentId == index ?'../../../img/audio_pause.png': '../../../img/audio_play.png'}}"></image>
+						<view class="line"></view>
+						<radio value="{{index}}" checked="{{checkedId == index}}" />
+					</view>
+				</radio-group>
+			</view>
+			<view class='html-content'>
+				<view class='wxParse'>
+					<template is='wxParse' data="{{wxParseData: content.nodes}}" />
+				</view>
+			</view>
+		</block>
+
+		<block wx:else>
+			<image src="https://7465-test-9cd88e-1258312722.tcb.qcloud.la/home-activity/vote-activity-banner.png?sign=9a3e556f42ef96e59f13c82316780af5&t=1555671458"
+			 class="banner"></image>
+			<view class="MaskTitle">
+				<view class="mask-top-title">经统计本次共有923人参与投票</view>
+				<view class="mask-bottom-title">网红妹妹当选吃库语音播报员</view>
+			</view>
+
+			<view>
+				<view class="result-title">投票结果</view>
+				<canvas canvas-id="columnCanvas" class="canvas" style="height: 200px; width: 300px; margin-left: 88rpx;"></canvas>
+
+				<canvas canvas-id="pieCanvas" class="canvas" style="height:300px; margin-left: 65rpx;"></canvas>
+				
+				<view class="canvas-title">经统计本次投票共923人参与， 其中投票给网红妹妹的510人中 有55.41%是男性。</view>
+			</view>
+
+			<view class="winnerWrap">
+				<image class="winner-mode-bg" src="https://7465-test-9cd88e-1258312722.tcb.qcloud.la/home-activity/vote-winnr-bg.png?sign=1e748e35b56aadbed3c039f68dbff665&t=1555671663"></image>
+				<view class="winnerList">
+					<image class="activity-bg" src="../../../img/activity-12-bg.png"></image>
+					<view class="winnerWrap-title">
+						<view>恭喜以下获奖者获得正版复古</view>
+						<view>爆米花机一台</view>
+					</view>
+					<view class="small-bg-wrap">
+						<image class="small-bg" src="https://7465-test-9cd88e-1258312722.tcb.qcloud.la/home-activity/vote-activity-samllBg.png?sign=729dc0413d6d6f95bce55c459eb82cf9&t=1555672231"></image>
+					</view>
+					<view class="item-wrap">
+						<view class="item" wx:for='{{dishIds.userList}}' wx:key='dishIds.userList'>
+							<image class="item-bg" src="{{item.avatar}}"></image>
+							<view class="item-name">{{item.nickname}}</view>
+						</view>
+					</view>
+
+				</view>
+			</view>
+			
+			<view class="bottom-tips">
+				<view>领奖须知：</view>
+				<view class="bottom-tips-item">1、同一个微信号只可参与一次投票，中奖者名单将于4月22日在吃库料理小程序中公示，并由吃库订阅号客服联系领奖事宜；</view>
+				<view class="bottom-tips-item">2、超过7个工作日不予客服回复的，视作放弃奖品；</view>
+				<view class="bottom-tips-item">3、活动最终解释权归吃库料理所有。</view>
+			</view>
+			
+			<view class="bottom-btn" bindtap='skipToPages'>现在开始可以用耳朵学烧菜咯~</view>
+
+		</block>
+		<view class="btn" wx-if='{{pageShowStatus == 0}}' style="{{number == 0? '' : 'background: #ccc; color: #fff'}}"
+		 bindtap='confirmPick'>确认投票</view>
+	</view>
+</block>
+
+
+<block wx:else>
+	<empty-view status="{{ status }}" confirmText='刷新试试?' autoLayout="false" bind:confirmEvent='onPullDownRefresh'></empty-view>
+</block>
+
+
+<block wx:if="{{!isLogin}}">
+	<dialog id='dialog' title='登录提示' content='小程序需要您的授权才能提供更好的服务哦' confirmText='去授权' bind:cancleEvent='cancleEvent'
+	 bind:confirmEvent='confirmEvent' bind:bindGetUserInfo='bindGetUserInfo'></dialog>
+</block>
+
+<block wx:if='{{showMask}}'>
+	<view class="maskWrap" catchtouchmove="ture">
+		<view class="toast">
+			<view class="toastTitle">
+				<view>{{topTitle}}</view>
+				<view>{{bottomTitle}}</view>
+			</view>
+			<view class="toastBtn" bindtap='shareFriends'>{{buttonTitle}}</view>
+		</view>
+	</view>
+</block>

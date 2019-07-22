@@ -1,0 +1,111 @@
+<view class="bg">
+
+	<swiper class="swiper" current="{{currentPage}}" vertical="true">
+		<swiper-item catchtouchmove="catchTouchMove">
+			<scroll-view class="scroll-view" scroll-y="true">
+				<view class="content-first-page-bg" >
+          <block wx:if="{{sauceInfo.defPhoto == '' || sauceInfo.defPhoto == null}}">
+            <view class="no-image" bindtap="showAction">点 击 选 择 图 片</view>
+          </block>
+          <block wx:else>
+            <image class="first-page-img" bindload='discernDish' mode="aspectFill" src="{{sauceInfo.defPhoto}}" bindtap="showAction"></image>
+          </block>
+				    <input class="first-page-food-title-input" bindblur="dishNameInput" type="text" placeholder="请输入酱汁" value="{{sauceInfo.objectName}}" />
+				</view>
+
+				<view class="footer-bg">
+					<view class="second-page-form-title">添加设置</view>
+					<view class='second-page-form-cell'>
+			        	<picker class="picker" value="{{index}}" bindchange="bindCookChange" range="{{cooks}}" range-key="value">
+					    	<view class="info-bg">
+				        	 	<view class="info-key">用法 :</view>
+				        	 	<view class="info-key value">{{cookName}}</view>
+				        	</view>
+					    </picker>
+				      	<image class='arrow-right' src='../../../img/arrow-right.png'></image>
+				    </view>
+					<view class='second-page-form-cell'>
+				        <picker class="picker" value="{{index}}" bindchange="bindTimeChange" range="{{timeListNum}}" range-key="value">
+					    	<view class="info-bg">
+				        	 	<view class="info-key">时间 :</view>
+				        	 	<view class="info-key value">{{duration}} </view>
+				        	</view>
+					    </picker>
+					    <image class='arrow-right' src='../../../img/arrow-right.png'></image>
+					</view>
+				    <view class='second-page-form-cell'>
+					      	<picker class="picker" bindchange="bindStarChange" value="{{index}}" range-key="value" range="{{starList}}">
+					        	<view class="info-bg">
+					        	 	<view class="info-key">难度 :</view>
+					        	 	<view class="info-key value">{{stars}}</view>
+					        	</view>
+					      	</picker>
+				      	<image class='arrow-right' src='../../../img/arrow-right.png'></image>
+				    </view>
+				</view>
+
+				<view class="footer-bg">
+					<view class="second-page-form-title">添加调料</view>
+
+					<view class='second-page-form-cell'>
+						<view class="second-page-form-cell-title-item" wx:for="{{materialTitles}}" wx:key="materialTitles" wx:for-item="item">{{item}}</view>
+					</view>
+
+					<view class='second-page-form-cell' wx:for="{{condimentList}}" wx:for-item="item" wx:for-index="index" wx:key="materialList">
+						<input class="second-page-form-cell-material-item" data-type="name" data-index="{{index}}" value="{{item.condimentName}}" placeholder="--" fouce="{{item.fouce}}" bindblur="inputMaterials" />
+						<input class="second-page-form-cell-material-item" type="digit" data-type="weight" data-index="{{index}}" style="text-align: center;" value="{{item.dosage}}" placeholder="--" fouce="{{item.fouce}}" bindblur="inputMaterials"/>
+						<view class="second-page-form-cell-material-item">
+							<picker class="picker" bindchange="bindUnitChange" data-index="{{index}}" value="{{index}}" range="{{materialUnits}}">
+					        	 <view class="second-page-form-cell-material-item">{{item.unit}}</view>
+					      	</picker>
+						</view>
+						<view class="second-page-form-cell-material-item-btn-bg">
+							<view class="second-page-form-cell-material-item-btn" bindtap="deleteFlavour" data-index="{{index}}">
+								<image class=".second-page-form-cell-material-item-btn-img" src="../../../img/delete.png"></image>
+							</view>
+						</view>
+					</view>
+					<view class='second-page-form-cell' style="color: #FF5173; justify-content: center;" bindtap="addFlavour"> + 添加调料</view>
+				</view>
+				
+			</scroll-view>
+			<view class="btn-bg">
+				<view class="btns" bindtap="uploadSauce">下一步</view>
+			</view>
+		</swiper-item>
+
+		<swiper-item catchtouchmove="catchTouchMove">
+			<scroll-view class="scroll-view" scroll-y="true" scroll-top='{{scrollTop}}'>
+				<view class="footer-bg">
+					<view class="second-page-form-title">添加步骤</view>
+					<block wx:if="{{stepList.length > 0 && stepList != null}}">
+						<view class="header-bg" wx:for="{{stepList}}" wx:key="stepList" wx:for-index="index" bindtap="editStep" data-index="{{index}}">
+							<view class="step-title-bg">
+								<view class="step-title">步骤{{index+1}}</view>
+								<image class="step-delete" catchtap="deleteStep" src="../../../img/delete_black.png" data-index="{{index}}"></image>
+							</view>
+							
+							<view class='step-content'>{{item.steptDec}}</view>
+							<image class="step-img" wx:if="{{item.steptPhoto != '' || item.steptPhoto != null}}" src="{{item.steptPhoto}}"></image>
+						</view>
+					</block>
+					<view class='second-page-form-cell' style="color: #FF5173; justify-content: center;" bindtap="addStep"> + 添加步骤</view>
+				</view>
+			</scroll-view>
+			
+			<view class="btn-bg">
+				<view class="btns" bindtap="goBack">上一步</view>
+				<view class="btns" bindtap="goPreview">预览</view>
+				<view class="btns" bindtap="releaseSauce">发布</view>
+			</view>
+		</swiper-item>
+	</swiper>
+
+	
+
+	
+	
+
+	
+	
+</view>

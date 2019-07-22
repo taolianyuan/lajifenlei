@@ -1,0 +1,285 @@
+<view class="bg">
+	<block wx:if="{{status == 1}}">
+
+
+
+		<!-- <block wx:if="{{official}}">
+			<video class="video" src="https://ch-img.oss-cn-shanghai.aliyuncs.com/dishVideo/testvideo.mp4"></video>
+		</block> -->
+
+		<view class="scroll-view {{official ? video : (isFrom == 'preview' ? 'preview' : '')}}" scroll-y="true">
+			<!-- <block wx:if="{{!official}}">
+				<image class="first-page-img" mode="widthFix" src="{{imgDomain+dishDetail.objectInfo.menu.defPhoto}}"></image>
+			</block> -->
+
+
+			<swiper class='swiper' style="{{isEquality ? 'height: 750rpx;': ''}}" wx:if="{{photos.length > 0}}" indicator-dots="{{photos.length > 1 ? true : false}}"
+			 indicator-color='#ccc' indicator-active-color='#FF5809'>
+				<block wx:if="{{!official && photos.length > 0}}">
+					<swiper-item>
+						<!-- <image src='/img/placeholder_img_m.png' wx:if='{{isLoading}}' class='first-page-img'></image> -->
+						<image class="first-page-img" style="{{isEquality ? 'height: 750rpx;': ''}}" src="{{dishDetail.objectInfo.menu.defPhoto === null?imgDomain+positionMap:imgDomain+dishDetail.objectInfo.menu.defPhoto}}"></image>
+					</swiper-item>
+				</block>
+
+				<block wx:if="{{official}}">
+					<swiper-item>
+						<view wx:if='{{isCover}}' class="controls" style="{{isEquality ? 'height: 750rpx;': ''}}" bindtap='playVideo'>
+							<image class="controls-img" style="{{isEquality ? 'height: 750rpx;': ''}}" src="{{imgDomain+dishDetail.objectInfo.menu.defPhoto}}" />
+							<image class="{{isEquality ? 'icon-eq' : 'icon'}}" src='/img/playing.png' />
+						</view>
+
+						<video id='myVideo' class="video" style="{{isEquality ? 'height: 750rpx;': ''}}" wx:else bindended='bindended'
+						 show-center-play-btn="{{false}}" controls='true' loop='{{true}}' src="{{imgDomain+dishDetail.objectInfo.menu.videoUrl}}"></video>
+
+						<view class="controls">
+							<image class="img" style="{{isEquality ? 'height: 750rpx;': ''}}" src="{{imgDomain+dishDetail.objectInfo.menu.defPhoto}}" />
+						</view>
+
+					</swiper-item>
+				</block>
+
+				<block wx:for='{{photo}}' wx:if='{{photos.length > 0}}' wx:key='photo'>
+					<swiper-item>
+						<image mode='aspectFill' class='swiper-image' src="{{imgDomain+item.photoUrl}}" />
+					</swiper-item>
+				</block>
+			</swiper>
+
+			<block wx:else>
+				<block wx:if='{{official && photos.length == 0}}'>
+
+					<view wx:if='{{isCover}}' class="controls" style="{{isEquality ? 'height: 750rpx;': ''}}" bindtap='playVideo'>
+						<image class="controls-img" style="{{isEquality ? 'height: 750rpx;': ''}}" src="{{imgDomain+dishDetail.objectInfo.menu.defPhoto}}" />
+						<image class="{{isEquality ? 'icon-eq' : 'icon'}}" src='/img/playing.png' />
+					</view>
+
+					<video id='myVideo' class="video" style="{{isEquality ? 'height: 750rpx;': ''}}" wx:else bindended='bindended'
+					 show-center-play-btn="{{false}}" bindwaiting='bindwaiting' bindpause='bindpause' bindtimeupdate='bindtimeupdate' controls='{{true}}'
+					 loop='{{trur}}' src="{{imgDomain+dishDetail.objectInfo.menu.videoUrl}}"></video>
+					<!-- <image src='/img/placeholder_img_m.png' wx:if='{{isShowLoading}}' class='first-page-img'></image> -->
+				</block>
+
+				<image wx:else class="first-page-img" style="{{isEquality ? 'height: 750rpx;': ''}}" src="{{dishDetail.objectInfo.menu.defPhoto === null?imgDomain+positionMap:imgDomain+dishDetail.objectInfo.menu.defPhoto}}"></image>
+			</block>
+
+			<block wx:if="{{objectType == 'dish'}}">
+				<view class="sauce-bg">
+					<view class="sauce-item" wx:for="{{dishDetail.objectInfo.sauces}}" wx:for-item="item" wx:key="sauces">{{item.sauceName}}</view>
+				</view>
+			</block>
+
+			<view class="creater-bg" bindtap='goOtherUserCenter'>
+				<image class="creater-left-bg-icon" src='{{dishDetail.objectInfo.menu.avatar}}'></image>
+				<view class="comment-right" bindtap="goOthersCenter">
+					<view class="creater-right-name-bg">
+						<view class="creater-right-name">{{dishDetail.objectInfo.menu.nickName}}
+							<image class="creater-right-level" src="{{imgDomain + dishDetail.objectInfo.userLevel}}"></image>
+						</view>
+
+					</view>
+					<!-- <view class="creater-right-intro">{{dishDetail.objectInfo.menu.nickName}}</view> -->
+				</view>
+			</view>
+
+			<view class="dish-name">{{dishDetail.other.objectName}}</view>
+
+			<view class="dish-other-bg" wx:if="{{dishDetail.objectInfo.menu.duration !== null }}">
+
+				<view class="dish-other-item" wx:if="{{dishDetail.objectInfo.menu.duration !== '' && dishDetail.objectInfo.menu.duration !== null && dishDetail.objectInfo.menu.duration !== 0}}"
+				 style="justify-content: space-around;">
+					<image class="dish-other-icon" src='../../../img/time.png'></image>
+					<view class="dish-other-title">约{{dishDetail.objectInfo.menu.duration}}分钟</view>
+				</view>
+
+				<!-- <view class="dish-other-item">
+	    			<image class="dish-other-icon" src='../../../img/fire.png'></image>
+	    			<view class="dish-other-title">{{cookType}}</view>
+	    		</view>
+
+			    <view class="dish-other-item" style="justify-content: flex-end;">
+	    			<view class="dish-other-title">难度</view>
+	    			<image class="icon-star" wx:for="{{starList}}" wx:for-item="item" wx:key="starList" src='{{item}}'></image> -->
+				<!-- </view> -->
+
+			</view>
+			<block wx:if="{{materialList.length > 0 && materialList != ''}}">
+				<view class="material-title">- 用料 -</view>
+				<view class="material-bg" wx:for="{{materialList}}" wx:for-item="item" wx:key="materials">
+					<view class="material-item">{{item.objectName}}</view>
+					<view class="material-item">{{item.dosage}}</view>
+					<view class="material-item">{{item.unit}}</view>
+				</view>
+
+				<view class="dish-info-bg" wx:if="{{materialCount > 6}}" bindtap="unflod" style="justify-content: center; align-items: center;">
+					<view class="dish-other-title">{{unflod ? '收起' : '展开'}}</view>
+					<image class="icon-arrow" src="{{unflod ? '../../../img/pack.png' : '../../../img/unflod.png'}}"></image>
+				</view>
+			</block>
+
+			<block wx:if="{{dishDetail.objectInfo.steps.length > 0 && dishDetail.objectInfo.steps != null}}">
+        <view class="material-title">- 做法 -</view>
+        <view class="step-bg" wx:for="{{dishDetail.objectInfo.steps}}" wx:for-item="item" wx:key="steps">
+          <block wx:if="{{item.steptPhoto == '' || item.steptPhoto == null}}">
+            <!-- <view class="first-page-img">暂 无 图 片</view> -->
+          </block>
+          <block wx:else>
+            <image class="first-page-img" data-index="{{index}}" style="{{isEquality ? 'height: 750rpx' : ''}}" src="{{imgDomain + item.steptPhoto}}"></image>
+            
+          </block>
+          <view class="step-content-bg">
+            <block wx:if="{{audioList != '' && audioList != null}}">
+              <image class="audio_image" src="{{currentPlay == index ? '../../../img/audio_playing.gif' : '../../../img/audio_ready.png'}}" bindtap="play" data-index="{{index}}"></image>
+            </block>
+            
+            <text class="step-text"> {{index + 1}}. {{item.steptDec}}</text>    
+          </view>
+        </view>
+      </block>
+
+			<block wx:if="{{objectType =='dish' && dishDetail.objectInfo.menu.tips !==null}}">
+				<view class="material-title">- 小贴士 -</view>
+				<view class="step-content">{{dishDetail.objectInfo.menu.tips}}</view>
+			</block>
+
+			<view class="like-btn" wx:if="{{dishDetail.objectInfo.menu.isPublish == 1}}" bindtap="likeSomething">有用 {{ dishDetail.objectInfo.count === null ? 0 : dishDetail.objectInfo.count.likeCount }}</view>
+
+			<view class="dish-story" wx:if="{{objectType =='dish' && dishDetail.objectInfo.menu.dishSummary !== null}}">{{dishDetail.objectInfo.menu.dishSummary}}</view>
+
+			<view class='moreRecommend' wx:if="{{dishDetail.other.objectType == 'dish'}}">
+				<text class='recommend-title'>更多推荐</text>
+				<image class='recommend-image' bindtap='skipMoreRecommend' src='https://7465-test-9cd88e-1258312722.tcb.qcloud.la/images/moreRecommend.png?sign=34307277521cc20ac735e4021dcf6249&t=1551695799'></image>
+			</view>
+
+
+			<block wx:if="{{dishDetail.objectInfo.menu.isPublish == 1}}">
+				<block wx:if="{{dishDetail.other.objectType == 'sauce'}}">
+					<view class="model-title-bg">
+						<view class='model-title'>酱汁大评测</view>
+						<view class='model-btn' wx:if="{{evaluateCount > 2}}" bindtap="clickMore">查看全部</view>
+					</view>
+					<view class="test-bg">
+						<block wx:for="{{evaluateList}}" wx:for-item="item" wx:for-index="index" wx:key="{{evaluateList}}">
+							<block wx:if="{{index < 2}}">
+								<view class="test-item" bindtap="didSelectedItem" data-index="{{index}}">
+									<image class="image" mode="aspectFill" src="{{item.status == 0 ? '/img/sauceCheck.png' : imgDomain+item.evaluatePhotos[0]}}"></image>
+									<view class="creater-info">
+										<image class="creater-icon" src="{{item.avatar}}"></image>
+										<view class="creater-name">{{item.nickName}}</view>
+									</view>
+									<view class="sauce-content">{{item.content}}</view>
+									<view class="sauce-count-bg">
+										<image class="sauce-count-img" src="../../../img/zan.png"></image>
+										<view class="sauce-count-figure">{{item.likeCount}}</view>
+									</view>
+								</view>
+							</block>
+						</block>
+					</view>
+					<view class="like-btn" bindtap="goTest">去评测</view>
+				</block>
+
+				<block wx:if="{{commentList.length > 0 && commentList != null}}">
+					<view class="comment-list-title">最新评论 ({{commentList.length}})</view>
+					<view class="comment-list-bg">
+						<view class="comment-cell" wx:for="{{commentList}}" wx:for-item="item" wx:key="commentList">
+							<view class="comment-left">
+								<image class="comment-icon" src="{{item.avatar}}"></image>
+								<view class="comment-time">{{item.commentReply.createAt}}</view>
+							</view>
+							<view class="comment-right" bindtap='addCommentReply' data-index='{{index}}' data-userId='{{item.cUserId}}'
+							 data-cid='{{item.commentReply.cId}}'>
+								<view class="comment-name-icon-bg">
+									<block wx:if='{{item.rUserId == null && item.rNickName == null}}'>
+										<view class="comment-name">{{item.nickname || item.nickName}}</view>
+										<image class="user-right-level" src="{{imgDomain + item.userLevelPhoto}}"></image>
+									</block>
+
+									<block wx:else>
+
+										<view class="comment-name">{{item.nickname || item.nickName}}
+										</view>
+										<image class="user-right-level" src="{{imgDomain + item.userLevelPhoto}}"></image>
+
+										<text class='reply-icon'>回复</text>
+
+										<view class="comment-name reply-name">{{item.rNickName}}
+										</view>
+										<image class="user-right-level" src="{{imgDomain + item.rUserLevelPhoto}}"></image>
+									</block>
+
+								</view>
+								<view class="comment-content">{{item.commentReply.content}}</view>
+							</view>
+						</view>
+					</view>
+					<view class="comment-more" wx:if="{{commentList.length > 4 }}" bindtap="goCommentList">查看更多</view>
+				</block>
+			</block>
+
+			<view class="dish-name" style="font-size: 22rpx; color: #999;"> - 我是有底线的 - </view>
+		</view>
+
+		<view class="comment-bg" wx:if="{{isComment}}">
+			<input class="comment-input" bindblur="cancelComment" maxlength="100" value="{{contentText}}" placeholder="{{placeholder}}"
+			 focus="{{isComment}}"></input>
+			<view class="comment-item" bindtap="sendComment">发送</view>
+		</view>
+
+
+		<view class="btn-bg" wx:if="{{ isFrom != 'preview' && showBottom}}">
+			<block wx:if="{{isFrom == 'drafts'}}">
+				<view class="bottom-btn" bindtap="deleteDrafts">删除</view>
+				<view class="line-v"></view>
+				<view class="bottom-btn" bindtap="editObject">编辑</view>
+			</block>
+
+			<block wx:else>
+				<block wx:if="{{objectType == 'dish' && dishDetail.objectInfo.menu.isPublish == 1}}">
+
+					<view class="btn-three" bindtap='shareFriends'>
+						<image class='btn-three-image' src='/img/piazza_share.png'></image>
+						<text>分享</text>
+					</view>
+
+					<view class="btn-three" bindtap="addCollection">
+						<image class='btn-three-image' src='/img/piazza_like.png'></image>
+						<text>{{ isCollection ? '取消收藏' : '收藏' }}</text>
+					</view>
+					<view class="btn-three" bindtap="comment">
+						<image class='btn-three-image' src='/img/piazza_comment.png'></image>
+						<text>评论</text>
+					</view>
+				</block>
+
+        
+				<block wx:elif="{{objectType == 'sauce' && dishDetail.objectInfo.menu.isPublish == 1}}">
+					<view class="btn" bindtap='shareFriends'>
+						<image class='btn-three-image' src='/img/piazza_share.png'></image>
+						<text>分享</text>
+					</view>
+					<view class="btn" bindtap="addCollection">
+						<image class='btn-three-image' src='/img/piazza_like.png'></image>
+						<text>{{ isCollection ? '取消收藏' : '收藏' }}</text>
+					</view>
+				</block>
+			</block>
+		</view>
+
+	</block>
+
+	<block wx:else>
+		<empty-view status="{{ status }}" confirmText="{{status == 4 ? '去登陆':'刷新试试?'}}" autoLayout="false" bind:confirmEvent='EmptyconfirmEvent'>
+		</empty-view>
+	</block>
+
+	<block wx:if="{{!isLogin}}">
+		<dialog id='dialog' title='登录提示' content='小程序需要您的授权才能提供更好的服务哦' confirmText='去授权' bind:cancleEvent='cancleEvent'
+		 bind:confirmEvent='confirmEvent' bind:bindGetUserInfo='bindGetUserInfo'></dialog>
+	</block>
+</view>
+
+
+<india wx:if="{{actName == 'india' && showIndia}}" 
+	   comment="{{showIndia}}" 
+	   bind:hideSelf="hideSelf"></india>

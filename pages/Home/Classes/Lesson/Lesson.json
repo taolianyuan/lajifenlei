@@ -1,0 +1,7 @@
+{
+  "usingComponents": {
+    "dialog": "/components/dialog/dialog"
+  },
+  "navigationBarTitleText": "干湿分离双层垃圾桶",
+  "enablePullDownRefresh": true
+}

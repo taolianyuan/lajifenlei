@@ -1,0 +1,18 @@
+
+
+<view class="bg">
+	<!-- <block wx:if="{{status == 1}}"> -->
+		<image class="image" src="{{bgImage}}" mode="widthFix" bindload="urlLoad"></image>
+	<!-- </block> -->
+	<!-- <web-view src="{{url}}" hidden="{{hidden}}" bindload="urlLoad" binderror="urlError"></web-view> -->
+	<!-- <block wx:else>
+		<empty-view 
+	          status="{{status}}"
+	          autoLayout='false'
+	          bind:confirmEvent='confirmEvent'></empty-view>
+	</block> -->
+	
+</view>
+
+
+

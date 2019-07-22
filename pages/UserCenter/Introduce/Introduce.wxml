@@ -1,0 +1,5 @@
+
+<textarea class="first-page-food-story-input" placeholder="记录这一刻，晒给懂你的人……" placeholder-class='placeholder-into' maxlength='20' value="{{intro}}" bindinput="changeInput" fixed="true"></textarea>
+<view class="first-page-food-story-char-count" style="color: {{count>15?'red':'#666'}};">{{count}}/20</view>
+
+<view class="btn" bindtap="uploadUserInfo">保 存</view>

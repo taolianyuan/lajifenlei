@@ -1,0 +1,33 @@
+<view class="bg">
+<view class='swiperWrap'>
+	<swiper class="swiper" current='{{current}}' bindanimationfinish ='bindanimationfinish'>
+		<block wx:for="{{evaluate.evaluatePhotos}}" wx:for-item="item" wx:for-index="index" wx:key="testList">
+			<swiper-item>
+				<image class="swiper" mode='aspectFill' src="{{imgDomain + item}}" data-index="{{index}}" data-src="{{imgDomain + item}}" bindtap="goPreview"></image>
+			</swiper-item>
+		</block>
+	</swiper>
+  <view class='showPage'>{{current+1}}/{{evaluate.evaluatePhotos.length}}</view>
+</view>
+
+	<view class="creater-bg">
+		<image class="creater-header" src="{{evaluate.avatar}}"></image>
+		<view class="creater-name">{{evaluate.nickName}}</view>
+    <image class='levelPhoto' src='{{imgDomain + evaluate.levelPhoto}}'></image>
+		<image class="test-icon" src="{{imgDomain + evaluate.userLevelPhoto}}"></image>
+		<view class="creater-time">{{evaluate.time}}</view>
+	</view>
+	<view class="test-comment">{{evaluate.content}}</view>
+	
+	<view class="test-btn" bindtap="addEvaluateLike">
+		<image class="test-icon" src="../../../img/zan_white.png"></image>
+	</view>
+	<view class="like-count">{{evaluate.likeCount}} 人点赞</view>
+</view>
+
+
+
+
+
+
+

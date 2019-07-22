@@ -1,0 +1,7 @@
+{
+    "usingComponents": {
+    "dialog": "/components/dialog/dialog"
+  },
+	"navigationBarTitleText": "投票",
+	"enablePullDownRefresh": true
+}

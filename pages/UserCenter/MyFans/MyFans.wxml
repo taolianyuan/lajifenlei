@@ -1,0 +1,24 @@
+<view class="bg">
+  <block wx:if="{{fansList.length > 0 && fansList != ''}}">
+    <view class="cell" wx:for="{{fansList}}" wx:for-item="item" wx:for-index="index" wx:key="fansList">
+      <view class="cell-bg1" bindtap="goOthersCenter" data-index='{{index}}'>
+        <image class="cell-icon" wx:if="{{item.fansUser.avatar !== null && item.fansUser.avatar !== ''}}" src="{{item.fansUser.avatar}}"></image>
+        <image class='cell-icon' wx:else src='/img/placeholder_header.png'></image>
+      </view>
+      <view class="cell-bg2" bindtap="goOthersCenter" data-index='{{index}}'>
+        <view wx:if="{{item.fansUser.nickname !== null && item.fansUser.nickname !== ''}}" class="cell-title">{{item.fansUser.nickname}}</view>
+        <view wx:else class='cell-title'></view>
+        <view class="cell-production-fav">作品: {{item.dishCount}} | 粉丝: {{item.fansCount}}</view>
+      </view>
+      <view class="cell-bg3">
+        <view class="cell-btn" bindtap="changeStatus" data-index="{{index}}">{{item.fansUser.status == 1 ? '关注' : '取消关注'}}</view>
+      </view>
+    </view>
+    <view class="loading" hidden="{{!showLoading}}">加载中</view>
+    <view class="loading complete" hidden="{{!noMoreData}}">已加载全部</view>
+  </block>
+
+  <block wx:else>
+    <empty-view status="{{status}}" autoLayout='false' bind:confirmEvent='confirmEvent'></empty-view>
+  </block>
+</view>

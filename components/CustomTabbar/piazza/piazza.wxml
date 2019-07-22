@@ -1,0 +1,113 @@
+<view class="bg">
+	<view class="header-bg">
+		<view class="header-item-bg">
+			<view class="header-item {{current==0?'isChecked':''}}" data-index="0" bindtap="segment">动态</view>
+			<view class="header-item {{current==1?'isChecked':''}}" data-index="1" bindtap="segment">推荐</view>
+		</view>
+	</view>
+
+	<swiper class="swiper {{isIphoneX?'isIphoneX':''}}" current="{{current}}" bindanimationfinish="swiperDidEndScroll">
+		<swiper-item>
+			<scroll-view class="scroll-view" scroll-y="true">
+				<block wx:if="{{newsList.length != 0 && newsList != ''}}">
+					<view class="cell" wx:for="{{newsList}}" wx:key="newsList" wx:for-item="item" wx:for-index="section">
+						<view class="cell-header">
+							<view class="cell-header-left-bg">
+								<image class="cell-header-left-bg-icon" bindtap="goOthersCenter" data-section="{{section}}" src='{{item.userAvatar}}'></image>
+								<view class="cell-header-left-bg-time">{{item.feed.timeAt}}</view>
+							</view>
+							<view class="cell-header-middle-bg">
+								<view class="cell-header-middle-bg-name">{{item.nickName}}</view>
+								<view class="cell-header-middle-bg-name">
+									<text style="color: #666; font-size: 25rpx;">作品: {{item.worksNumber}}    </text>
+									<text style="color: #333; font-size: 25rpx;">{{item.label}}</text>
+								</view>
+							</view>
+							<!-- <view style="width: 150rpx; height: 100%;">
+								<view class="cell-header-right-btn" bindtap='changeStatus' data-index="{{index}}">{{item.star?'取消关注':'关注'}}</view>
+							</view> -->
+						</view>
+						<view class="cell-content-title" bindtap="goNewsDetail" data-section="{{section}}">
+							<!-- <text style="color: #8aa8bd" wx:if="{{item.feed.tags}}">#{{item.feed.tags}}#</text> -->
+							<text style="color: #333">{{item.feed.content.postText}}</text>
+						</view>
+						<view class="cell-content-img-bg">
+							<block wx:if="{{item.feed.content.photoList.length == 1}}">
+								<image class="cell-content-img" mode="widthFix" src="{{imgDomain+item.feed.content.photoList[0]}}" data-section="{{section}}" data-src="{{imgDomain+item.feed.content.photoList[0]}}" bindtap="goPreview"></image>
+							</block>
+
+							<block wx:else>
+								<image class="cell-content-img" wx:for="{{item.feed.content.photoList}}" wx:key="photoList" wx:for-item="img"  src='{{imgDomain+img}}' data-section="{{section}}" data-src="{{imgDomain+img}}" bindtap="goPreview"></image>
+							</block>
+						</view>
+						
+						<view class="cell-bottom-view-bg" >
+							<view class="cell-bottom-view-item">
+								<button open-type='share' class="share" mode='widthFix'>
+									<image class="cell-bottom-view-item-icon" src="../../../img/zhuanfa.png"></image>
+									<text class="cell-bottom-view-item-title">{{item.count.shareCount}}</text>
+								</button>
+							</view>
+
+							<view class="cell-bottom-view-item">
+								<button class="share" mode='widthFix' data-section="{{section}}" bindtap="likeSomething">
+									<image class="cell-bottom-view-item-icon" src="../../../img/dianzan.png"></image>
+									<text class="cell-bottom-view-item-title">{{item.count.likeCount}}</text>
+								</button>
+							</view>
+
+							<view class="cell-bottom-view-item">
+								<button class="share" mode='widthFix'  data-section="{{section}}" bindtap="goNewsDetail">
+									<image class="cell-bottom-view-item-icon" src="../../../img/pinglun.png"></image>
+									<text class="cell-bottom-view-item-title">{{item.commentCount}}</text>
+								</button>
+							</view>
+						</view>
+					</view>
+				</block>
+
+				<block wx:else>
+	              <empty-view 
+	              	status_pia="{{status_pia}}"
+	                title='没有动态' 
+	                confirmText='刷新试试?'
+	                bind:confirmEvent='confirmEvent'></empty-view>
+	            </block>
+			</scroll-view>
+			
+		</swiper-item>
+
+		<swiper-item>
+			<block wx:if="{{recommendList.length != 0 && recommendList != ''}}">
+				<scroll-view class="scroll-view" scroll-y="true">
+					<view class='recommend-cell' wx:for="{{recommendList}}" wx:for-item="item" wx:for-index="index" wx:key="recommendList" data-index="{{index}}" bindtap='goDetail'>
+			            <image class='recommend-cell-icon' mode='aspectFill' src="{{imgDomain + item.defPhoto}}"></image>
+			            <view class='recommend-cell-right-view'>
+			                <view class='recommend-cell-title'>{{item.dishName}}</view>
+			                <view class="recommend-cell-tags">
+			                    <view class="recommend-cell-tag" wx:for="{{item.aboutInfo.sauceList}}" wx:for-item="sauce" wx:key="sauceList">{{sauce.sauceName}}</view>
+			                </view>
+			                <view class='recommend-cell-creater-bg'>
+			                    <image class="recommend-cell-creater-head" src="{{item.aboutInfo.user.avatar}}"></image>
+			                    <view class='recommend-cell-creater-text'>{{item.aboutInfo.user.nickname}}</view>
+			                    <image class="recommend-cell-creater-icon" src="../../../img/follow_recommend.png"></image>
+			                    <view class='recommend-cell-creater-text'>{{item.aboutInfo.count.likeCount}}</view>
+			                    <image class="recommend-cell-creater-icon" src="../../../img/eye_black.png"></image>
+			                    <view class='recommend-cell-creater-text'>{{item.aboutInfo.count.browerCount}}</view>
+			                </view>
+			            </view>
+			        </view>
+				</scroll-view>
+	        </block>
+			<block wx:else>
+              <empty-view 
+              	status_rec="{{status_rec}}"
+                title='您未浏览任何菜谱' 
+                confirmText='去斗菜看看?'
+                bind:confirmEvent='confirmEvent'></empty-view>
+            </block>
+		</swiper-item>
+	</swiper>
+	
+		
+</view>

@@ -1,0 +1,33 @@
+
+<view class="bg" style="background-color: #fff;">
+	<view class="input-bg">
+		<image class="input-img" src="../../../img/search.png"></image>
+		<input class="input" bindinput="tagsInput" type="text" placeholder="请输入你要的酱汁关键字" placeholder-class='placeholder-input' />
+		<!-- <view class="btn-cancel" bindtap="addTags">确定</view> -->
+	</view>
+
+	<view class="module-title-bg">
+		<view class="module-title">已选</view>
+		<view class="module-count">{{count}}</view>
+	</view>
+	<view class="module-bg">
+
+		<block wx:for="{{selectedSauces}}" wx:for-item="item" wx:for-index="index" wx:key="selectedSauces">
+			<view class="module-item-bg">
+				<view class="module-item-checked">{{item.sauceName}}</view>
+				<view class="module-item-delete" bindtap="delete" data-index="{{index}}">×</view>
+			</view>
+		</block>
+		
+	</view>
+
+	<view class="module-title-bg">搜索结果</view>
+	<view class="module-bg" style="margin-bottom: 200rpx;">
+		<block wx:for="{{searchResult}}" wx:for-item="item" wx:for-index="index" wx:key="searchResult">
+			<view class="module-item {{item.isChecked ? 'isChecked' : ''}}" bindtap="selectedItem" data-index="{{index}}">{{item.sauceName}}</view>
+		</block>
+	</view>
+	<view class="btn-bg">
+		<view class="btn-save" bindtap="save">完成</view>
+	</view>
+</view>

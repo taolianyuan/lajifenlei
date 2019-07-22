@@ -1,0 +1,58 @@
+/* pages/Activity/test/test.wxss */
+page{
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  }
+  .showList{
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    z-index: 200;
+    background-color:#ccc; 
+  }
+  .lastImage{
+    width: 600rpx;
+    height: 1066rpx;
+    position: absolute;
+    top: 30rpx;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+  .share{
+    position: fixed;
+    width: 100%;
+    height: 100rpx;
+    background: #FF5173;
+    color: #fff;
+    bottom: 0;
+    text-align: center;
+    line-height: 100rpx;
+  }
+
+  .createImage{
+    width: 600rpx; height: 100rpx; margin: 40rpx 75rpx 30rpx 75rpx; background-color: #FF5173; color: #fff; text-align: center;
+    line-height: 100rpx; border-radius: 8rpx;
+  }
+/* 
+.canvas{
+  position: absolute;
+  z-index: 300;
+}
+
+.imageContent{
+  width: 300px;
+  height: 533px;
+  position: relative;
+  overflow: hidden;
+}
+
+.image{
+  width: 100%;
+  position: absolute;
+  top: 230rpx;
+  transform: rotate(-15deg)
+} */

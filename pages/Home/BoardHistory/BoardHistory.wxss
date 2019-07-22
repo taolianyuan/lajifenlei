@@ -1,0 +1,27 @@
+
+.section{width: 100%; height: auto; margin-top: 30rpx;}
+
+.header{width: 100%; height: auto; margin-top: 60rpx; padding-left: 30rpx; color: #333; font-size: 60rpx; font-weight: bold;}
+
+.cell{width: 100%; height: auto; padding: 30rpx 0 0 30rpx;}
+
+.cell-time{width: 200rpx; height: auto; font-size: 37rpx; color: #333;}
+
+.cell-img{width: 420rpx; height: 300rpx; border-radius: 8rpx; margin-left: 200rpx;}
+
+
+.contentWrap{position: relative;}
+
+.today-meal-mask{ position: absolute; left: 200rpx; bottom: 13rpx; width: 420rpx; height: 70rpx; background-color: rgba(0, 0, 0 ,0.2); display: flex; align-items: center;}
+
+.today-meal-title{width: 200rpx; height: 100%; color: #fff; font-size: 30rpx; margin-left: 30rpx; line-height: 70rpx; overflow: hidden; white-space: nowrap; text-overflow: ellipsis; }
+
+.today-like-icon{ width: 30rpx; height: 30rpx; margin-right: 10rpx;}
+
+.today-like-count{ font-size: 30rpx; color: #fff; margin-right: 30rpx;}
+
+.today-like-bg{width: 200rpx; display: flex; justify-content: flex-end; align-items: center;}
+
+.today-duration{ font-size: 28rpx; color: #fff; }
+
+.likeWrap{display: flex; justify-content: space-between; align-items: center;}

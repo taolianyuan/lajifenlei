@@ -1,0 +1,12 @@
+<!--pages/Home/Dinner/Choice/Choice.wxml-->
+<view>
+  <view class='choice-title'>餐厅选择</view>
+
+  <view class='choice-con'>
+    <view class='choice-li' wx:for="{{list}}" data-id='{{item.restaurantId}}' bindtap='choice' wx:key="{{list}}"> {{item.restaurantName}}</view>
+  </view>
+<!-- 小程序授权 -->
+ <block wx:if="{{!isLogin}}">
+    <dialog id='dialog' title='登录提示' content='小程序需要您的授权才能提供更好的服务哦' confirmText='去授权' bind:cancleEvent='cancleEvent' bind:confirmEvent='confirmEvent' bind:bindGetUserInfo='bindGetUserInfo'></dialog>
+  </block>
+</view>

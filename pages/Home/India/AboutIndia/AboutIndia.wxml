@@ -1,0 +1,10 @@
+<view  class="bg">
+	<image class="bgImage" src="{{imageUrl}}"></image>
+	<image class="start" src="{{start}}" bindtap="startGame"></image>
+	
+</view>
+
+<block wx:if="{{!isLogin}}">
+	<dialog id='dialog' title='登录提示' content='小程序需要您的授权才能提供更好的服务哦' confirmText='去授权' bind:cancleEvent='cancleEvent'
+	 bind:confirmEvent='confirmEvent' bind:bindGetUserInfo='bindGetUserInfo'></dialog>
+</block>

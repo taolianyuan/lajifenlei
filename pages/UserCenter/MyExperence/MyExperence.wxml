@@ -1,0 +1,23 @@
+<!--pages/UserCenter/MyExperence/MyExperence.wxml-->
+<view class='wrap'>
+  <view class='header'>
+    <view class='experence'>
+      <text class='count'>{{experence}}</text>经验值
+    </view>
+
+    <view class='getmore-exp' bindtap='getMoreExperence'>  
+      <image class='icon-que' src='/img/experence-icon.png'></image>
+      <text class='more-title'>获取更多经验</text>
+    </view>
+  </view>
+
+  <view class='item-wrap'>
+    <view class='item' wx:for='{{expList}}' wx:key='expList'>
+      <view class='left-item'>
+        <text class='item-name'>{{item.title}}</text>
+        <text class='item-time'>{{item.acquisitionTime}}</text>
+      </view>
+      <view class='score'>+{{item.sourceScore}}</view>
+    </view>
+  </view>
+</view>

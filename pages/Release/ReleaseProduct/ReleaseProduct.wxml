@@ -1,0 +1,36 @@
+
+<view class="bg">
+  	<view class="header">
+        <view class='header-input-bg'>
+            <textarea class='header-input' bindinput="textareaVal" placeholder="说点什么吧..." focus="{{focus}}" />
+            <view class='tips'>- 您发的第一张图将自动设置为封面图 -</view>
+        </view>
+  		  <view class="weui-uploader__bd">
+            <view class="weui-uploader__files" >
+                <block wx:for="{{postImages}}" wx:for-item="item" wx:for-index = "index" wx:key="postImages">
+                    <view class="weui-uploader__file" style="position:relative;">
+                        <image class="weui-uploader__img" mode="aspectFill" src="{{imgDomain + item}}" data-src="{{item}}" bindtap="previewImage" data-index='{{index}}'></image>
+                        <image src='../../../img/delete-image.png' style="width:30rpx;height:30rpx;position:absolute;top:10rpx;right:0rpx" bindtap='deleteImage' data-index='{{index}}'></image>
+                    </view>
+                </block>
+            </view>
+            <view style='padding:30rpx 0;display:inline-block;'>
+                <image src='../../../img/add_image.png' class="weui-uploader__img" bindtap='showAction' hidden='{{postImages.length==9?true:false}}' ></image> 
+            </view>
+        </view>
+  	</view>
+    <view class="next-last-btn-bg">
+        <view class="third-page-step-add" bindtap="save">保存</view>
+    </view>
+</view>
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,35 @@
+
+<view class="view" bindtap="close">
+	<!-- <view class="content" bindtap="close"> -->
+		<!-- <swiper class="swiper" current="{{current}}" bindchange="swiperDidScroll">
+			<block wx:for="{{steps}}" wx:for-item="item" wx:key="steps" wx:for-index="index">
+				<swiper-item>
+					<image class="out" src="../../img/audio_close.png" bindtap="close"></image>
+					<image class="swiper-image" src="{{imgDomain + item.steptPhoto}}"></image>
+					<view class="swiper-title">{{item.steptDec}}</view>
+				</swiper-item>
+			</block>
+		</swiper> -->
+			
+		<!-- <view class="controller"> -->
+			<!-- <view class="controller-item">
+				<image class="image" src="../../img/audio_loop.png" catchtap="loop"></image>
+			</view> -->
+			<view class="controller-item">
+				
+				<view class="controller-side">
+					<image class="image" src="../../img/audio_last.png" catchtap="last"></image>
+				</view>
+				
+				<view class="controller-mid">
+					<image class="image" src="{{pause ? '../../img/audio_play.png' : '../../img/audio_pause.png'}}" catchtap="play"></image>
+				</view>
+				
+				<view class="controller-side">
+					<image class="image" src="../../img/audio_next.png" catchtap="next"></image>
+				</view>
+				
+			</view>
+		<!-- </view> -->
+	<!-- </view> -->
+</view>

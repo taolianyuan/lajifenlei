@@ -1,0 +1,7 @@
+{
+  "usingComponents": {
+    "dialog": "/components/dialog/dialog"
+  },
+  "navigationBarTitleText": "酱汁实验室",
+  "enablePullDownRefresh": true
+}

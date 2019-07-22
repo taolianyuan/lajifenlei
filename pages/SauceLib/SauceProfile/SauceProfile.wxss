@@ -1,0 +1,55 @@
+.menu-bg{width: 100%; height: 10vh; display: flex; position: absolute; top: 0}
+
+.menu-item{flex-grow: 1; margin: 0 30rpx; font-size: 30rpx; color: #666; height: 80rpx; line-height: 80rpx; text-align: center;}
+
+.menu-item.isChecked{font-weight: bold; color: #FF5173; border-bottom: 2px solid #FF5173;}
+
+.scroll-view{height: 100%; width: auto; }
+
+.sauce-name{width: 100%; height: auto; margin: 20rpx;}
+
+.creater-info{width: 100%; display: flex; box-sizing: border-box; padding: 24rpx 0 0 12rpx; }
+
+.creater-icon{width: 40rpx; height: 40rpx; border-radius: 50%;}
+
+.creater-name{font-size: 28rpx; width: 200rpx; color: #333; margin-left: 20rpx; line-height: 40rpx; overflow:hidden; text-overflow:ellipsis; white-space:nowrap;}
+
+.sauce-content{color: #666; font-size: 24rpx; box-sizing: border-box; padding: 13rpx 0 0 12rpx; text-overflow: ellipsis; overflow: hidden; display: -webkit-box; -webkit-line-clamp:2; -webkit-box-orient:vertical; }
+
+.swiper{width: 100%; height: 90vh; position: absolute; top: 10vh;}
+
+.sauce-count-bg{width: 100%; height: auto; display: flex; justify-content: center; align-items: center;}
+
+.sauce-count-img{width: 40rpx; height: 40rpx;}
+
+.sauce-count-figure{ font-size: 32rpx; color: #999; margin-left: 10rpx;}
+
+.page{height: 100%;}
+
+.list-masonry{
+  overflow: hidden;
+  height: 100%;
+}
+
+.item-masonry{
+  width: 339rpx;
+  height: 560rpx;
+  margin-bottom: 20rpx;
+  float: left;
+  background-color: #fff;
+  margin-left: 24rpx;
+  box-sizing: border-box; 
+  box-shadow: 0px 0px 20rpx rgba(0, 0, 0, 0.5);
+  -webkit-box-shadow:0 6px 11px 2px #00000010;/*for IOS*/ 
+}
+
+.image {
+  width: 100%;
+  height: 339rpx;
+  vertical-align: middle;
+}
+
+.creater-title{width: 100%; font-size: 32rpx; color: #333; box-sizing: border-box; padding: 20rpx 0 0 12rpx; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; font-weight: 600;}
+
+
+

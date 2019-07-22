@@ -1,0 +1,101 @@
+<!--pages/Home/Dinner/Details/Details.wxml-->
+
+<!-- <view> 
+    {{title}}
+  </view> -->
+<view class='goods-list'>
+  <view class='goods'>
+    <view class='goods-lf'>
+      <!--左边  -->
+      <view>
+        {{drinks}}
+      </view>
+    </view>
+    <!-- <view class='goods-lr'>
+      <view class="goods-ls {{ishow ? 'active': ''}} " bindtap='btns' wx:for="{{tastelist}}" wx:key="this" data-index='{{index}}' data-id="{{item.tasteId}}">
+        <block wx:if="{{item.tasteType == 1}}">
+          <image src='/../img/dynamic.png' lazy-load='true'></image>
+          <view class='goods-name'>{{item.tasteName}}</view>
+        </block>
+      </view>
+    </view> -->
+
+
+    <!-- <view class='goods-lr'>
+      <checkbox-group class="group" bindchange="checkboxChange">
+        <view class="label-1" wx:for="{{tastelist}}" wx:key="this">
+          <block wx:if="{{item.tasteType == 1}}">
+          <label data-index="{{index}}">
+            <checkbox hidden value="{{item.tasteName}}" checked="{{item.checked}}"></checkbox>
+            <view class="label-1__icon">
+              <view class="label-1__icon-checked" style="opacity:{{item.checked ? 1: 0}}"></view>
+            </view>
+            <text class="label-1__text">{{item.tasteName}}</text>
+          </label>
+            </block>
+         </view>
+      </checkbox-group>
+    </view>
+  </view> -->
+
+<view class='goods-lr'>
+      <checkbox-group class="group" bindchange="checkboxChange">
+        <view class="label-1" wx:for="{{tastelist}}" wx:key="this">
+          <block wx:if="{{item.tasteType == 1}}">
+          <label >
+            <checkbox  value="{{item.tasteId}}" checked="{{item.checked}}"></checkbox>
+            <!-- <view class="label-1__icon">
+              <view class="label-1__icon-checked" style="opacity:{{item.checked ? 1: 0}}"></view>
+            </view> -->
+            <text class="label-1__text">{{item.tasteName}}</text>
+          </label>
+            </block>
+         </view>
+      </checkbox-group>
+    </view>
+  </view>
+
+  <view class='goods'>
+    <view class='goods-lf'>
+      <!--左边  -->
+      <view>
+        {{taste}}
+      </view>
+    </view>
+    <!-- <view class='goods-lr'>
+      <view class="goods-ls " bindtap='btns' wx:for="{{tastelist}}" wx:key="this" data-id="{{item.tasteId}}" data-index='{{index}}'>
+        <block wx:if="{{item.tasteType>1}}">
+          <image src='/../img/dynamic.png' lazy-load='true'></image>
+          <view class='goods-name'>{{item.tasteName}}</view>
+        </block>
+      </view>
+    </view> -->
+
+    <!-- 单选 -->
+    <view class='goods-lr'>
+      <radio-group class="group" bindchange="radioChange">
+        <view class="label-2" wx:for="{{tastelists}}" wx:key="this" data-ids='{{item.tasteId}}' data-index='index'>
+          <block wx:if="{{item.tasteType>1}}">
+            <radio id="{{item.tasteName}}" hidden value="{{item.tasteId}}" checked="{{item.checked}}"></radio>
+            <view class="label-2__icon">
+              <view class="label-2__icon-checked" style="opacity:{{item.checked ? 1: 0}}"></view>
+            </view>
+            <label class="label-2__text" for="{{item.tasteName}}">
+              <text>{{item.tasteName}}</text>
+            </label>
+          </block>
+        </view>
+      </radio-group>
+    </view>
+  </view>
+</view>
+
+<view class='fotter'>
+  <view class='fotters'>默认选项</view>
+  <view class='bts' bindtap='bts'>选好了</view>
+</view>
+
+<!-- 小程序授权 -->
+<block wx:if="{{!isLogin}}">
+  <dialog id='dialog' title='登录提示' content='小程序需要您的授权才能提供更好的服务哦' confirmText='去授权' bind:cancleEvent='cancleEvent' bind:confirmEvent='confirmEvent' bind:bindGetUserInfo='bindGetUserInfo'></dialog>
+</block>

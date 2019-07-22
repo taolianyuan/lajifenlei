@@ -1,0 +1,8 @@
+{
+  "component": true,
+  "usingComponents": {
+    "dialog": "/components/dialog/dialog"
+  },
+  "navigationBarTitleText": "我的",
+  "enablePullDownRefresh": true
+}

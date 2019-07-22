@@ -1,0 +1,287 @@
+/* pages/Home/voteActivity/voteActivity.wxss */
+@import "../../../wxParse/wxParse.wxss";
+
+.wrap {
+	padding-bottom: 30rpx;
+	box-sizing: border-box;
+}
+
+.title {
+	font-size: 38rpx;
+	color: rgba(74, 74, 74, 1);
+	margin-left: 40rpx;
+	margin-top: 39rpx;
+	margin-bottom: 47rpx;
+}
+
+.MaskTitle {
+	font-size: 38rpx;
+	color: rgba(74, 74, 74, 1);
+	padding: 29rpx 0 37rpx 114rpx;
+	border-bottom: 1rpx solid #D8D8D8;
+}
+
+.checkWrap {
+	width: 100%;
+	height: 506rpx;
+	border-top: 1rpx solid #D8D8D8;
+	border-bottom: 1rpx solid #D8D8D8;
+	padding: 0 40rpx;
+	box-sizing: border-box;
+	overflow: hidden;
+}
+
+.check-top {
+	width: 100%;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	color: #9B9B9B;
+	margin-top: 20rpx;
+}
+
+.left-title {
+	font-size: 36rpx;
+}
+
+.right-title {
+	font-size: 28rpx;
+}
+
+.check-item {
+	width: 100%;
+	height: 50rpx;
+	margin-top: 50rpx;
+	display: flex;
+	align-items: center;
+	overflow: hidden;
+}
+
+.item-title {
+	color: #4A4A4A;
+	font-size: 36rpx;
+	font-weight: 400;
+	display: block;
+	width: 110px;
+}
+
+.icon {
+	width: 35rpx;
+	height: 40rpx;
+	margin: 0 20rpx;
+	vertical-align: middle;
+}
+
+.line {
+	width: 200rpx;
+	height: 5rpx;
+	background: #D8D8D8;
+}
+
+radio .wx-radio-input {
+	width: 33rpx;
+	height: 33rpx;
+	margin-left: 108rpx;
+	border-radius: 50%;
+}
+
+radio .wx-radio-input.wx-radio-input-checked::before {
+	border-radius: 50%;
+	width: 37rpx;
+	height: 37rpx;
+	color: #fff;
+	font-size: 30rpx;
+	line-height: 37rpx;
+	text-align: center;
+	background: transparent;
+	transform: translate(-50%, -50%) scale(1);
+	-webkit-transform: translate(-50%, -50%) scale(1);
+
+}
+
+.btn {
+	width: 560rpx;
+	height: 93rpx;
+	background: rgba(255, 114, 114, 1);
+	border-radius: 8rpx;
+	text-align: center;
+	line-height: 93rpx;
+	font-size: 36rpx;
+	color: #fff;
+	margin-left: 95rpx;
+	margin-top: 60rpx;
+}
+
+.wxParse-img {
+	overflow: hidden;
+	margin-top: 71rpx;
+}
+
+.maskWrap {
+	width: 100%;
+	height: 100%;
+	background: rgba(0, 0, 0, 0.5);
+	position: fixed;
+	left: 0;
+	top: 0;
+	z-index: 200;
+}
+
+.toast {
+	width: 577rpx;
+	height: 405rpx;
+	background: #fff;
+	border-radius: 8rpx;
+	position: absolute;
+	left: 87rpx;
+	top: 300rpx;
+}
+
+.toastTitle {
+	text-align: center;
+	margin: 80rpx 0 0 0;
+	font-size: 36rpx;
+	color: #4A4A4A;
+	text-align: center;
+}
+
+.toastBtn {
+	width: 490rpx;
+	height: 93rpx;
+	background: #FF7272;
+	border-radius: 8rpx;
+	color: #fff;
+	font-size: 36rpx;
+	text-align: center;
+	line-height: 93rpx;
+	margin: 69rpx 0 0 43rpx;
+}
+
+.wxParse-p {
+	color: #9B9B9B !important;
+}
+
+.wxParse-img {
+	width: 340px !important;
+}
+
+.winnerWrap {
+	width: 100%;
+	margin-bottom: 29rpx;
+	position: relative;
+	height: 800rpx;
+
+	border-bottom: 1rpx solid #D8D8D8;
+	border-top: 1rpx solid #D8D8D8;
+}
+
+.winnerList {
+	width: 639rpx;
+	height: 669rpx;
+	position: absolute;
+	z-index: 2;
+	top: 65rpx;
+	left: 56rpx;
+}
+
+.winner-mode-bg {
+	width: 639rpx;
+	height: 669rpx;
+	position: absolute;
+	top: 65rpx;
+	left: 56rpx;
+}
+
+.activity-bg {
+	width: 450rpx;
+	height: 108rpx;
+	margin: 25rpx 0 0 100rpx;
+}
+
+.item-wrap{
+	margin-top: 40rpx;
+}
+
+.item {
+	height: 50rpx;
+	margin-left: 245rpx;
+	margin-top: 10rpx;
+	overflow: hidden;
+	display: flex;
+}
+
+.item-bg {
+	width: 44rpx;
+	height: 44rpx;
+	vertical-align: middle;
+	border-radius: 50%;
+	margin-right: 10rpx;
+}
+
+.item-name {
+	width: 300rpx;
+	font-size: 34rpx;
+	color: rgba(74, 74, 74, 1);
+	overflow: hidden;
+	white-space: nowrap;
+	text-overflow: ellipsis;
+}
+
+.result-title {
+	font-size: 36rpx;
+	box-sizing: border-box;
+	padding-left: 88rpx;
+	color: #9B9B9B;
+	margin-bottom: 30rpx;
+	margin-top: 24rpx;
+}
+
+.banner {
+	width: 100%;
+	height: 342rpx;
+}
+
+.winnerWrap-title {
+	font-size: 32rpx;
+	font-weight: 400;
+	text-align: center;
+}
+
+.small-bg-wrap{
+	text-align: center;
+}
+
+.small-bg{
+	width: 182rpx;
+	height: 187rpx;
+	vertical-align: middle;
+}
+
+.canvas-title{
+	font-size: 32rpx;
+	width: 443rpx;
+	height: 135rpx;
+	margin: 0 0 42rpx 158rpx;
+}
+
+.bottom-tips{
+	font-size: 34rpx;
+	color: #9B9B9B;
+	padding: 0 52rpx 0 38rpx;
+}
+
+.bottom-tips-item{
+	margin-top: 10rpx;
+}
+
+.bottom-btn{
+	width: 560rpx;
+	height: 93rpx;
+	background:#FF7272 ;
+	text-align: center;
+	line-height: 93rpx;
+	font-size: 36rpx;
+	color: #fff;
+	border-radius: 8rpx;
+	margin: 34rpx 0 31rpx 95rpx;
+}

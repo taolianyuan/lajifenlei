@@ -1,0 +1,9 @@
+<!--pages/UserCenter/MyLevel/MyLevel.wxml-->
+<view>
+  <image class='header' src='{{imgUrl}}header.png?sign=98b5989c7a3f37bd1d81015f47f47855&t=1549962962'></image>
+  <view class='wrap'>
+    <image class='center' src='{{imgUrl}}center.png?sign=125cc57c30fd5035ba54fd48574fb8fa&t=1549963234'></image>
+    <view class='mask' bindtap='skipToCollege'></view>
+  </view>
+  <image class='bottom' src='{{imgUrl}}bottom.png?sign=e72a334287d292f1c1825f982b673bb8&t=1549963264'></image>
+</view>

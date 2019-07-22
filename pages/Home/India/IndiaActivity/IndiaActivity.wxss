@@ -1,0 +1,135 @@
+
+
+page {
+	width: 100%;
+	height: 100%;
+}
+
+.timer-bg{
+	width: auto;
+	height: 84rpx;
+	padding: 0 10rpx;
+	display: flex;
+	flex-wrap: wrap;
+	position: absolute;
+	right: 19rpx;
+	top: 23rpx;
+	z-index: 10000;
+	background-color:#fff;
+	border-radius: 42rpx;
+}
+
+.timer{
+	width: 80rpx;
+	height: 84rpx;
+	font-size:29px;
+	font-family:PingFangSC-Regular;
+	color:rgba(168,0,51,1);
+	text-align: center;
+	line-height: 84rpx;
+}
+
+.colon{
+	width: 10rpx;
+	height: 84rpx;
+	text-align: center;
+	line-height: 84rpx;
+	color:rgba(168,0,51,1);
+}
+
+
+.tui-fixed {
+	width: 100%;
+	height: 100%;
+	position: fixed;
+	top: 0;
+	left: 0;
+}
+
+.tui-puzzle-li {
+	width: 33.3333333%;
+	height: 33.3333333%;
+	position: absolute;
+	top: 0;
+	left: 0;
+	box-sizing: border-box;
+	border: 1px solid #dddddd;
+	overflow: hidden;
+}
+
+.tui-puzzle-choose-name {
+	color: rgb(143, 94, 39);
+	display: block;
+	margin: 20px auto;
+	height: 50px;
+	line-height: 50px;
+	text-align: center;
+	font-weight: bold;
+	font-size: 30px;
+}
+
+.tui-puzzle-btn {
+	display: block;
+	border: 1px solid rgb(143, 94, 39);
+	width: 90px;
+	height: 35px;
+	text-align: center;
+	line-height: 35px;
+	color: rgb(143, 94, 39);
+	border-radius: 5px;
+	margin: 10px auto;
+	cursor: pointer;
+}
+
+.tui-puzzle-box {
+	transform: translateX(0);
+	transition: all .3s;
+}
+
+.scroll::-webkit-scrollbar {
+	width: 0;
+}
+
+.tui-puzzle-img {
+	float: left;
+	width: 45.5%;
+	height: 260px;
+	margin-left: 3%;
+	margin-bottom: 3%;
+	box-sizing: border-box;
+	border: 3px solid greenyellow;
+	border-radius: 10px;
+}
+
+.game-image {
+	width: 480rpx;
+	height: 832rpx;
+}
+
+.game-btn {
+	width: 692rpx;
+	height: 100rpx;
+	background-color: #911B34;
+	color: #fff;
+	font-size: 32rpx;
+	line-height: 100rpx;
+	text-align: center;
+	border-radius: 8rpx;
+	position: absolute;
+	bottom: 20rpx;
+	left: 24rpx;
+}
+
+.time {
+	background: rgba(0,0,0,.5);
+	width: 100%;
+	height: 30rpx;
+	text-align: center;
+	line-height: 30rpx;
+	font-size: 32rpx;
+	color: #fff;
+	position: absolute;
+	top: 0;
+	left: 0;
+	z-index: 20
+}

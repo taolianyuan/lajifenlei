@@ -1,0 +1,5 @@
+{
+  "usingComponents": {
+    "india": "/components/IndiaAlert/IndiaAlert"
+	}
+}

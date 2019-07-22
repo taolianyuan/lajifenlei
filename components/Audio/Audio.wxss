@@ -1,0 +1,107 @@
+.view{
+	height: 100vh;
+ 	width: 750rpx; 
+ 	overflow-y:hidden;
+ 	padding:0;
+ 	box-sizing:border-box;
+	overflow-x: hidden;
+	
+}
+
+.content{
+	width: 100%;
+	/* height: 90vh; */
+	height: 10vh;
+	margin-top: 90vh;
+	/* background-color: #fff; */
+	border-top-right-radius: 30rpx;
+	border-top-left-radius: 30rpx;
+}
+
+.title{
+	width: 100%;
+	height: 100rpx;
+	color: #666;
+	font-size: 30rpx;
+	line-height: 100rpx;
+	text-align: center;
+}
+
+.swiper{
+	width: 100%;
+	height: 80%;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+}
+
+.swiper-image{
+	width: 100%;
+	margin: auto 0;
+}
+
+
+.swiper-title{
+	width: 100%;
+	height: auto;
+	padding: 30rpx;
+	font-size: 30rpx;
+	color: #666;
+	background-color: #fff;
+}
+
+.audio{
+	margin-top: 30rpx;
+}
+
+.controller{
+	width: 100%;
+	height: 10%;
+}
+
+.controller-item{
+	width: 100%;
+	height: 10vh;
+	margin-top: 90vh;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	background-color: rgba(0, 0, 0, 0.5);
+}
+
+.image{
+
+	width: 60rpx;
+	height: 60rpx;
+}
+
+.out{
+	width: 60rpx;
+	height: 60rpx;
+	margin-top: 40rpx;
+	margin-left: 345rpx;
+}
+
+.controller-side{
+	width: 275rpx;
+	height: 100%;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+.controller-mid{
+	width: 200rpx;
+	height: 200rpx;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.controller-side.l{
+	justify-content: flex-end;
+}
+
+.controller-side.r{
+	justify-content: flex-start;
+}

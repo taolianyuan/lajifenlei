@@ -1,0 +1,38 @@
+
+.cell{width: 690rpx; height: auto; border: 1px solid #ececec; border-radius: 30rpx; margin: 30rpx; box-shadow: 0 0 6px 2px rgba(236, 236, 236, 0.5); }
+
+.cell-info-bg{width: 100%; height: 260rpx; border-bottom: 1px solid #ececec; display: flex;}
+
+.cell-img{width: 200rpx; height: 200rpx; margin: 30rpx; background-color: #ececec;}
+
+.cell-info{width: 300rpx; height: auto;}
+
+.cell-name{width: 100%; height: 100rpx; padding-top: 30rpx; font-size: 40rpx; color: #333;}
+
+.cell-time{width: 100%; height: 100rpx; font-size: 28rpx; color: #999; line-height: 160rpx;}
+
+.cell-status{width: 200rpx; height: 200rpx;}
+
+.cell-reason{width: 630rpx; height: auto; margin: 30rpx; font-size: 28rpx; color: #999; line-height: 32rpx;}
+
+
+.scroll-view{width: 100%; height: 100%; padding-top: 20rpx;}
+
+.swiper{width: 100%; height: 95vh;}
+
+.menu-bg{width: 100%; height: 5vh; background: #fff; display: flex;}
+
+.menu-item-bg{flex-grow: 1; height: 60%; display: flex; justify-content: center; align-items: center;}
+
+.menu-item{ padding: 20rpx 10rpx; color: #666; font-size: 30rpx;}
+
+.menu-item.isChecked{border-bottom: 2px solid #FF5173; color: #FF5173; font-weight: bold;}
+
+
+
+
+
+
+
+
+

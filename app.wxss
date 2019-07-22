@@ -1,0 +1,55 @@
+.bg{
+	height: auto;
+ 	width: 750rpx; 
+ 	margin:0;
+ 	padding:0;
+ 	box-sizing:border-box;
+  overflow-x: hidden;
+  /* position: fixed; */
+ 	background: #fff;
+}
+
+
+.loading{  
+  padding: 30rpx;  
+  text-align: center;  
+  font-size:26rpx;
+}  
+
+.loading:before{  
+  display: inline-block;  
+  margin-right: 5rpx;  
+  vertical-align: middle;  
+  content: '';  
+  width: 40rpx;  
+  height: 40rpx;  
+  background-size: contain;  
+  animation: rotate 1s linear infinite;  
+}  
+
+.loading.complete:before{  
+  display: none;  
+} 
+
+.arrow-right{height: 40rpx; width: 40rpx; position: absolute; right: 30rpx; float: right;}
+
+.add-icon{width: 100rpx; height: 100rpx; opacity: 0.5; border-radius: 50%; position: fixed; bottom: 100rpx; right: 50rpx; z-index: 200; box-shadow: 0px 0px 20rpx rgba(0, 0, 0, 0.5);
+  -webkit-box-shadow:0 6px 11px 2px #00000010;/*for IOS*/}
+
+
+
+
+
+/* 优惠券 */
+.discounts{
+  position: fixed;
+  right: 0;
+  bottom: 20%;
+  z-index: 2
+}
+
+.discounts image{
+  width: 294rpx;
+  height: 302rpx;
+  display: block;
+} 

@@ -1,0 +1,13 @@
+<view class="bg">
+	<image class="bg-image" src="{{bgImage}}"></image>
+	<image class="image"  src="{{imgDomain + photoUrl}}" mode="widthFix"></image>
+	<image class="btn" src="{{practice}}" bindtap="playGame" data-level="3"></image>
+	<image class="btn right" src="{{challenge}}" bindtap="playGame" data-level="4"></image>
+	
+	<india wx:if="{{show}}"
+		   times="{{chance}}"
+		   interval="{{time}}"
+		   bind:invitation="invitation"
+		   bind:goComment="goComment"></india>
+</view>
+

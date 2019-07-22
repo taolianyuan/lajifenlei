@@ -1,0 +1,8 @@
+{
+	"enablePullDownRefresh":true,
+  "usingComponents": {
+    "dialog": "/components/dialog/dialog",
+		"player" : "/components/Audio/Audio",
+		"india": "/components/IndiaAlert/IndiaAlert"
+  }
+}

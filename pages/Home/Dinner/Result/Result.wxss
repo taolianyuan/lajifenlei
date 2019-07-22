@@ -1,0 +1,57 @@
+/* pages/Home/Dinner/Result/Result.wxss */
+
+.Result{
+  padding: 0 30rpx;
+  text-align: center;
+}
+
+.Result-title{
+  font-size: 46rpx;
+  padding: 20rpx 0;
+}
+
+.Result-list{
+  margin-top: 10rpx;
+}
+
+
+
+
+.fotter{
+  width: 100%;
+  display: flex;
+  background: rgb(20, 118, 184);
+  position: fixed;
+  bottom: 0;
+  line-height: 100rpx;
+  justify-content: space-between;
+  color: #fff;
+}
+
+.fotters{
+  margin-left: 30rpx;
+   width: 220rpx;
+  border: 1px solid #eee;
+  text-align: center;
+   border-radius: 30rpx;
+}
+
+.bts{
+  width: 220rpx;
+  border: 1px solid #eee;
+  text-align: center;
+  border-radius: 30rpx;
+  margin-right: 30rpx;
+}
+button{
+  padding-left: 0;
+  padding-right: 0;
+   /* background-image: inherit; */
+   color: #fff;
+   background-color: inherit;
+   font-size:inherit
+}
+
+.button-hover {
+  background-color: inherit
+}

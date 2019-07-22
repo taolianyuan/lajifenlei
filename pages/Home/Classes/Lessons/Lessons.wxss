@@ -1,0 +1,189 @@
+/* pages/Home/Classes/Lessons/Lessons.wxss */
+.banner1 {
+	width: 100%;
+	height: 756rpx;
+	vertical-align: middle;
+}
+
+.banner2 {
+	width: 100%;
+	height: 753rpx;
+	vertical-align: middle;
+}
+
+.banner3 {
+	width: 100%;
+	height: 788rpx;
+	vertical-align: middle;
+}
+
+.banner4 {
+	width: 100%;
+	height: 835rpx;
+	vertical-align: middle;
+}
+
+.banner5 {
+	width: 100%;
+	height: 554rpx;
+	vertical-align: middle;
+}
+
+
+.phone{
+  background: #00895f;
+  padding: 0 30rpx;
+  color: #fff;
+  display: flex;
+}
+
+.phone-fz{
+ font-size: 48rpx;
+ width: 40%;
+ text-align: center;
+ color: #000;
+ font-weight: 900;
+}
+
+.phone-fz1{
+   font-size: 48rpx;
+   color: #000;
+ font-weight: 900;
+}
+
+.phon-lr{
+  flex: 2
+ }
+.wexin-fz{
+  font-size: 30rpx;
+  padding: 10rpx 0;
+  color: #000;
+  font-weight: 900
+}
+
+
+.title{
+	width: 100%;
+	height: 100rpx;
+	padding-left: 30rpx;
+	line-height: 100rpx;
+	color: #3E8426;
+	margin-top: 50rpx;
+}
+
+
+.subtitle-bg{
+	width: 100%;
+	height: 100rpx;
+	display: flex;
+	border-bottom: 1px solid #3E8426;
+}
+
+.subTitle {
+	width: 50%;
+	height: 100%;
+	text-align: center;
+	line-height: 100rpx;
+	color: #3E8426;
+	font-size: 36rpx;
+}
+
+.collection-bg {
+	width: 100%;
+	height: auto;
+	background-color: #fff;
+	display: flex;
+}
+
+
+.collection-view {
+	width: 50%;
+	height: auto;
+	background-color: #fff;
+	flex-wrap: wrap;
+}
+
+.collection-item {
+	width: 86rpx;
+	height: 107rpx;
+	margin-left: 73rpx;
+	margin-top: 80rpx;
+	vertical-align: middle;
+}
+
+.green-title-bg {
+	width: 100%;
+	height: auto;
+	display: flex;
+	align-items: flex-end;
+}
+
+.elephant {
+	width: 129rpx;
+	height: 137rpx;
+	vertical-align: middle;
+	margin-left: 0;
+}
+
+.title-image {
+	width: 516rpx;
+	height: 83rpx;
+	vertical-align: middle;
+}
+
+.bg{
+  position: relative
+}
+
+.green-bg {
+  /* position: absolute;
+  left: 0 ;
+  bottom: 45rpx; */
+  background: #00895f;
+  padding: 30rpx 0;
+}
+
+
+.content {
+	width: 100%;
+	height: 50rpx;
+	text-align: center;
+	line-height: 50rpx;
+	color: #fff;
+	background-color: #3E8426;
+	font-size: 24rpx;
+	font-family:STHeitiSC-Light;
+	font-weight:bold;
+}
+
+.content.m {
+	margin-top: 50rpx;
+}
+
+.signUp-bg {
+  width: 100%;
+	display: flex;
+}
+
+.signUp-btn {
+	width: 326rpx;
+	height: 84rpx;
+	/* position: relative; */
+	vertical-align: middle;
+  margin-right: 40rpx;
+	/* top: 0;
+	right: -35rpx; */
+}
+
+.share-btn {
+	width: 326rpx;
+	height: 84rpx;
+	background-repeat: no-repeat;
+	background-size: 100% 100%;
+}
+
+button::after{border:none} 
+
+button.share-btn[plain] {
+      border: 0;
+    }

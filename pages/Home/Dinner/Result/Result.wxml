@@ -1,0 +1,14 @@
+<!--pages/Home/Dinner/Result/Result.wxml-->
+
+<view class='Result'>
+   <view class='Result-title'>小黄在龙虾选择了</view>
+    <view wx:for="{{lists}}" wx:key="this">
+      <view>{{item.tasteName}}</view>
+    </view>
+</view>
+
+<view class='fotter'>
+      <!-- <view class='fotters'>马上约饭</view> -->
+      <button open-type='share'  class='fotters'>马上约饭</button>
+      <view class='bts' bindtap='bthome'>返回主页面</view>
+</view>

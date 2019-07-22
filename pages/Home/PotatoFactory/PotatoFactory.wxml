@@ -1,0 +1,21 @@
+<view class="bg" style="background-image: url({{bgImage}});">
+	<image class="potato-date" mode="widthFix" src="{{cartoonUrl == '' ? placeholder : imgDomain + cartoonUrl}}"></image>
+	<view class="important">
+		<image class="important-img" src="{{currentDish}}"></image>
+		<image class="important-button" src="{{button}}" bindtap="goCenterDetail"></image>
+	</view>
+	<image class="more" src="{{more}}"></image>
+	<view class="items-bg">
+		<block wx:for="{{dishList}}" wx:for-item="item" wx:key="dishList">
+			<view class="item" wx:if="{{item.aboutInfo.status == 0}}" data-id="{{item.dishId}}" bindtap="goDetail">
+				<image class="item-img" src="{{item.defPhoto == null ? placeholder :  imgDomain + item.defPhoto}}"></image>
+				<image class="item-button" src="{{item.aboutInfo.timePhotoUrl == null ? placeholder :  imgDomain + item.aboutInfo.timePhotoUrl}}" ></image>
+			</view>
+		</block>
+	</view>
+	<image class="more" src="{{share}}"></image>
+	<view class="potato-add">
+		<image class="potato" src="{{potato}}"></image>
+		<image class="add" src="{{add}}" bindtap="goShare"></image>
+	</view>
+</view>

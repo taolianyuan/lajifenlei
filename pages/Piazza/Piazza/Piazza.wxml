@@ -1,0 +1,241 @@
+<view class="bg">
+	<view class="header-bg">
+		<view class="header-item-bg">
+			<view class="header-item {{current==0?'isChecked':''}}" data-index="0" bindtap="segment">动态</view>
+			<view class="header-item header-recommend {{current==1?'isChecked':''}}" data-index="1" bindtap="segment">推荐</view>
+		</view>
+	</view>
+
+	<view class="scroll-view">
+		<block wx:if="{{status == 1 && current == 0}}">
+			<view class="cell" wx:for="{{newsList}}" wx:key="newsList" wx:for-item="item" wx:for-index="section" bindtap="goNewsDetail"
+			 data-section="{{section}}">
+				<view class="cell-header">
+					<view class="cell-header-left-bg">
+						<image class="cell-header-left-bg-icon" catchtap='goOthersCenter' hover-stop-propagation='true' data-id="{{item.userId}}"
+						 src='{{item.feedAndUserVO.userAvatar}}'></image>
+						<view class="cell-header-left-bg-time">{{item.feedAndUserVO.feed.timeAt}}</view>
+					</view>
+					<view class="cell-header-middle-bg">
+						<view class="cell-header-middle-bg-name">{{item.feedAndUserVO.nickName}}</view>
+						<view class="cell-header-middle-bg-name">
+							<text style="color: #666; font-size: 25rpx;">作品: {{item.feedAndUserVO.worksNumber}} </text>
+							<text style="color: #333; font-size: 25rpx;">{{item.label}}</text>
+						</view>
+					</view>
+				</view>
+				<view class="cell-content-title">
+					<text style="color: #333">{{item.feedAndUserVO.feed.content.postText}}</text>
+				</view>
+
+
+
+				<block wx:if="{{item.feedAndUserVO.feed.content.photoList.length == 1}}">
+					<view class="images-bg" style="margin-left: 132rpx;">
+						<image class="image-1" mode="widthFix" src="{{imgDomain + item.feedAndUserVO.feed.content.photoList[0]}}"></image>
+					</view>
+				</block>
+
+				<block wx:if="{{item.feedAndUserVO.feed.content.photoList.length == 2}}">
+					<view class="images-bg" style="display: flex; margin-left: 132rpx;">
+						<image class="image-2" mode="aspectFill" src="{{imgDomain + item.feedAndUserVO.feed.content.photoList[0]}}"></image>
+						<image class="image-2" mode="aspectFill" src="{{imgDomain + item.feedAndUserVO.feed.content.photoList[1]}}"></image>
+					</view>
+
+				</block>
+
+				<block wx:if="{{item.feedAndUserVO.feed.content.photoList.length == 3}}">
+					<view class="images-bg" style="margin-left: 132rpx;">
+						<image class="image-3" mode="aspectFill" src="{{imgDomain + item.feedAndUserVO.feed.content.photoList[0]}}"></image>
+
+						<view class="images-bg" style="display: flex;">
+							<image class="image-4" mode="aspectFill" src="{{imgDomain + item.feedAndUserVO.feed.content.photoList[1]}}"></image>
+							<image class="image-4" mode="aspectFill" src="{{imgDomain + item.feedAndUserVO.feed.content.photoList[2]}}"></image>
+						</view>
+					</view>
+				</block>
+
+				<block wx:if="{{item.feedAndUserVO.feed.content.photoList.length == 4}}">
+					<view class="images-bg" style="display: flex; flex-wrap: wrap; margin-left: 132rpx;">
+						<block wx:for="{{item.feedAndUserVO.feed.content.photoList}}" wx:for-item="image" wx:for-index="index">
+							<image class="image-4 s" mode="aspectFill" src="{{imgDomain + image}}"></image>
+						</block>
+					</view>
+				</block>
+
+				<block wx:if="{{item.feedAndUserVO.feed.content.photoList.length == 5}}">
+					<view class="images-bg" style="margin-left: 132rpx;">
+						<view class="images-bg" style="display: flex; ">
+							<image class="image-4" mode="aspectFill" src="{{imgDomain + item.feedAndUserVO.feed.content.photoList[0]}}"></image>
+							<image class="image-4" mode="aspectFill" src="{{imgDomain + item.feedAndUserVO.feed.content.photoList[1]}}"></image>
+						</view>
+						<view class="images-bg" style="display: flex;">
+							<image class="image-5" mode="aspectFill" src="{{imgDomain + item.feedAndUserVO.feed.content.photoList[2]}}"></image>
+							<image class="image-5" mode="aspectFill" src="{{imgDomain + item.feedAndUserVO.feed.content.photoList[3]}}"></image>
+							<image class="image-5" mode="aspectFill" src="{{imgDomain + item.feedAndUserVO.feed.content.photoList[4]}}"></image>
+						</view>
+					</view>
+				</block>
+
+				<block wx:if="{{item.feedAndUserVO.feed.content.photoList.length == 6}}">
+					<view class="images-bg" style="display: flex; margin-left: 132rpx;">
+						<view class="images-bg-v2">
+							<image class="image-6" mode="aspectFill" src="{{imgDomain + item.feedAndUserVO.feed.content.photoList[0]}}"></image>
+
+							<view class="images-bg-v2" style="display: flex;">
+								<image class="image-5" mode="aspectFill" src="{{imgDomain + item.feedAndUserVO.feed.content.photoList[1]}}"></image>
+								<image class="image-5" mode="aspectFill" src="{{imgDomain + item.feedAndUserVO.feed.content.photoList[2]}}"></image>
+							</view>
+						</view>
+						<view class="images-bg-v">
+							<image class="image-5" mode="aspectFill" src="{{imgDomain + item.feedAndUserVO.feed.content.photoList[3]}}"></image>
+							<image class="image-5" mode="aspectFill" src="{{imgDomain + item.feedAndUserVO.feed.content.photoList[4]}}"></image>
+							<image class="image-5" mode="aspectFill" src="{{imgDomain + item.feedAndUserVO.feed.content.photoList[5]}}"></image>
+						</view>
+					</view>
+				</block>
+
+				<block wx:if="{{item.feedAndUserVO.feed.content.photoList.length == 7}}">
+					<view class="images-bg" style="margin-left: 132rpx;">
+
+						<view class="images-bg" style="display: flex; ">
+							<image class="image-3" mode="aspectFill" src="{{imgDomain + item.feedAndUserVO.feed.content.photoList[0]}}"></image>
+						</view>
+
+						<view class="images-bg">
+							<block wx:for="{{item.feedAndUserVO.feed.content.photoList}}" wx:for-item="image" wx:for-index="index">
+								<image class="image-5" mode="aspectFill" wx:if="{{index > 0}}" src="{{imgDomain + image}}"></image>
+							</block>
+						</view>
+					</view>
+				</block>
+
+				<block wx:if="{{item.feedAndUserVO.feed.content.photoList.length == 8}}">
+					<view class="images-bg" style=" margin-left: 132rpx;">
+
+						<view class="images-bg" style="display: flex;">
+							<image class="image-4" src="{{imgDomain + item.feedAndUserVO.feed.content.photoList[0]}}"></image>
+							<image class="image-4" src="{{imgDomain + item.feedAndUserVO.feed.content.photoList[1]}}"></image>
+						</view>
+
+						<view class="images-bg">
+							<block wx:for="{{item.feedAndUserVO.feed.content.photoList}}" wx:for-item="image" wx:for-index="index">
+								<image class="image-5" wx:if="{{index > 1}}" mode="aspectFill" src="{{imgDomain + image}}"></image>
+							</block>
+						</view>
+					</view>
+				</block>
+
+				<block wx:if="{{item.feedAndUserVO.feed.content.photoList.length == 9}}">
+					<view class="images-bg" style="display: flex; flex-wrap: wrap; margin-left: 132rpx;">
+						<image class="image-5" mode="aspectFill" wx:for="{{item.feedAndUserVO.feed.content.photoList}}" wx:key='item.feedAndUserVO.feed.content.photoList' wx:for-item="image"
+						 mode="aspectFill" src="{{imgDomain + image}}"></image>
+					</view>
+				</block>
+
+				<view class="cell-bottom-view-bg">
+					<view class="cell-bottom-view-item">
+						<button class="share" catchtap="shareFriends" mode='widthFix' data-section="{{section}}">
+							<view class="img-number-bg">
+								<image class="cell-bottom-view-item-icon" src="../../../img/piazza_share.png"></image>
+							<!-- 	<text class="cell-bottom-view-item-title">{{item.feedAndUserVO.count == null ? 0 : item.feedAndUserVO.count.shareCount}}</text> -->
+							</view>
+						</button>
+					</view>
+
+					<view class="cell-bottom-view-item">
+						<button class="share" mode='widthFix' catchtap='addComment' data-section="{{section}}">
+							<view class="img-number-bg">
+								<image class="cell-bottom-view-item-icon" src="../../../img/piazza_comment.png"></image>
+								<text class="cell-bottom-view-item-title">{{item.feedAndUserVO.count == null ? 0 : item.feedAndUserVO.commentCount}}</text>
+							</view>
+						</button>
+					</view>
+
+					<view class="cell-bottom-view-item">
+						<button class="share" mode='widthFix' data-section="{{section}}" catchtap='likeSomething' hover-stop-propagation='true'>
+							<view class="img-number-bg">
+								<image class="cell-bottom-view-item-icon" src="../../../img/piazza_like.png"></image>
+								<text class="cell-bottom-view-item-title">{{item.feedAndUserVO.count == null ? 0 : item.feedAndUserVO.count.likeCount}}</text>
+							</view>
+						</button>
+					</view>
+					<!--  && contentIndex == section -->
+				</view>
+			<block wx:if="{{item.commentList.length > 0 && item.commentList != null}}">
+				<view class="comment-list-bg">
+					<view class="comment-cell" wx:for="{{item.commentList}}" wx:for-item="item" wx:key="commentList">
+						<view class="comment-info" catchtap='addCommentReply' data-cid='{{item.commentReply.cId}}' data-index='{{index}}'
+						 data-section="{{section}}" data-userid='{{item.cUserId}}'>
+							<block wx:if='{{item.rUserId == null && item.rNickName == null}}'>
+								<text class="comment-name">{{item.nickname}}: </text>
+								<text class="comment-content">{{item.commentReply.content}}</text>
+							</block>
+							<block wx:else>
+								<text class="comment-name">{{item.nickname}} <text style='font: 28rpx; color: #333;'>回复</text> {{item.rNickName}}：</text>
+								<text class="comment-content">{{item.commentReply.content}}</text>
+							</block>
+
+						</view>
+					</view>
+				</view>
+
+			</block>
+			</view>
+
+
+
+		<!-- 	<view class="comment-bg" wx:if="{{isComment}}" catchtap='nothing'>
+				<input class="comment-input" bindinput="cancelComment" bindblur='bindblur'  maxlength="100" value="{{contentText}}"
+				 focus="{{isComment}}" adjust-position='false' placeholder='{{placeholder}}'></input>
+				<view class="comment-item" catchtap="sendComment">发送</view>
+
+			</view> -->
+			
+			 <view class="comment-bg" wx:if="{{isComment}}">
+			  <input class="comment-input" bindblur="cancelComment" value="{{contentText}}" placeholder="{{placeholder}}" cursor-spacing="" focus="{{isComment}}" adjust-position></input>
+			  <view class="comment-item" bindtap="sendComment">发送</view>
+			</view>
+			
+		</block>
+
+		<block wx:elif="{{status == 1 && current == 1}}">
+			<view class='recommend-cell' wx:for="{{recommendList}}" wx:for-item="item" wx:for-index="index" wx:key="recommendList"
+			 data-index="{{index}}" bindtap='goDetail'>
+				<image class='recommend-cell-icon' mode='aspectFill' src="{{imgDomain + item.defPhoto}}"></image>
+				<view class='recommend-cell-right-view'>
+					<view class='recommend-cell-title'>{{item.dishName}}</view>
+					<view class="recommend-cell-tags">
+						<view class="recommend-cell-tag" wx:if='{{item.sauceList[index] !== null}}' wx:for="{{item.sauceList}}"
+						 wx:for-item="sauce" wx:key="sauceList">{{sauce.sauceName}}</view>
+					</view>
+					<view class='recommend-cell-creater-bg'>
+						<image class="recommend-cell-creater-head" src="{{item.avatar}}"></image>
+						<view class='recommend-cell-creater-text'>{{item.nickname}}</view>
+						<image class="recommend-cell-creater-icon" src="../../../img/follow_recommend.png"></image>
+						<view class='recommend-cell-creater-text'>{{item.likeCount == null ? 0 : item.likeCount}}</view>
+						<image class="recommend-cell-creater-icon" src="../../../img/eye_black.png"></image>
+						<view class='recommend-cell-creater-text'>{{item.browerCount == null ? 0 : item.browerCount}}</view>
+					</view>
+				</view>
+			</view>
+
+
+		</block>
+		<block wx:else>
+			<empty-view status="{{ status }}" confirmText="{{status == 4 ? '去登陆':'刷新试试?'}}" autoLayout="false" bind:confirmEvent='EmptyconfirmEvent'></empty-view>
+		</block>
+		<view class="loading" hidden="{{!showLoading}}">加载中</view>
+		<view class="loading complete" hidden="{{!noMoreData}}">已加载全部</view>
+	</view>
+	<!-- </swiper-item> -->
+	<!-- </swiper> -->
+	<image class="add-icon" bindtap="showAction" src="../../../img/tabbar/tabbar_add_s.png"></image>
+
+</view>
+
+
+<block wx:if="{{!isLogin}}">
+	<dialog id='dialog' title='登录提示' content='小程序需要您的授权才能提供更好的服务哦' confirmText='去授权' bind:cancleEvent='cancleEvent'
+	 bind:confirmEvent='confirmEvent' bind:bindGetUserInfo='bindGetUserInfo'></dialog>
+</block>

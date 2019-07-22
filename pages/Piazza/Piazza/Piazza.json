@@ -1,0 +1,7 @@
+{
+  "navigationBarTitleText": "斗菜",
+  "enablePullDownRefresh":true,
+  "usingComponents": {
+    "dialog": "/components/dialog/dialog"
+  }
+}

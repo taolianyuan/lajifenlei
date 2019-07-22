@@ -1,0 +1,105 @@
+<block wx:if="{{newsList.length > 0 && newsList != ''}}">
+	<view class="bg">
+		<view class="cell" wx:for="{{newsList}}" wx:key="newsList" wx:for-item="item" wx:for-index="section" bindtap="goNewsDetail" data-section="{{section}}">
+			<view class="cell-header">
+				<view class="cell-header-left-bg">
+					<image class="cell-header-left-bg-icon" catchtap='goOthersCenter' hover-stop-propagation='true' data-id="{{item.userId}}" src='{{item.feedAndUserVO.userAvatar}}'></image>
+					<view class="cell-header-left-bg-time">{{item.feedAndUserVO.feed.timeAt}}</view>
+				</view>
+				<view class="cell-header-middle-bg">
+					<view class="cell-header-middle-bg-name">{{item.feedAndUserVO.nickName}}</view>
+					<view class="cell-header-middle-bg-name">
+						<text style="color: #666; font-size: 25rpx;">作品: {{item.feedAndUserVO.worksNumber}}    </text>
+						<text style="color: #333; font-size: 25rpx;">{{item.feedAndUserVO.label}}</text>
+					</view>
+				</view>
+				<!-- <view style="width: 150rpx; height: 100%;">
+					<view class="cell-header-right-btn" bindtap='changeStatus' data-index="{{index}}">{{item.star?'取消关注':'关注'}}</view>
+				</view> -->
+			</view>
+			<view class="cell-content-title">
+				<!-- <text style="color: #8aa8bd" wx:if="{{item.feed.tags}}">#{{item.feed.tags}}#</text> -->
+				<text style="color: #333">{{item.feedAndUserVO.feed.content.postText}}</text>
+			</view>
+			<view class="cell-content-img-bg">
+
+				<block wx:if="{{item.feedAndUserVO.feed.content.photoList.length == 1}}">
+					
+					<image class="image-1" mode="widthFix" src="{{imgDomain+item.feedAndUserVO.feed.content.photoList[0]}}" data-section="{{section}}" data-src="{{imgDomain+item.feedAndUserVO.feed.content.photoList[0]}}" hover-stop-propagation='true'></image>
+					 <!-- catchtap='goPreview' -->
+				</block>
+
+				<block wx:elif="{{item.feedAndUserVO.feed.content.photoList.length == 2}}">
+					<image class="image-2" mode="widthFix" src="{{imgDomain+item.feedAndUserVO.feed.content.photoList[0]}}" data-section="{{section}}" data-src="{{imgDomain+item.feedAndUserVO.feed.content.photoList[0]}}" catchtap='goPreview' hover-stop-propagation='true'></image>
+
+					<image class="image-2" style="margin-left: 10rpx;" mode="widthFix" src="{{imgDomain+item.feedAndUserVO.feed.content.photoList[1]}}" data-section="{{section}}" data-src="{{imgDomain+item.feedAndUserVO.feed.content.photoList[1]}}" hover-stop-propagation='true'></image>
+					 <!-- catchtap='goPreview' -->
+					
+				</block>
+
+				<block wx:elif="{{item.feedAndUserVO.feed.content.photoList.length == 3}}">
+
+					<image class="image-2" mode="widthFix" src="{{imgDomain+item.feedAndUserVO.feed.content.photoList[0]}}" data-section="{{section}}" data-src="{{imgDomain+item.feedAndUserVO.feed.content.photoList[0]}}" hover-stop-propagation='true'></image>
+					 <!-- catchtap='goPreview' -->
+					<view class="image-1" style="margin-left: 10rpx;">
+						<image class="image-3" mode="widthFix" src="{{imgDomain+item.feedAndUserVO.feed.content.photoList[1]}}" data-section="{{section}}" data-src="{{imgDomain+item.feedAndUserVO.feed.content.photoList[1]}}" hover-stop-propagation='true'></image>
+						 <!-- catchtap='goPreview' -->
+						<image class="image-3" style="margin-top: 10rpx;" mode="widthFix" src="{{imgDomain+item.feedAndUserVO.feed.content.photoList[2]}}" data-section="{{section}}" data-src="{{imgDomain+item.feedAndUserVO.feed.content.photoList[2]}}" hover-stop-propagation='true'></image>
+						 <!-- catchtap='goPreview' -->
+					</view>
+				</block>
+
+				<block wx:else>
+					<image class="image-4" wx:for="{{item.feedAndUserVO.feed.content.photoList}}" wx:key="photoList" wx:for-item="img"  src='{{imgDomain+img}}' data-section="{{section}}" data-src="{{imgDomain+img}}" hover-stop-propagation='true'></image>
+					 <!-- catchtap='goPreview' -->
+				</block>
+			</view>
+			
+			<view class="cell-bottom-view-bg" >
+				<view class="cell-bottom-view-item">
+					<button class="share" catchtap="shareFriends" mode='widthFix' data-section="{{section}}">
+						<view class="img-number-bg">
+							<image class="cell-bottom-view-item-icon" src="../../../img/piazza_share.png"></image>
+						<!-- 	<text class="cell-bottom-view-item-title">{{item.feedAndUserVO.count == null ? 0 : item.feedAndUserVO.count.shareCount}}</text> -->
+						</view>
+					</button>
+				</view>
+
+				<view class="cell-bottom-view-item">
+					<button class="share" mode='widthFix'  data-section="{{section}}">
+						<!-- catchtap='addComment' -->
+						<view class="img-number-bg">
+							<image class="cell-bottom-view-item-icon" src="../../../img/piazza_comment.png"></image>
+							<text class="cell-bottom-view-item-title">{{item.feedAndUserVO.count == null ? 0 : item.feedAndUserVO.commentCount}}</text>
+						</view>
+					</button>
+				</view>
+
+				<view class="cell-bottom-view-item">
+					<button class="share" mode='widthFix' data-section="{{section}}" catchtap='likeSomething' hover-stop-propagation='true'>
+						<view class="img-number-bg">
+							<image class="cell-bottom-view-item-icon" src="../../../img/piazza_like.png"></image>
+							<text class="cell-bottom-view-item-title">{{item.feedAndUserVO.count == null ? 0 : item.feedAndUserVO.count.likeCount}}</text>
+						</view>
+					</button>
+				</view>
+			</view>
+		</view>
+		<view class="loading" hidden="{{!showLoading}}">加载中</view>  
+        <view class="loading complete" hidden="{{!noMoreData}}">已加载全部</view> 
+	</view>
+</block>
+<block wx:else>
+<empty-view 
+      status="{{status}}"
+      autoLayout='false'
+      bind:confirmEvent='confirmEvent'></empty-view>
+</block>
+
+
+
+
+
+
+
+

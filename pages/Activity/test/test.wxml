@@ -1,0 +1,21 @@
+<!--pages/Activity/test/test.wxml-->
+
+
+<view class='showList' wx:if='{{lastImage}}'>
+<image class='lastImage' src='{{lastImage}}'></image>
+<view class='share' bindtap='shareToFriend'>点击保存到相册</view>
+</view>
+
+<block wx:else>
+<canvas canvas-id='canvas' style='width:300px; height:533px; ' class='canvas'></canvas>
+<!-- <view class='imageContent'>
+  <image src='http://plghiju60.bkt.clouddn.com/activity2019-1-17-30.jpg' class='image'></image>
+</view> -->
+
+<!-- <input type='text' style='border: 1px solid #CCC;' bindblur='bindblur' value='{{value}}'></input>
+<button bindtap='handleChoose'>确定</button> -->
+<view class='createImage' hidden='{{btnIsShow}}'  bindtap='handleClick'>点击生成图片</view>
+
+</block>
+
+

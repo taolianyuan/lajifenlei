@@ -1,0 +1,80 @@
+<refresh-view id='refreshView' backgroundColor="#000" bind:onRefresh="onPullDownRefresh"   bind:onPullState="_pullState" />
+
+<view class="bg" bindtouchstart='handletouchstart' bindtouchmove='handletouchmove' bindtouchend='handletouchend' bindtouchcancel='handletouchcancel'>
+	<swiper class="swiper" current="{{current}}" indicator-dots="{{banners.length == 1 ? false : true}}">
+      <swiper-item wx:for="{{banners}}" wx:for-item="item" wx:key="banners">
+        <image class="swiper" src="{{imgDomain+item.photoUrl}}" data-index="{{index}}" bindtap='bannerClick' ></image>
+      </swiper-item> 
+  </swiper>
+
+	<image class="college-btn" bindtap="goCollege" src="../../../img/college.png"></image>
+
+  <view class="model-title-bg">
+    <view class='model-title'>今日餐桌</view>
+    <view class='model-btn' bindtap="clickMore" data-index="1">更多</view>
+    <image class='arrow-right' src='../../../img/arrow-right.png'></image>
+  </view>
+
+  <view class="today-meal-img" style="background-image: url({{todayMeal == null ? '../../../img/placeholder_img_s.png' : imgDomain+todayMeal.defPhoto}})" bindtap="goTodayMealDetail">
+
+    <view class='today-meal-mask'>
+      <view class="today-meal-title">{{todayMeal.dishName}}</view>
+      <view class="today-like-bg">
+        <image class="today-like-icon" src="../../../img/follow_board.png"></image>
+        <view class="today-like-count">{{todayMeal.aboutInfo.count.likeCount}}</view>
+        <view class="today-duration">{{todayMeal.duration}}分钟</view>
+      </view>
+    </view>
+  </view>
+
+  <block wx:if="{{activities.length > 0 && activities != ''}}">
+    <view class="model-title-bg">
+      <view class='model-title'>精彩活动</view>
+      <!-- <view class='model-btn' bindtap="clickMore" data-index="1">更多</view> -->
+    </view>
+    
+    <scroll-view class="activity-bg" scroll-x >
+      <view class="activity-item-bg" wx:for="{{activities}}" wx:key="activities" wx:for-index="index" wx:for-item="item" >
+        <image class="activity-img" src="{{imgDomain+item.defPhoto}}" bindtap='goActivities' data-index="{{index}}"></image>
+        <view class="activity-title">{{item.actName}}</view>
+      </view>
+        
+    </scroll-view>
+  </block>
+
+  <block wx:if="{{recommendList.length != 0 && recommendList != undefined}}">
+    <view class='recommend-bg'>
+      <view class="model-title-bg">
+        <view class='model-title'>推荐</view>
+        <view class='model-btn' bindtap="clickMore" data-index="2">更多</view>
+        <image class='arrow-right' src='../../../img/arrow-right.png'></image>
+      </view>
+
+        <view class='recommend-cell' wx:for="{{recommendList}}" wx:for-item="item" wx:for-index="index" wx:key="recommendList" data-index="{{item.dishId}}" bindtap='goDetail'>
+            <image class='recommend-cell-icon' mode='aspectFill' src="{{item.defPhoto == null ? '../../../img/placeholder_img_s.png' : imgDomain + item.defPhoto}}"></image>
+            <view class='recommend-cell-right-view'>
+                <view class='recommend-cell-title'>{{item.dishName}}</view>
+                <view class="recommend-cell-tags">
+                  <view class="recommend-cell-tag" wx:for="{{item.aboutInfo.sauceList}}" wx:for-item="sauce" wx:key="sauceList">{{sauce.sauceName}}</view>
+                </view>
+                <view class='recommend-cell-creater-bg'>
+                  <image class="recommend-cell-creater-head" src="{{item.aboutInfo.user.avatar}}"></image>
+                  <view class='recommend-cell-creater-text'>{{item.aboutInfo.user.nickname}}</view>
+                  <image class="recommend-cell-creater-icon" src="../../../img/follow_recommend.png"></image>
+                  <view class='recommend-cell-creater-text'>{{item.aboutInfo.count == null ? 0 : item.aboutInfo.count.likeCount}}</view>
+                  <image class="recommend-cell-creater-icon" src="../../../img/eye_black.png"></image>
+                  <view class='recommend-cell-creater-text'>{{item.aboutInfo.count == null ? 0 : item.aboutInfo.count.browerCount}}</view>
+                </view>
+            </view>
+        </view>
+    </view>
+  </block>
+  <view class="end-line" wx:if="{{isIphoneX}}"> - 我是底线 - </view>
+</view>
+
+
+
+
+
+
+

@@ -1,0 +1,32 @@
+<view class="bg">
+  <!-- <image class="bg-image" src="{{bgImage}}"></image> -->
+  <!-- <image class="btn" src="{{wechat}}" bindtap="share"></image> -->
+
+  <!-- <block wx:if="{{index ==1}}">  </block> -->
+    <image class='share-bg' src='https://img.jishantech.com/common/waste_temporary/分享.png' lazy-load="true"> </image>
+
+
+  <!-- <block wx:else>
+    <image class="share-bg" src="{{shareBg}}"></image>
+    <image class="qcr" src="{{QCR}}"></image>
+  </block> -->
+
+
+  <image class="btn" src="/img/weixin-icon.png" bindtap="share"></image>
+  <button class="btn" open-type="share"></button>
+
+  <!-- <block wx:if="{{index ==1}}">  </block> -->
+    <image class="btn right btns" src="{{saves}}" bindtap="saves"></image>
+
+
+  <!-- <block wx:else>
+    <image class="btn right btns" src="{{save}}" bindtap="save"></image>
+  </block> -->
+  
+  <view class='wx'>
+    <view class='wx_hy'>邀请微信好友</view>
+    <view class='wx_pyq'>保存图片到相册</view>
+  </view>
+
+  <!-- <image class="image" src="{{photoUrl}}"></image> -->
+</view>

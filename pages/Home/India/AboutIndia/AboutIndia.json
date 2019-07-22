@@ -1,0 +1,7 @@
+{
+	"disableScroll": true,
+	"usingComponents": {
+		"india": "/components/IndiaAlert/IndiaAlert",
+		"dialog": "/components/dialog/dialog"
+	}
+}

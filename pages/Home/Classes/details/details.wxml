@@ -1,0 +1,41 @@
+<!--pages/Home/Classes/details/details.wxml-->
+
+
+<swiper class="swiper" current="{{current}}" autoplay circular='true' indicator-active-color='#EEEE00' indicator-color='#fff' indicator-dots="{{banners.length == 1 ? false : true}}">
+  <swiper-item wx:for="{{banners}}" wx:for-item="item" wx:key="banners">
+    <image class="swiper" lazy-load='true' src="{{item}}" data-index="{{index}}" bindtap='bannerClick'></image>
+  </swiper-item>
+</swiper>
+
+<view class="de-con">
+  <view class="de-title">网红干湿分离双层垃圾桶 </view>
+     <view class="yuanjia">
+       原价:<text>￥178.00</text>  
+     </view>
+     <view class="juanhou">
+       券后价:<text>￥128.00</text>  
+     </view>
+</view>
+
+<view class="de-bottom">
+   <!-- <view class="de-botitle">查看图文详情</view> -->
+   <view class="de-img">
+      <image src="https://img.jishantech.com/common/waste_temporary/图1%402x.png" class="de-img1" lazy-load="true"></image>
+      <image src="https://img.jishantech.com/common/waste_temporary/图2%402x.png" class="de-img2" lazy-load="true"></image>
+      <image src="https://img.jishantech.com/common/waste_temporary/图3%402x.png" class="de-img3" lazy-load="true"></image>
+      <!-- <image src="https://img.jishantech.com/common/waste_temporary/图5%402x.png"></image> -->
+      <image src="https://7465-test-lwnby-1259618992.tcb.qcloud.la/images/%E5%9B%BE4%402x.png?sign=d7458725fb2bdfe0f70380fc416fcf8d&t=1563101483"  class="de-img5" lazy-load="true"></image>
+      <image src="https://img.jishantech.com/common/waste_temporary/图4%402x.png" class="de-img4" lazy-load="true"></image>
+   </view>
+</view>
+
+
+<view class="de-btn">
+   <view class="kefu">
+     <button  open-type="contact" bindcontact="handleContact"> 
+      <image src="../../../../img/kef.png"></image>
+        <text>客服</text> </button>
+   </view>
+   <view class="fxhy" bindtap="goShare">分享好友</view>
+   <view class="goplay" bindtap="goplay">立即购买</view>
+</view>

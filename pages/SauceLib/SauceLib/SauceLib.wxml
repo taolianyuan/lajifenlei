@@ -1,0 +1,122 @@
+<!-- 
+<view class="bg">
+    <view class="menu-bg">
+        <block wx:for="{{menuList}}" wx:for-item="item" wx:for-index="index" wx:key="menuList">
+            <view class="menu-item {{item.isChecked ? 'isChecked' : ''}}" bindtap="menuClicked" data-index="{{index}}">{{item.title}}</view>
+        </block>
+    </view>
+    <swiper class="swiper" current="{{current}}" bindchange="bindchange">
+        <block wx:for="{{sauceList}}" wx:for-item="sauce" wx:key="{{sauceList}}" wx:for-index="section">
+            <swiper-item>
+                <block wx:if="{{statusArr[section] == 1}}">
+                    <scroll-view class="scroll-view" scroll-y="true"> 
+                        <view class="page">
+                            <view class="list-masonry">
+                                <block wx:for="{{sauce}}" wx:for-item="item" wx:for-index="index" wx:key="{{sauce+section}}">
+                                    <view class="item-masonry" bindtap="didSelectedItem" data-oid="{{item.sauceId}}">
+                                        <image class="image" mode="widthFix" src="{{imgDomain+item.defPhoto}}"></image>
+                                        <view class="sauce-name">{{item.sauceName}}</view>
+                                        <view class="sauce-count-bg">
+                                            <image class="sauce-count-img" src="../../../img/follow_recommend.png"></image>
+                                            <view class="sauce-count-figure">{{item.aboutInfo.count != null ? item.aboutInfo.count.likeCount : '0'}}</view>
+                                            <image class="sauce-count-img" src="../../../img/eye_black.png"></image>
+                                            <view class="sauce-count-figure">{{item.aboutInfo.count != null ? item.aboutInfo.count.browerCount : '0'}}</view>
+                                        </view>
+                                        <view class="creater-info">
+                                            <image class="creater-icon" src="{{item.aboutInfo.user.avatar}}"></image>
+                                            <view class="creater-name">{{item.aboutInfo.user.nickname}}</view>
+                                        </view>
+                                        <view class="sauce-content">{{item.aboutInfo.sauceComment == null ? '' : item.aboutInfo.sauceComment }}</view>
+                                    </view>
+                                </block>
+                            </view>
+                        </view>
+                    </scroll-view> 
+                </block>
+
+                <block wx:else>
+                    <empty-view 
+                        status="{{statusArr[section]}}"
+                        bind:confirmEvent='confirmEvent'></empty-view>
+                </block>
+            </swiper-item>
+        </block>
+    </swiper>
+    <image class="add-icon" bindtap="showAction"  src="../../../img/tabbar/tabbar_add_s.png"></image>
+</view>
+
+
+
+
+
+
+ -->
+
+
+
+
+
+
+
+<view class="bg">
+    <view class="menu-bg">
+        <block wx:for="{{menuList}}" wx:for-item="item" wx:for-index="index" wx:key="menuList">
+            <view class="menu-item {{item.isChecked ? 'isChecked' : ''}}" bindtap="menuClicked" data-index="{{index}}">{{item.title}}</view>
+        </block>
+    </view>
+    <block wx:if="{{status == 1}}">
+        <view class="list-masonry">
+            <block wx:for="{{sauceList}}" wx:for-item="item" wx:for-index="index" wx:key="{{sauceList}}">
+                <view class="item-masonry" bindtap="didSelectedItem" data-oid="{{item.sauceId}}">
+                    <image class="image" mode="aspectFill" src="{{imgDomain+item.defPhoto}}"></image>
+                    <view class="sauce-name">{{item.sauceName}}</view>
+                    <view class="sauce-count-bg">
+                        <image class="sauce-count-img" src="../../../img/follow_recommend.png"></image>
+                        <view class="sauce-count-figure">{{item.aboutInfo.count != null ? item.aboutInfo.count.likeCount : '0'}}</view>
+                        <image class="sauce-count-img eye-icon" src="../../../img/eye_black.png"></image>
+                        <view class="sauce-count-figure">{{item.aboutInfo.count != null ? item.aboutInfo.count.browerCount : '0'}}</view>
+                    </view>
+                    <view class="creater-info">
+                        <image class="creater-icon" src="{{item.aboutInfo.user.avatar}}"></image>
+                        <view class="creater-name">{{item.aboutInfo.user.nickname}}</view>
+                    </view>
+                    <view class="sauce-content" hidden='{{item.aboutInfo.sauceEvaluate == null}}'>{{item.aboutInfo.sauceEvaluate == null ? '' : item.aboutInfo.sauceEvaluate.evaluateContent}}</view>
+                </view>
+            </block>
+        </view>
+        <view class="loading" hidden="{{!showLoading}}">加载中</view>  
+        <view class="loading complete" hidden="{{!noMoreData}}">已加载全部</view> 
+    </block>
+
+    <block wx:else>
+        <empty-view 
+            status="{{statusArr[section]}}"
+            autoLayout="false"
+            bind:confirmEvent='confirmEvent'></empty-view>
+    </block>
+    
+    <!-- <image class="add-icon" bindtap="showAction"  src="../../../img/tabbar/tabbar_add_s.png"></image> -->
+</view>
+
+ <block wx:if="{{!isLogin}}">
+  <dialog id='dialog' 
+      title='登录提示' 
+      content='小程序需要您的授权才能提供更好的服务哦' 
+      confirmText='知道了'
+      bind:cancleEvent = 'cancleEvent'
+      bind:confirmEvent='hiddenToast'
+      bind:bindGetUserInfo='bindGetUserInfo'></dialog>
+</block>
+
+
+
+
+
+
+
+
+
+
+
+
+

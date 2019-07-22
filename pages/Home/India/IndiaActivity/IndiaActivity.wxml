@@ -1,0 +1,46 @@
+<!-- <view class='tui-fixed'> -->
+
+<!--游戏开始  -->
+<!-- <view style='height:{{HEIGHT}}px;width:{{WIDTH}}px;position:relative;float:left;' bindtouchstart='onTouchStart'
+		 bindtouchmove='onTouchMove' bindtouchend='onTouchEnd'>
+		 <view class="timer-bg">
+			<view class="timer">{{m}}</view>
+			<view class="colon">:</view>
+			<view class="timer">{{s}}</view> -->
+<!-- <view class="colon">:</view> -->
+<!-- <view class="timer">{{ms}}</view> -->
+<!-- </view>
+			<view wx:for="{{imgPoints}}" wx:for-item="items" wx:key="content">
+				<view class='tui-puzzle-li' wx:for="{{items}}" wx:for-item="list" wx:key="items" style="top:{{list.y * height}}px;left:{{list.x * width}}px;background:url('{{photoUrl}}') no-repeat  {{-(list.px * width)}}px {{-(list.py * height)}}px/{{WIDTH}}px {{HEIGHT}}px;width:{{width}}px;height:{{height}}px;">
+				</view>
+			</view>
+			<view class='tui-puzzle-li' style="top:{{currentY}}px;left:{{currentX}}px;background:url('{{imgUrl}}') no-repeat  {{-(currentPX * width)}}px {{-(currentPY * height)}}px/{{WIDTH}}px {{HEIGHT}}px;width:{{width}}px;height:{{height}}px;display:{{status ? 'block' : 'none'}};z-index:1000;"></view>
+		</view>
+</view> -->
+
+
+<!-- <india wx:if="{{show}}"
+	   times="{{chance}}"
+	   interval="{{m}}:{{s}}"
+	   bind:goOn="goOn"
+	   bind:invitation="invitation"
+	   bind:goComment="goComment"></india> -->
+
+<!-- <view style='height:{{HEIGHT}}px;width:{{WIDTH}}px;position:relative;float:left;' bindtouchstart='onTouchStart'
+ bindtouchmove='onTouchMove' bindtouchend='onTouchEnd'>
+	<view wx:for="{{imgPoints}}" wx:for-item="items" wx:key="content">
+		<view class='tui-puzzle-li' wx:for="{{items}}" wx:for-item="list" wx:key="items" style="top:{{list.y * height}}px;left:{{list.x * width}}px;background:url('{{photoUrl}}') no-repeat  {{-(list.px * width)}}px {{-(list.py * height)}}px/{{WIDTH}}px {{HEIGHT}}px;width:{{width}}px;height:{{height}}px;">
+		</view>
+	</view>
+	<view class='tui-puzzle-li' style="top:{{currentY}}px;left:{{currentX}}px;background:url('{{imgUrl}}') no-repeat  {{-(currentPX * width)}}px {{-(currentPY * height)}}px/{{WIDTH}}px {{HEIGHT}}px;width:{{width}}px;height:{{height}}px;display:{{status ? 'block' : 'none'}};z-index:1000;"></view>
+</view> -->
+
+
+		<view style='height:{{HEIGHT}}px;width:{{WIDTH}}px;position:relative;float:left;' bindtouchstart='onTouchStart'
+		 bindtouchmove='onTouchMove' bindtouchend='onTouchEnd'>
+			<view wx:for="{{imgPoints}}" wx:for-item="items" wx:key="content">
+				<view class='tui-puzzle-li' wx:for="{{items}}" wx:for-item="list" wx:key="items" style="top:{{list.y * height}}px;left:{{list.x * width}}px;background:url('{{photoUrl}}') no-repeat  {{-(list.px * width)}}px {{-(list.py * height)}}px/{{WIDTH}}px {{HEIGHT}}px;width:{{width}}px;height:{{height}}px;">
+				</view>
+			</view>
+			<view class='tui-puzzle-li' style="top:{{currentY}}px;left:{{currentX}}px;background:url('{{imgUrl}}') no-repeat  {{-(currentPX * width)}}px {{-(currentPY * height)}}px/{{WIDTH}}px {{HEIGHT}}px;width:{{width}}px;height:{{height}}px;display:{{status ? 'block' : 'none'}};z-index:1000;"></view>
+		</view>

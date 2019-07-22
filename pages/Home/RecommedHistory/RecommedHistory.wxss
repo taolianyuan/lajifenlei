@@ -1,0 +1,19 @@
+.recommend-cell{width: 100%; height: auto; background: #fff; display: inline-flex; padding: 30rpx;}
+
+.recommend-cell-icon{width: 200rpx; height: 200rpx; background-color: #ececec;}
+
+.recommend-cell-right-view{width: 490rpx; height: 200rpx;}
+
+.recommend-cell-title{width: 100%; height: 60rpx; margin-left: 30rpx; font-size: 38rpx; color: #333;}
+
+.recommend-cell-tags{width: 100%; height: 60rpx; display: flex; align-items: center; flex-wrap: wrap; overflow: hidden; white-space: nowrap;}
+
+.recommend-cell-tag{width: auto; height: auto; padding: 5rpx 10rpx; color: red; border: 1px solid red; font-size: 20rpx; border-radius: 6rpx; margin: 20rpx;}
+
+.recommend-cell-creater-bg{width: 100%; height: 80rpx; display: flex; align-items: flex-end;}
+
+.recommend-cell-creater-head{width: 60rpx; height: 60rpx; border-radius: 50%; background-color: #ececec; margin-left: 30rpx; margin-top: 10rpx;}
+
+.recommend-cell-creater-text{width: auto; height: auto; color: #666; font-size: 20rpx; margin-left: 5rpx;}
+
+.recommend-cell-creater-icon{width: 30rpx; height: 30rpx; margin-left: 30rpx;}

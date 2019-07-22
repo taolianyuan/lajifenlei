@@ -1,0 +1,44 @@
+<view class="bg">
+  	<view class="swiper-scroll-view" scroll-y="true">
+    		<view class="header">
+    			 <view class=header-title">新建酱汁</view>
+    			 <image class="header-img" bindtap="goReleaseMenu" src="../../../img/camera_release.png"></image>
+    		</view>
+        
+        <block wx:if="{{status == 1}}">
+      		<view class="cell" wx:for="{{sauceList}}" wx:for-item="year" wx:for-index="section" wx:key="year">
+            <view class="dish-header">{{year.year}}</view>
+
+              <view class="cell" wx:for="{{year.info}}" wx:for-index="index" wx:for-item="item" wx:key="sauceList">
+
+              
+            <view class='dish-cell-date-wrap' wx:if="{{item.info[0].aboutInfo.dateFormat == ''}}">
+              <view class='dish-cell-date'>{{item.info[0].aboutInfo.day}} </view>
+              <view class='dish-cell-date dish-cell-date-mouth'>{{item.info[0].aboutInfo.month}}月</view>
+            </view>
+
+            <view class='dish-cell-date' wx:else>{{item.info[0].aboutInfo.dateFormat}}</view>
+
+
+              <view class="dish-cell-content-bg" wx:for='{{item.info}}' wx:for-item="info" wx:key='dishList' bindtap="goSauceDetail" data-id="{{info.sauceId}}">
+                <image class="dish-header-img" mode="aspectFill" src="{{imgDomain+info.defPhoto}}"></image>
+                <view class="dish-cell-content">
+                  <view class="dish-cell-content-title">{{info.sauceName}}</view>
+                  <view class="dish-cell-content-time">{{info.aboutInfo.hour}}:{{info.aboutInfo.minute}}</view>
+                </view>
+              </view>
+
+
+            </view>
+
+
+          </view>
+          <view class="loading" hidden="{{!showLoading}}">加载中</view>  
+          <view class="loading complete" hidden="{{!noMoreData}}">已加载全部</view> 
+         </block>
+        <block wx:else>
+          <empty-view status="{{status}}" bind:confirmEvent='confirmEvent'></empty-view>
+        </block>    
+  	</view>
+</view>
+

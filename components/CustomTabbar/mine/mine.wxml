@@ -1,0 +1,84 @@
+ <view class="bg">
+
+  <block wx:if="{{status == 1}}">
+    <view class="header-bg-h">
+      <image bindtap="goUserInfo" class="button-authorization" src="{{user.avatarUrl}}" mode="cover"></image>
+      <view class='header-userInfo-bg'>
+          <view class='header-userInfo-name'>{{user.nickName}}</view>
+          <view class='header-userInfo-level-bg'>
+              <view class='header-userInfo-level-title'>我的等级</view>
+              <image class='header-userInfo-level-icon' src="{{imgDomain + userInfo.userLevel.levelPhoto}}"></image>
+              
+          </view>
+          <view class='header-useInfo-others-bg'>
+              <view class="header-useInfo-others v" bindtap="goMyAttention">
+                <view class="header-useInfo-others-item">{{userInfo.followCount}}</view>
+                <view class="header-useInfo-others-item">关注</view>
+              </view>
+              <!-- <view class="header-userInfo-production-fans-icon">|</view> -->
+              <view class="header-useInfo-others v" bindtap="goMyFans">
+                <view class="header-useInfo-others-item">{{userInfo.fansCount}}</view>
+                <view class="header-useInfo-others-item">粉丝</view>
+              </view>
+              <view class='header-useInfo-others'>
+                <view class="header-useInfo-others-item">{{userInfo.integral}}</view>
+                <view class="header-useInfo-others-item">经验值</view>
+              </view>
+          </view>
+      </view>
+    </view>
+    <view class='header-userInfo-tags-bg' wx:if="{{userInfo.tags != '' && userInfo.tags != null}}">
+      <view class="header-userInfo-tag">{{userInfo.tags}}</view>
+    </view>
+    
+  <!-- </block> -->
+	
+  	<view class="menuBg">
+  		<view class="menu-item" bindtap="clickMenu" wx:for="{{menuList}}" wx:key="menu" wx:for-item="item" wx:for-index="index" data-id="{{index}}">
+        <block wx:if="{{index < 2}}">
+        <view class='menu-item-badge'>{{item.badge}}</view>  
+        </block>
+        <block wx:else>
+          <image class='menu-item-badge' src='../../../img/mine_collection.png'></image>
+        </block>
+        <view class="menu-item-title">{{item.title}}</view>
+
+      </view>
+  	</view>
+  	<view class="cellBg" bindtap="clickList" wx:for="{{selectionList}}" wx:for-index="index" wx:key="selection" wx:for-item="item" data-id="{{item.id}}" >
+  		<image class="cellIcon" src="{{item.icon}}"/>
+      <block wx:if="{{item.id == 4}}">
+        <button class="cellTitle" hover-class='btn_hover' open-type='share'>{{item.title}}</button>
+      </block>
+
+      <block wx:elif="{{item.id == 5}}">
+        <button class="cellTitle" hover-class='btn_hover' open-type='feedback'>{{item.title}}</button>
+      </block>
+
+      <block wx:else>
+        <view class="cellTitle">{{item.title}}</view>
+      </block>
+  		
+  		<image class="arrow-right" src="../../../img/arrow-right.png"></image>
+  	</view>
+  </block>
+
+  <block wx:else>
+      <empty-view 
+          status="{{status}}"
+          autoLayout='false'
+          bind:confirmEvent='confirmEvent'></empty-view>
+  </block>
+ 
+</view>
+
+
+
+
+
+
+
+
+
+
+

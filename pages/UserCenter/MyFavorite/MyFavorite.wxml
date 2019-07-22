@@ -1,0 +1,88 @@
+<view class="bg">
+	<block wx:if="{{status_all == 1}}">
+	   <view class='menu-bg'>
+	        <view class='menu-item-bg'  wx:for="{{menuList}}" wx:key="menuList" wx:for-item="item" wx:for-index="index" >
+	            <view class="menu-item {{item.isChecked ? 'isChecked' : ''}}" bindtap="swiperChange" data-index="{{index}}">{{item.title}}</view>
+	        </view>
+	    </view>
+	    <swiper class="swiper" current="{{current}}" bindchange="bindchange">
+	  		<swiper-item >
+	  			<block wx:if="{{dishList.length != 0 && dishList != undefined}}">
+	  				<scroll-view class="swiper-scroll-view" scroll-y="true">
+				        <view class='recommend-cell' wx:for="{{dishList}}" wx:for-item="item" wx:for-index="index" wx:key="dishList" data-id="{{item.dish.dishId}}" data-type="{{item.count.objectType}}" bindtap="goDetail">
+				            <image class='recommend-cell-icon' mode='aspectFill' src="{{imgDomain + item.dish.defPhoto}}"></image>
+				            <view class='recommend-cell-right-view'>
+				                <view class='recommend-cell-title'>{{item.dish.dishName}}</view>
+				                <view class="recommend-cell-tags">
+				                  <view class="recommend-cell-tag" wx:for="{{item.sauceList}}" wx:for-item="sauce" wx:key="sauceList">{{sauce.sauceName}}</view>
+				                </view>
+				                <view class='recommend-cell-creater-bg'>
+				                  <image class="recommend-cell-creater-head" src="{{item.user.avatar}}"></image>
+				                  <view class='recommend-cell-creater-text'>{{item.user.nickname}}</view>
+				                  <image class="recommend-cell-creater-icon" src="../../../img/follow_recommend.png"></image>
+				                  <view class='recommend-cell-creater-text'>{{item.count == null ? 0 : item.count.likeCount}}</view>
+				                  <image class="recommend-cell-creater-icon" src="../../../img/eye_black.png"></image>
+				                  <view class='recommend-cell-creater-text'>{{item.count == null ? 0 : item.count.browerCount}}</view>
+				                </view>
+				            </view>
+				        </view>
+					</scroll-view>
+				</block>
+				
+				<block wx:else>
+	              <empty-view status="{{status_dish}}"></empty-view>
+	            </block>
+		  		
+		    </swiper-item>
+
+		    <swiper-item >
+	  			<block wx:if="{{sauceList.length != 0 && sauceList != undefined}}">
+	  				<scroll-view class="swiper-scroll-view" scroll-y="true">
+				        <view class='recommend-cell' wx:for="{{sauceList}}" wx:for-item="item" wx:for-index="index" wx:key="dishList" data-id="{{item.sauce.sauceId}}" data-type="{{item.count.objectType}}" bindtap="goDetail">
+				            <image class='recommend-cell-icon' mode='aspectFill' src="{{imgDomain + item.sauce.defPhoto}}"></image>
+				            <view class='recommend-cell-right-view'>
+				                <view class='recommend-cell-title'>{{item.sauce.sauceName}}</view>
+				                <view class="recommend-cell-tags">
+				                 
+				                </view>
+				                <view class='recommend-cell-creater-bg'>
+				                  <image class="recommend-cell-creater-head" src="{{item.user.avatar}}"></image>
+				                  <view class='recommend-cell-creater-text'>{{item.user.nickname}}</view>
+				                  <image class="recommend-cell-creater-icon" src="../../../img/follow_recommend.png"></image>
+				                  <view class='recommend-cell-creater-text'>{{item.count == null ? 0 : item.count.likeCount}}</view>
+				                  <image class="recommend-cell-creater-icon" src="../../../img/eye_black.png"></image>
+				                  <view class='recommend-cell-creater-text'>{{item.count == null ? 0 : item.count.browerCount}}</view>
+				                </view>
+				            </view>
+				        </view>
+					</scroll-view>
+				</block>
+				
+				<block wx:else>
+	              <empty-view status="{{status_sauce}}" ></empty-view>
+	            </block>
+		    </swiper-item>
+	    </swiper>
+	</block>
+	<block wx:else>
+        <empty-view 
+              status="{{status_all}}"
+              autoLayout='false'
+              bind:confirmEvent='confirmEvent'></empty-view>
+    </block>
+</view>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

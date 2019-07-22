@@ -1,0 +1,211 @@
+<block wx:if="{{status_all == 1}}">
+
+  <view class="bg">
+    <view class='header'>
+      <view class='header-left-view'>
+        <image class='header-img' src="{{userInfo.avatarUrl}}"></image>
+      </view>
+
+      <block wx:if="{{userInfo.isOfficial == 0}}">
+        <view class="header-mid-view">
+          <view class="header-mid-name">{{userInfo.nickName}}</view>
+         
+          <!-- <view class="header-mid-name-level-friend">
+            <view class="header-mid-info-item">
+              <view class="header-mid-info-level-title">等级:{{userInfo.userLevel.levelName}}</view>
+            </view>
+            <view class="header-mid-info-item">经验值:{{userInfo.integral}}</view>
+          </view>
+          <view class="header-mid-name-level-friend">
+            <view class="header-mid-info-item" bindtap="goMyFans">粉丝:{{userInfo.fansCount}}</view>
+            <view class="header-mid-v-line"></view>
+            <view class="header-mid-info-item" bindtap="goMyAttention">关注:{{userInfo.followCount}}</view>
+          </view> -->
+        </view>
+
+        <view class="header-right-view">
+          <view class='header-right-btn' bindtap='shareFriends'>分享</view>
+          <!-- <view class="header-right-btn" bindtap='changeStatus'>{{ follow ? '取消关注' : '关注' }}</view> -->
+        </view>
+      </block>
+
+      <block wx:elif="{{userInfo.isOfficial == 1}}">
+        <!-- <view class="offical-bg">
+          <view class="offical-name">{{userInfo.nickName}}</view>
+          <view class="offical">官 方</view>
+        </view> -->
+
+         <view class='header-right-btn official-btns' bindtap='shareFriends'>分享</view>
+      </block>
+    </view>
+
+    <!-- <view class="menuBg">
+      <view class="menu-item" bindtap="clickMenu" wx:for="{{menuList}}" wx:key="menu" wx:for-index='index' wx:for-item="item" data-index="{{index}}">
+        <view class="menu-item-badge {{item.isChecked?'isChecked':''}}">{{item.badge}}</view>  
+        <view class="menu-item-title {{item.isChecked?'isChecked':''}}">{{item.title}}</view>
+      </view>
+    </view> -->
+
+
+
+    <swiper current="{{currentPage}}" class="swiper" bindchange="bindchange">
+      <swiper-item >
+        <block wx:if="{{status_dish == 1}}">
+          <scroll-view class="swiper-scroll-view" scroll-y="true" bindscrolltolower="loadMoreDish">
+            <view class="cell" wx:for="{{dishList}}" wx:for-item="year" wx:for-index="section" wx:key="dishList">
+              <view class="dish-header">{{year.year}}</view>
+
+                <view class="cell" wx:for="{{year.info}}" wx:for-index="index" wx:for-item="item" wx:key="dishList" >
+
+                <view class='dish-cell-date-wrap' wx:if="{{item.info[0].aboutInfo.dateFormat == ''}}">
+                  <view class='dish-cell-date'>{{item.info[0].aboutInfo.day}} </view>
+                  <view class='dish-cell-date dish-cell-date-mouth'>{{item.info[0].aboutInfo.month}}月</view>
+                </view>
+
+                <view class='dish-cell-date' wx:else>{{item.info[0].aboutInfo.dateFormat}}</view>
+                
+                <block wx:for='{{item.info}}' wx:for-item="info" wx:key='dishList'>
+                <view class="dish-cell-content-bg" bindtap="goDishDetail" wx:for-index="index" data-index="{{info.dishId}}">
+                  <image class="dish-header-img" lazy-load='true' mode="aspectFill" src="{{imgDomain+info.defPhoto}}"></image>
+                  <view class="dish-cell-content">
+                    <view class="dish-cell-content-title">{{info.dishName}}</view>
+                    <view class="dish-cell-content-time" >{{info.aboutInfo.hour}}:{{info.aboutInfo.minute}}</view>
+
+                  </view>
+                </view>
+                </block>
+
+              </view>
+
+            </view>
+
+            <view class="loading" hidden="{{!loading_dish}}">加载中</view>  
+            <view class="loading complete" hidden="{{!noMore_dish}}">已加载全部</view> 
+          </scroll-view>
+        </block>
+
+        <block wx:else>
+            <empty-view 
+                  status="{{status_dish}}"
+                  bind:confirmEvent='refreshDish'></empty-view>
+        </block>
+
+      </swiper-item>
+
+      <swiper-item >
+        <block wx:if="{{status_post == 1}}">
+          <scroll-view class="swiper-scroll-view" scroll-y="true" bindscrolltolower="loadMorePost">
+          <block>
+            <view class="cell" wx:for="{{dynamicList}}" wx:for-item="year" wx:key="dynamicList">
+
+            <view class="dish-header">{{year.year}}</view>
+            <block wx:for='{{year.info}}' wx:key='dynamicList' wx:for-item ="item">
+
+                <view class='dish-cell-date-wrap' wx:if="{{item.info[0].aboutInfo.dateFormat == ''}}">
+                  <view class='dish-cell-date'>{{item.info[0].aboutInfo.day}} </view>
+                  <view class='dish-cell-date dish-cell-date-mouth'>{{item.info[0].aboutInfo.month}}月</view>
+                </view>
+
+                <view class='dish-cell-date' wx:else>{{item.info[0].aboutInfo.dateFormat}}</view>
+
+               <block wx:for='{{item.info}}' wx:key='dynamicList' wx:for-item ="info">
+            
+              <view class="post-cell-content-bg" bindtap='skipDynamicDetail' data-id='{{info.post.postId}}'>
+
+           
+                <view class="post-header-img-box">
+                  <block wx:if="{{info.postContent.photoList.length > 0 && info.postContent.photoList != null}}">
+                    <image lazy-load='true' class="{{info.postContent.photoList.length == 1 ? 'post-header-img-l' : (info.postContent.photoList.length == 4 ? 'post-header-img-s' : 'post-header-img-m')}}" mode="aspectFill" wx:for="{{info.postContent.photoList}}" wx:for-item="url" wx:key="photoList" src="{{imgDomain+url}}" />
+                  </block>
+                </view>
+                <view class="post-cell-content">
+                  <view class="post-cell-content-title">{{info.postContent.postText}}</view>
+                  <view class="post-cell-content-time">{{info.aboutInfo.hour}}:{{info.aboutInfo.minute}}</view>
+                </view>
+               </view>
+               </block>
+            </block>
+            </view>
+
+            <view class="loading" hidden="{{!loading_post}}">加载中</view>  
+            <view class="loading complete" hidden="{{!noMore_post}}">已加载全部</view> 
+            </block>
+          </scroll-view>
+        </block>
+
+        <block wx:else>
+          <empty-view status="{{status_post}}" bind:confirmEvent='refreshPost'></empty-view>
+        </block>
+      </swiper-item>
+
+      <swiper-item >
+        <block wx:if="{{status_sauce == 1}}">
+          <scroll-view class="swiper-scroll-view" scroll-y="true" bindscrolltolower="loadMoreSauce">
+            <view class="cell" wx:for="{{sauceList}}" wx:for-item="year" wx:for-index="section" wx:key="sauceList">
+              <view class="dish-header">{{year.year}}</view>
+                <view class="cell" wx:for="{{year.info}}" wx:for-index="index" wx:for-item="item" wx:key="sauceList" >
+
+
+                <view class='dish-cell-date-wrap' wx:if="{{item.info[0].aboutInfo.dateFormat == ''}}">
+                  <view class='dish-cell-date'>{{item.info[0].aboutInfo.day}} </view>
+                  <view class='dish-cell-date dish-cell-date-mouth'>{{item.info[0].aboutInfo.month}}月</view>
+                </view>
+
+                <view class='dish-cell-date' wx:else>{{item.info[0].aboutInfo.dateFormat}}</view>
+
+              <block wx:for='{{item.info}}' wx:for-item="info" wx:key='sauceList'>
+                <view class="dish-cell-content-bg" bindtap="goSauceDetail" data-index="{{info.sauceId}}">
+                  <image lazy-load='true' class="dish-header-img" mode="aspectFill" src="{{imgDomain+info.defPhoto}}"></image>
+                  <view class="dish-cell-content">
+                    <view class="dish-cell-content-title">{{info.sauceName}}</view>
+                    <view class="dish-cell-content-time">{{info.aboutInfo.hour}}:{{info.aboutInfo.minute}}</view>
+                  </view>
+                </view>
+               </block>
+              </view>
+            </view>
+            <view class="loadi" hidden="{{!loading_sauce}}">加载中</view>  
+            <view class="loading complete" hidden="{{!noMore_sauce}}">已加载全部</view> 
+          </scroll-view>
+        </block>
+
+        <block wx:else>
+          <empty-view status="{{status_sauce}}" bind:confirmEvent='refreshPost'></empty-view>
+        </block>
+      </swiper-item>
+    </swiper>
+
+  </view>
+</block>
+
+<block wx:else>
+   <empty-view 
+	              	status="{{ status }}"
+	                confirmText="{{status == 4 ? '去登陆':'刷新试试?'}}"
+	                autoLayout="false"
+	                bind:confirmEvent='EmptyconfirmEvent'></empty-view>
+</block>
+
+
+
+
+<block wx:if="{{!isLogin}}">
+  <dialog id='dialog' 
+      title='登录提示' 
+      content='小程序需要您的授权才能提供更好的服务哦' 
+      confirmText='去授权'
+      bind:cancleEvent = 'cancleEvent'
+      bind:confirmEvent='confirmEvent'
+      bind:bindGetUserInfo='bindGetUserInfo'></dialog>
+</block>
+
+
+
+
+
+
+
+
+
+
+

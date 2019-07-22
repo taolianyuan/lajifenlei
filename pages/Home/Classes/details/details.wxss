@@ -1,0 +1,141 @@
+/* pages/Home/Classes/details/details.wxss */
+
+page{
+  /* background: #999 */
+}
+
+.swiper {
+	width: 100%;
+	height:750rpx;
+}
+
+.scroll-view {
+	width: 100%;
+	height: 100vh;
+}
+
+
+.de-con{
+  padding: 0 30rpx;
+
+}
+
+.de-title{
+  font-size: 32rpx;
+  color:#333333 ;
+  padding: 20rpx 0;
+
+}
+
+
+.yuanjia{
+  color: #888888;
+  font-size: 26rpx;
+}
+
+.yuanjia text{
+ text-decoration:line-through
+}
+
+
+.juanhou{
+  color: #FF1B51;
+  font-size: 24rpx;
+  padding: 10rpx 0;
+}
+
+
+.juanhou text{
+  font-size: 36rpx;
+}
+
+
+
+de-bottom{
+  width: 100%;
+  height: 100%;
+  margin-top: 20rpx;
+
+}
+
+
+.de-botitle{
+  text-align: center;
+  font-size: 28rpx;
+  color: #888888;
+}
+
+
+.de-img image{
+  width: 100%;
+}
+
+
+.de-img1{
+  height: 897rpx;
+  display: block;
+}
+.de-img2{
+  height: 1305rpx;
+  display: block;
+}
+.de-img3{
+  height: 1137rpx;
+  display: block;
+}
+.de-img4{
+  height: 872rpx;
+  display: block;
+}
+
+.de-img5{
+  height: 872rpx;
+  display: block;
+}
+
+
+.de-btn{
+  width: 100%;
+  position: fixed;
+  bottom: 0;
+  z-index: 9999;
+  display: flex;
+  background: #fff;
+  height: 100rpx;
+  line-height: 100rpx;
+}
+
+.kefu{
+  flex:2;
+}
+
+ .kefu image{
+   width: 43rpx;
+   height: 36rpx;
+   display: block;
+   margin: 0 auto;
+   padding-top: 10rpx;
+ }
+
+.kefu button{
+  font-size: 26rpx;
+}
+
+.kefu .button-hover {
+  background: #fff;
+}
+
+
+.fxhy{
+  flex: 3;
+  text-align: center;
+  background: #22AC38;
+  color: #fff
+}
+
+.goplay{
+  flex: 4;
+  text-align: center;
+  background: #FF1B51;
+  color: #fff
+}

@@ -1,0 +1,106 @@
+{
+  "pages": [
+    "pages/Home/index/index",
+    "pages/Home/Classes/Lesson/Lesson",
+ 
+    "pages/Home/India/IndiaShare/IndiaShare",
+ 
+    "pages/Home/Classes/details/details",
+
+     "pages/Home/Classes/Order/Order",
+  
+     "pages/Home/Assistant/Assistant",
+    "pages/UserCenter/Mine/Mine",
+ 
+    "pages/Home/Classes/Lessons/Lessons",
+    "pages/Home/India/IndiaActivity/IndiaActivity",
+    "pages/Home/India/AboutIndia/AboutIndia",
+    "pages/Home/India/IndiaDish/IndiaDish",
+    
+    
+    "pages/SauceLib/SauceLib/SauceLib",
+    "pages/UserCenter/MyDynamic/MyDynamic",
+    "pages/UserCenter/UserInfo/UserInfo",
+    "pages/UserCenter/MyAttention/MyAttention",
+    "pages/UserCenter/MyFavorite/MyFavorite",
+    "pages/Piazza/OthersUserCenter/OthersUserCenter",
+    "pages/Release/ReleaseMenu/ReleaseMenu",
+    "pages/Release/ReleaseProduct/ReleaseProduct",
+    "pages/UserCenter/MyFans/MyFans",
+    "pages/UserCenter/MyProduct/MyProduct",
+    "pages/UserCenter/Friends/Friends",
+    "pages/Release/AddStep/AddStep",
+    "pages/Piazza/DynamicDetail/DynamicDetail",
+    "pages/Release/CookingType/CookingType",
+    "pages/Home/BoardHistory/BoardHistory",
+    "pages/Home/RecommedHistory/RecommedHistory",
+    "pages/UserCenter/Drafts/Drafts",
+    "pages/Home/Activity/Activity",
+    "pages/Release/ReleaseSauce/ReleaseSauce",
+    "pages/UserCenter/History/History",
+    "pages/Piazza/CommentList/CommentList",
+    "pages/UserCenter/MyTags/MyTags",
+    "pages/UserCenter/Introduce/Introduce",
+    "pages/Piazza/PostDetail/PostDetail",
+    "pages/SauceLib/SauceProfile/SauceProfile",
+    "pages/Piazza/TestDetail/TestDetail",
+    "pages/Piazza/Piazza/Piazza",
+    "pages/Activity/cropper/cropper",
+    "pages/Activity/createPic/createPic",
+    "pages/Activity/activity/activity",
+    "pages/Activity/test/test",
+    "pages/Activity/NewYearDinner/NewYearDinner",
+    "pages/Home/loverLandingPage/loverLandingPage",
+    "pages/UserCenter/MySauce/MySauce",
+    "pages/UserCenter/MyLevel/MyLevel",
+    "pages/UserCenter/MyExperence/MyExperence",
+    "pages/Release/SearchSauces/SearchSauces",
+    "pages/cropping/cropping",
+    "pages/sharePage/sharePage",
+    "pages/UserCenter/DataCenter/DataCenter",
+    "pages/Home/PotatoFactory/PotatoFactory",
+    "pages/Home/GeneratedBills/GeneratedBills",
+    "pages/Home/voteActivity/voteActivity",
+    "pages/UserCenter/Setting/Setting",
+    "pages/UserCenter/voiceSetting/voiceSetting",
+    "pages/Home/Rice/Rice",
+    "pages/Home/India/Puzzle/Puzzle"
+  ],
+  "window": {
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#fff",
+    "navigationBarTitleText": "吃库料理",
+    "navigationBarTextStyle": "black"
+  },
+  "usingComponents": {
+    "empty-view": "/components/EmptyView/EmptyView"
+  },
+  "tabBar": {
+    "selectedColor": "#A31B38",
+    "backgroundColor": "#FFFFFF",
+    "list": [
+      {
+        "pagePath": "pages/Home/index/index",
+        "iconPath": "/img/tabbar/tabbar_one_d.png",
+        "selectedIconPath": "/img/tabbar/tabbar_one_s.png",
+        "text": "首页"
+      },
+      {
+        "pagePath": "pages/SauceLib/SauceLib/SauceLib",
+        "iconPath": "/img/tabbar/tabbar_two_d.png",
+        "selectedIconPath": "/img/tabbar/tabbar_two_s.png",
+        "text": "酱汁"
+      },
+      {
+        "pagePath": "pages/UserCenter/Mine/Mine",
+        "iconPath": "/img/tabbar/tabbar_four_d.png",
+        "selectedIconPath": "/img/tabbar/tabbar_four_s.png",
+        "text": "我的"
+      }
+    ]
+  },
+  "navigateToMiniProgramAppIdList": [
+    "wx51c9801fd5d21a71"
+  ],
+  "sitemapLocation": "sitemap.json"
+}

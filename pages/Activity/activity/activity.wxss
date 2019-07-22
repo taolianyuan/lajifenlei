@@ -1,0 +1,21 @@
+/* pages/Home/activity/activity.wxss */
+
+.clip-box {
+  width: 100%;
+  height: 100%;
+}
+
+.tips{width: 100%; margin-top: 24rpx; font-size: 32rpx; color: #999; text-align: center; margin-bottom: 24rpx;}
+
+.swiper-wrap{position: relative; }
+
+.swiper-item{width: 100%; height: 100%;}
+
+.photos-item{width: 100%; height: 100%;}
+
+.swiper{position: absolute; left: 50%; top: 0; transform: translateX(-50%); border: 1px solid #FF5173;}
+
+.confirm{width: 600rpx; height: 100rpx; margin: 40rpx 75rpx 30rpx 75rpx; text-align: center; line-height: 100rpx;
+font-size: 38rpx; color: #fff; border-radius: 8rpx; background-color: #FF5173; }
+
+.waittingImage{position: absolute; left: 50%; top: 50%; transform: translate(-50%,-50%); width: 350rpx; height: 350rpx;}

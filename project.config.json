@@ -1,0 +1,162 @@
+{
+	"description": "项目配置文件",
+	"packOptions": {
+		"ignore": []
+	},
+	"setting": {
+		"urlCheck": false,
+		"es6": true,
+		"postcss": true,
+		"minified": true,
+		"newFeature": true,
+		"coverView": true,
+		"nodeModules": false,
+		"autoAudits": false,
+		"checkInvalidKey": true,
+		"checkSiteMap": true,
+		"uploadWithSourceMap": true,
+		"babelSetting": {
+			"ignore": [],
+			"disablePlugins": [],
+			"outputPath": ""
+		}
+	},
+	"compileType": "miniprogram",
+	"libVersion": "2.7.4",
+	"appid": "wx0c2ca8e3de7af2ab",
+	"projectname": "chiku-minipro",
+	"debugOptions": {
+		"hidedInDevtools": []
+	},
+	"isGameTourist": false,
+	"simulatorType": "wechat",
+	"simulatorPluginLibVersion": {},
+	"condition": {
+		"search": {
+			"current": -1,
+			"list": []
+		},
+		"conversation": {
+			"current": -1,
+			"list": []
+		},
+		"plugin": {
+			"current": -1,
+			"list": []
+		},
+		"game": {
+			"currentL": -1,
+			"list": []
+		},
+		"miniprogram": {
+			"current": -1,
+			"list": [
+				{
+					"id": 0,
+					"name": "扫码看菜谱详情",
+					"pathName": "pages/Piazza/DynamicDetail/DynamicDetail",
+					"query": "objectId=1616&objectType=dish",
+					"scene": 1011
+				},
+				{
+					"id": 1,
+					"name": "扫码进其他用户主页",
+					"pathName": "pages/Piazza/OthersUserCenter/OthersUserCenter",
+					"query": "userId=37636476554444800",
+					"scene": 1048
+				},
+				{
+					"id": -1,
+					"name": "扫码进国潮活动",
+					"pathName": "pages/Activity/activity/activity",
+					"query": "actId=3",
+					"scene": 1048
+				},
+				{
+					"id": 3,
+					"name": "扫码进情人节国潮活动",
+					"pathName": "pages/Activity/activity/activity",
+					"query": "actId=7",
+					"scene": 1048
+				},
+				{
+					"id": 4,
+					"name": "菜谱分享",
+					"pathName": "pages/sharePage/sharePage",
+					"query": "isfrom=dish&objectId=1274",
+					"scene": 1001
+				},
+				{
+					"id": 5,
+					"name": "动态详情",
+					"pathName": "pages/Piazza/PostDetail/PostDetail",
+					"query": "objectId=54",
+					"scene": 1048
+				},
+				{
+					"id": 6,
+					"name": "KOL分享",
+					"pathName": "pages/sharePage/sharePage",
+					"query": "isfrom=KOL&userId=39027883534974976",
+					"scene": null
+				},
+				{
+					"id": 7,
+					"name": "酱汁分享",
+					"pathName": "pages/sharePage/sharePage",
+					"query": "isfrom=sauce&objectId=25",
+					"scene": null
+				},
+				{
+					"id": 8,
+					"name": "普通用户分享",
+					"pathName": "pages/sharePage/sharePage",
+					"query": "isfrom=normal&userId=34559996267069440",
+					"scene": null
+				},
+				{
+					"id": 9,
+					"name": "动态分享",
+					"pathName": "pages/sharePage/sharePage",
+					"query": "isfrom=post&postId=20",
+					"scene": null
+				},
+				{
+					"id": 10,
+					"name": "土豆页面分享",
+					"pathName": "pages/sharePage/sharePage",
+					"query": "isfrom=potato&index=0",
+					"scene": null
+				},
+				{
+					"id": 11,
+					"name": "扫码看动态详情",
+					"pathName": "pages/Piazza/PostDetail/PostDetail",
+					"query": "objectId=66",
+					"scene": null
+				},
+				{
+					"id": 12,
+					"name": "1111",
+					"pathName": "pages/Home/voteActivity/voteActivity",
+					"query": "actId=12&userId=123456",
+					"scene": 1047
+				},
+				{
+					"id": 13,
+					"name": "扫码进情人节国潮活动",
+					"pathName": "pages/Home/Rice/Rice",
+					"query": "actId=14",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "印度扫码",
+					"pathName": "pages/Home/India/AboutIndia/AboutIndia",
+					"query": "actId=14",
+					"scene": null
+				}
+			]
+		}
+	}
+}

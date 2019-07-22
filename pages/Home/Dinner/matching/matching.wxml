@@ -1,0 +1,19 @@
+<!--pages/Home/Dinner/matching/matching.wxml-->
+
+<view class='matching'>
+  <view class='matching-title'> 
+    我们的匹配度50%
+  </view>
+
+  <view>
+    <view>绝配的饭友，马上约起来</view>
+  </view>
+</view>
+
+<view class='fotter'>
+      <!-- <view class='fotters'>马上约饭</view> -->
+      <button open-type='share'  class='fotters'>寻更多饭搭</button>
+      <view class='bts' bindtap='bthome'>返回主页面</view>
+</view>
+
+

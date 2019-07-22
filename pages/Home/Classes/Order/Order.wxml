@@ -1,0 +1,130 @@
+<view class="bg" style="background-color: #edeced;">
+  <view class="modal">
+    <view class="title">干湿分离双层垃圾桶</view>
+
+
+    <!-- <view class="class-bg">
+      <block wx:for="{{statusArr}}" wx:key="class" wx:for-index="index">
+        <image wx:if="{{item == 0}}" class="class-item" data-index="{{index}}" src="{{desArr[index]}}" bindtap="selectedGoods"></image>
+        <image wx:if="{{item == 1}}" class="class-item" data-index="{{index}}" src="{{selArr[index]}}" bindtap="selectedGoods"></image>
+      </block>
+    </view> -->
+
+    <view class="line"></view>
+    <view class="cell">
+      <view class="cell-key">购买数量
+        <text class="text-off">（每位用户只限购买一个）</text>
+        <!-- <text class="text-off">
+      (剩余:{{surplusProductPayCount}})
+      </text> -->
+      </view>
+      <view class="cell-value">
+        <view class="add-minus" bindtap="editNumber" data-index="0">-</view>
+        <view class="number-bg">{{number}}</view>
+        <view class="add-minus" bindtap="editNumber" data-index="1">+</view>
+      </view>
+    </view>
+    <view class="line"></view>
+
+    <view class="cell">
+      <view class="cell-key">手机号</view>
+      <input class="input" placeholder="请输入电话号码" maxlength="11" type="number" bindinput="phoneNumber" value="{{phone}}" />
+
+      <!-- <input class="input" placeholder="请输入电话号码" maxlength="11" type="number" bindinput="phoneNumbers" /> -->
+
+      <view class="cell-value">
+        <view class="vertical {{getVertical ? 'run' : ''}}" bindtap="getVerticalCode">{{verticalStatus}}</view>
+      </view>
+
+    </view>
+    <view class="line"></view>
+    <view class="cell">
+      <view class="cell-key">验证码</view>
+      <input class="input" placeholder="请输入短信验证码" maxlength="6" type="number" bindinput="verticalNumber" />
+    </view>
+    <view class="line"></view>
+    <view class="cell">
+      <view class="cell-key">联系人</view>
+      <input class="input" placeholder="请输入联系人" bindinput="userName"  value="{{userName}}"/>
+    </view>
+    <view class="line"></view>
+
+    <picker mode="region" bindchange="bindRegionChange" value="{{region}}" custom-item="{{customItem}}">
+      <view class="cell">
+        <view class="cell-key">地区</view>
+        <!-- <input class="input" bindblur="addressInfo"  placeholder="选择地区" value="{{provinceName}} {{cityName}} {{countyName}}"  style="width: 80%;"></input> -->
+         <view class="inputs">{{provinceName}} {{cityName}} {{countyName}} </view>
+      </view>
+    </picker>
+
+
+    <view class="line"></view>
+    <view class="cell">
+      <view class="address cell-key">收货地址</view>
+      <input class="input" type="text" placeholder="请输入收货地址" bindinput="detailInfo" value="{{detailInfo}}"></input>
+
+       <view class="cell-value">
+        <view class="vertical" bindtap="chooseAddress">获取地址</view>
+      </view>
+    </view>
+  </view>
+
+  <!-- <button type="primary" bindtap="chooseAddress">获取收货地址</button> -->
+
+  <!-- <view class="modal">
+		<view class="title">支付方式</view>
+		<view class="line"></view>
+		<view class="cell"></view>
+		
+	</view> -->
+
+  <view class="modal">
+    <view class="cell">
+      <view class="cell-key"> 原价</view>
+      <view class="cell-value"> {{perPrice}} 元/人*{{number}}</view>
+    </view>
+    <view class="line"></view>
+
+   <view class="cell">
+      <view class="cell-key">优惠金额</view>
+      <view class="cell-value">
+        <text style="color: #E27928;">-{{discountAmount}} <text> 元</text></text>
+      </view>
+    </view>
+
+    <view class="line"></view>
+    <!-- <view class="cell">
+      <view class="cell-key">吃库料理优惠价</view>
+      <view class="cell-value">
+        <text style="color: #E27928;">-{{totalPrice}} <text> 元</text></text>
+      </view>
+    </view> -->
+
+      <view class="cell">
+      <view class="cell-key">邮费</view>
+      <!-- <view class="cell-value">-{{discountAmount}} 元</view> -->
+       <view class="cell-value">+{{postage}} 元</view>
+     </view>
+
+    <view class="line"></view>
+      <view class="cell">
+      <view class="cell-key">合计价格</view>
+      <view class="cell-value"> {{totalPrice1}} 元</view>
+    </view>
+
+    <view class="line"></view>
+    <view class="tips">本活动最终解释权归吃库料理所有</view>
+  </view>
+</view>
+
+<view class="bottom-bg">
+  <view class="price">
+    <text class="text-title">应付金额：￥</text>
+    <text class="text-price">{{totalPrice1}}</text>
+    <!-- <text class="text-off">（已优惠{{totalPrice}}）</text> -->
+  </view>
+
+  <!-- <view class="submit-order {{canSubmit ? '' : 'des'}}" bindtap="checkVerticalCode">提交订单</view> -->
+  <view class="submit-order" bindtap="checkVerticalCode">提交订单</view>
+
+</view>

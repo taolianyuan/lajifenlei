@@ -1,0 +1,6 @@
+{
+  "usingComponents": {
+		"dialog": "/components/dialog/dialog"
+	},
+	"navigationBarTitleText": "定制你的账单"
+}

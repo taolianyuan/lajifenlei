@@ -1,0 +1,22 @@
+<view class='bg'>
+	<view class='title'>如查询菜谱/酱汁,请填入objectId(如objectId=3,填入 3 ),
+	以此类推,如查询活动,请填入actId,
+	如查询用户,请填入userId</view>
+
+	<input class="input" type="number" bindinput="idInput"></input>
+
+	<view class='title'>如查询菜谱/酱汁,请填入objectType(请填入objectType=dish,填入 dish )</view>
+
+	<input class="input" type="text" bindinput="typeInput" placeholder="只在查询菜谱/酱汁时使用"></input>
+
+
+	<view class="button-bg">
+		<view class="button" bindtap='queryUser'>查用户</view>
+		<view class="button" bindtap='queryObject'>查菜谱/酱汁</view>
+		<view class="button" bindtap='queryActivity'>查活动</view>
+	</view>
+
+
+	<view class='title'>查询结果: </view>
+	<view class='title' style='color: #ff5173;'>{{ result == '' ? '结果在此显示' : result }}</view>
+</view>

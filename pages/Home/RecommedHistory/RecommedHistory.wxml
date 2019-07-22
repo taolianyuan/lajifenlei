@@ -1,0 +1,32 @@
+<!-- <refresh-view id='refreshView' backgroundColor="#000" bind:onRefresh="onPullDownRefresh"   bind:onPullState="_pullState" /> -->
+
+<block wx:if="{{status == 1}}">
+    <view class="bg">
+        <view class='recommend-cell' wx:for="{{recommendList}}" wx:for-item="item" wx:for-index="index" wx:key="recommendList" data-oid="{{item.dishId}}" bindtap="goDetail">
+            <image class='recommend-cell-icon' mode='aspectFill' src="{{imgDomain + item.defPhoto}}"></image>
+            <view class='recommend-cell-right-view'>
+                <view class='recommend-cell-title'>{{item.dishName}}</view>
+                <view class="recommend-cell-tags">
+                    <view class="recommend-cell-tag" wx:if='{{item.sauceList[index] !== null}}' wx:for="{{item.sauceList}}" wx:for-item="sauce" wx:key="sauceList">{{sauce.sauceName}}</view>
+                </view>
+                <view class='recommend-cell-creater-bg'>
+                    <image class="recommend-cell-creater-head" src="{{item.avatar}}"></image>
+                    <view class='recommend-cell-creater-text'>{{item.nickname}}</view>
+                    <image class="recommend-cell-creater-icon" src="../../../img/follow_recommend.png"></image>
+                    <view class='recommend-cell-creater-text'>{{item.likeCount == null ? 0 : item.likeCount}}</view>
+                    <image class="recommend-cell-creater-icon" src="../../../img/eye_black.png"></image>
+                    <view class='recommend-cell-creater-text'>{{item.browerCount == null ? 0 : item.browerCount}}</view>
+                </view>
+            </view>
+        </view>
+        <view class="loading" hidden="{{!showLoading}}">加载中</view>  
+        <view class="loading complete" hidden="{{!noMoreData}}">已加载全部</view> 
+    </view>
+</block>
+
+<block wx:else>
+    <empty-view 
+          status="{{status}}"
+          autoLayout='false'
+          bind:confirmEvent='confirmEvent'></empty-view>
+</block>

@@ -1,0 +1,40 @@
+
+.swiper-scroll-view{width: 100%; height: 100vh; background-color: #fff;}
+
+
+.header{width: 100%; height: 210rpx; padding: 60rpx 30rpx 0 30rpx; display: flex;}
+
+.header-title{width: 200rpx; height: auto; font-size: 40rpx; }
+
+.header-img{width: 150rpx; height: 150rpx;}
+
+
+.cell{width: 100%; height: auto; background-color: #fff;}
+
+
+.dish-header{width: 100%; height: auto; margin-top: 60rpx; padding-left: 30rpx; color: #333; font-size: 60rpx; font-weight: bold;}
+
+.dish-cell-content-bg{width: 600rpx; height: auto; padding: 30rpx 30rpx 30rpx 0; background: #fff; margin-left: 150rpx; display: flex; border-bottom: 1px solid #ececec;}
+
+.dish-cell-content{width: 370rpx; height: auto;}
+
+.dish-cell-content-title{width: auto; height: 100rpx; margin-left: 20rpx; font-size: 32rpx; color: #333; }
+
+.dish-cell-content-time{width: auto; height: 100rpx; margin-left: 20rpx; font-size: 26rpx; color: #666; display: flex; align-items: flex-end;}
+
+.dish-header-img{width: 200rpx; height: 200rpx;}
+
+
+.dish-cell-date-wrap{display: flex; }
+
+.dish-cell-date{font-size: 35rpx; color: #333; padding-left: 30rpx; padding-top: 30rpx;}
+
+.dish-cell-date-mouth{font-size: 24rpx; color: #666666; margin-top: 17rpx; margin-left: -20rpx;}
+
+
+
+
+
+
+
+

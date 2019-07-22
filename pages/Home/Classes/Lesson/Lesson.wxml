@@ -1,0 +1,29 @@
+<!-- <web-view src="http://172.16.1.63:10010/" bindmessage="reportMessage"></web-view> -->
+<view class="bgs">
+
+  <!-- 优惠 -->
+  <!-- <view class="discount">
+    <view>{{couponCode}}</view>
+    <view>{{discountAmount}}</view> -->
+    <!-- <view class="receive" bindtap="receive">{{status==1?"领取":"去使用"}}</view> -->
+    <!-- <view class="receive" bindtap="receive">使用</view> -->
+    <!-- <button  class="receive" bindtap="receive">使用</button>
+    <button open-type="contact" bindcontact="handleContact" class="kefu">客服</button>
+  </view> -->
+	
+   <view class="fxiang">
+     <image src="https://img.jishantech.com/common/homePage/youhui.png" lazy-load="true"></image>
+      <view class="fxiang-con">
+        <view class="fxiang-le" bindtap="goShare">送好友</view>
+        <!-- <button data-id="shareBtn" open-type="share" class="fenxiang">分享</button> -->
+        <view class="fxiang-lr" bindtap="receive">去用券</view>
+      </view>
+   </view>
+</view>
+
+
+<!-- 小程序授权 -->
+<block wx:if="{{!isLogin}}">
+  <dialog id='dialog' title='登录提示' content='小程序需要您的授权才能提供更好的服务哦' confirmText='去授权' bind:cancleEvent='cancleEvent' bind:confirmEvent='confirmEvent' bind:bindGetUserInfo='bindGetUserInfo'></dialog>
+</block>
+

@@ -1,0 +1,17 @@
+.empty-view{height: 100%; width: 100%; display: flex; flex-direction: column; justify-content: center; align-items: center;}
+
+.empty-view.autoLayout{height: 100vh;}
+
+.title{width: 60%; height: 40rpx; text-align: center; font-size: 40rpx; color: #333; font-weight: bold;}
+
+.title.subTitle{font-size: 30rpx; color: #666; margin-top: 60rpx;}
+
+.title.btn{font-size: 26rpx; height: 50rpx; color: #ff5273; margin-top: 50rpx;}
+
+
+
+.loading-img{width: 240rpx; height: 240rpx;}
+
+
+
+

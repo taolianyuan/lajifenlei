@@ -1,0 +1,36 @@
+
+<block wx:if="{{status == 1}}">
+	<view class="bg">
+	  	<view class="section" wx:for="{{boardHistory}}" wx:for-item="year" wx:for-index="section" wx:key="boardHistory">
+	  		<view class="header">{{year.year}}</view>
+			<view class="cell" wx:for="{{year.info}}" wx:for-item="item" wx:for-index="row" wx:key="boardHyearistory" data-oid="{{item.dishId}}" bindtap="goDetail">
+				<view class="cell-time">{{item.aboutInfo.month}}月{{item.aboutInfo.day}}日</view>
+        <view class='contentWrap'>
+        	<image mode="aspectFill" class="cell-img" src="{{imgDomain+item.defPhoto}}"></image>
+           <view class='today-meal-mask'>
+            <view class="today-meal-title">{{item.dishName}}</view>
+            <view class="today-like-bg">
+              <view class='likeWrap'>
+                <image class="today-like-icon" src="../../../img/follow_board.png"></image>
+                <view class="today-like-count">{{item.aboutInfo.count.likeCount == null ? 0 : item.aboutInfo.count.likeCount}}</view>
+              </view>
+              <!-- <view class="today-duration" hidden='{{item.duration == null || item.duration == 0}}'>{{item.duration == null ? 0 : item.duration}}分钟</view> -->
+            </view>
+          </view>
+        </view>
+ 
+			
+			</view>
+		</view>
+		<view class="loading" hidden="{{!showLoading}}">加载中</view>  
+	  	<view class="loading complete" hidden="{{!noMoreData}}">已加载全部</view> 
+	</view>
+</block>
+
+
+<block wx:else>
+	<empty-view 
+          status="{{status}}"
+          autoLayout='false'
+          bind:confirmEvent='confirmEvent'></empty-view>
+</block>

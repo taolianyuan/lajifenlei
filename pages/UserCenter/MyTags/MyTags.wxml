@@ -1,0 +1,33 @@
+
+<view class="bg" style="background-color: #fff;">
+	<view class="input-bg">
+		<image class="input-img" src="../../../img/search.png"></image>
+		<input class="input {{activity ? 'activity' : ''}}" maxlength="6" bindinput="tagsInput" bindfocus="getFocus" bindblur="lostFocus" type="text" focus="{{activity}}" placeholder="请输入标签" placeholder-class='placeholder-input' value="{{tag}}" />
+		<view class="btn-cancel" bindtap="addTags">添加</view>
+	</view>
+
+	<view class="module-title-bg">
+		<view class="module-title">已选</view>
+		<view class="module-count">{{count}}</view>
+	</view>
+	<view class="module-bg">
+
+		<block wx:for="{{labelList}}" wx:for-item="item" wx:for-index="index" wx:key="labelList">
+			<view class="module-item-bg">
+				<view class="module-item-checked">{{item.name}}</view>
+				<view class="module-item-delete" bindtap="delete" data-index="{{index}}">×</view>
+			</view>
+		</block>
+		
+	</view>
+
+	<view class="module-title-bg">推荐</view>
+	<view class="module-bg" >
+		<block wx:for="{{recommendLabels}}" wx:for-item="item" wx:for-index="index" wx:key="recommendLabels">
+			<view class="module-item {{item.isChecked ? 'isChecked' : ''}}" bindtap="selectedItem" data-index="{{index}}">{{item.name}}</view>
+		</block>
+	</view>
+
+	<view class="btn-save" bindtap="uploadUserInfo">保 存</view>
+
+</view>

@@ -1,0 +1,24 @@
+
+.third-page-step-add{flex-grow: 1; height: 90rpx; margin-left: 30rpx; line-height: 90rpx; text-align: center; margin: 30rpx; font-size: 32rpx; background-color: #ff5173; border-radius: 10rpx; color: #fff;}
+
+.next-last-btn-bg{width: 100%; height: 150rpx; background: #fff; display: flex; flex-wrap: nowrap;}
+
+.first-page-img{width: 690rpx; height: 400rpx; margin: 30rpx; border: 1px dashed #ececec; background: #fff;}
+
+.third-page-step-textarea{width: 690rpx; height: 400rpx; margin: 30rpx; font-size: 30rpx; color: #666;}
+
+.third-page-step-input{width: 650rpx; height: 90rpx; line-height: 90rpx; font-size: 32rpx; color: #333; padding-left: 30rpx;}
+
+.third-page-step-title-bg{width: 100%; background: #fff; display: inline-flex;}
+
+.third-page-step-title{width: 100rpx; height: 90rpx; line-height: 90rpx; font-size: 32rpx; font-weight: bold; color: #333; padding-left: 30rpx;}
+
+.header-bg{width: 100%; height: auto; background: #fff;}
+
+.second-page-form-title{width: 100%; height: 100rpx; background: lightgray; font-size: 38rpx; line-height: 100rpx; padding-left: 30rpx; color: #333;}
+
+.no-image{width: 690rpx; margin: 30rpx; height: 30vh; border-radius: 20rpx;  font-size: 60rpx; font-weight: bold; color: #f1f1f1; border: 1px solid #f1f1f1; display: flex; justify-content: center; align-items: center; box-shadow:0 2rpx 2rpx 2rpx rgba(236 , 236 , 236, 0.5);/*for Android*/
+  -webkit-box-shadow:0px 0px 10px 1px rgba(236 , 236 , 236, 0.5);/*for IOS*/}
+
+
+

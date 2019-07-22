@@ -1,0 +1,375 @@
+<!--pages/Home/Assistant/Assistant.wxml-->
+
+
+<headerNavbar navbar-data='{{nvabarData}}'></headerNavbar>
+
+<view class='search-con'>
+ <block wx:if="{{switchcon == true}}">
+   <view class='Slogan'>垃圾分一分 生活美十分 !</view>
+  </block>
+  <block wx:else>
+   <view class="Slogan">
+      Garbage classification,life is beautiful
+    </view>
+  </block>
+  
+     <!-- <official-account></official-account> -->
+
+  <view class='assis'>
+    <view class='search'>
+      <!-- focus="{{focus}} -->
+      <view class="switch" bindtap="switchs">
+        <image src="/img/zyqh.png" class="switch_img"></image>
+        <image src="/img/unflod.png" class="switch_jt"></image> 
+      </view>
+      
+       <block wx:if="{{switchcon == true}}">
+          <input bindinput='bindInputName' value="{{inputVal}}"></input>
+           <view class='hideInput' bindtap="hideInput" wx:if="{{inputVal.length > 0}}">
+           <image src='/img/delete_black.png'></image>
+           </view>
+        </block>
+
+        <block wx:else>
+         <input bindinput='bindInputName' value="{{inputValEn}}"></input>
+          <view class='hideInput' bindtap="hideInput" wx:if="{{inputValEn.length > 0}}">
+          <image src='/img/delete_black.png'></image>
+        </view>
+       </block>
+       <block wx:if="{{switchcon == true}}">
+         <view class='cxun' bindtap='toGoodsinfos'>查询</view>
+       </block>
+       <block wx:else> 
+         <view class='cxun' bindtap='toGoodsinfos'>Search</view>
+       </block>
+    </view>
+  </view>
+
+   <!-- 热搜词  wx:if="{{index <= 8}}"-->
+   <view class="hot">
+     <block wx:if="{{switchcon == true}}">
+       <view class="hot-title">热词：</view>
+     </block>
+     <block wx:else>
+        <view class="hot-title">Hot：</view>
+      </block>
+      <view class="hots">
+       <view class="hot-list" wx:for="{{hotWordlist}}" wx:key="{{index}}">
+         <block wx:if="{{switchcon == true}}">
+            <view bindtap='toGoodsinfo' data-name='{{item.garbageName}}'>{{item.garbageName}}</view>
+         </block>
+          <block wx:else>
+           <view bindtap='toGoodsinfo' data-name='{{item.garbageNameEn}}'>{{item.garbageNameEn}}</view> 
+          </block>
+       </view>
+      </view>
+   </view>
+
+  <!-- <view>{{switchcon}}</view> -->
+  <!--  wx:if="{{goods_len > 0}}"   wx:if="{{datase != ''}}"-->
+  <view hidden='{{isbind}}' class='search-top'>
+    <scroll-view scroll-y="true" class='search-list'>
+      <block wx:for="{{goods_name}}" wx:key="this">
+        <view wx:if="{{switchcon == true}}">
+         <view class='goods-list' bindtap='toGoodsinfo' data-name='{{item.garbageName}}'>{{item.garbageName}}</view>
+        </view>
+        <view wx:else>
+          <view class='goods-list' bindtap='toGoodsinfo' data-name='{{item.garbageNameEn}}'>{{item.garbageNameEn}}</view>
+        </view>
+      </block>
+    </scroll-view>
+  </view>
+</view>
+
+
+
+<!-- 垃圾桶 -->
+<view class='classification'>
+  <view wx:for="{{list}}" wx:key="key" class='{{item.a1}}' bindtap='cation' data-index='{{index}}'>
+    <image wx:if="{{garbageType === item.ids  && garbageType > 0}}" src='{{item.aimg}}' class='imgs aimg' lazy-load="true"></image>
+
+    <image wx:elif="{{indexs !== index}}" src="{{item.img}}" class='imgs' lazy-load="true"></image>
+
+    <image wx:elif="{{indexs === index}}" src="{{item.img}}" class='imgs' lazy-load="true"></image>
+
+    <view wx:if="{{ garbageType === item.ids  &&  garbageType > 0}}" class='jiantou'>
+      <image src='/img/jiantou.gif' lazy-load="true"></image>
+    </view>
+  </view>
+</view>
+
+<!-- 显示种类 -->
+<view wx:for="{{list}}" class='simg' wx:if="{{garbageType === item.ids &&  garbageType > 0}}" wx:key="{{this}}">
+   
+    <!-- <block wx:if="{{keywaordShareCpntent == null }}">
+         <image src='{{item.simgs}}' class='simgs'></image>
+    </block> -->
+
+    <!-- <block wx:else>  </block> -->
+     <view wx:if="{{switchcon == true}}"> 
+      <view style='background: url({{item.simgs}});background-size: cover;' class='simg_bgs'>
+         <block wx:if="{{keywaordShareCpntent == null }}">
+            <view class='egg-text'  style="{{item.eggs}} ">{{item.text}} </view>
+         </block>
+         <block wx:else>
+           <view  style="{{item.eggs}} " class='egg-text'>{{keywaordShareCpntent}}</view>
+          </block>
+        </view>
+      </view>
+
+       <view wx:else>
+        <view style='background: url({{item.simgsEN}});background-size: cover;' class='simg_bgs'>
+         <block wx:if="{{keywaordShareCpntent == null }}">
+            <view class='egg-text'  style="{{item.eggs}} ">{{item.texten}} </view>
+         </block>
+         <block wx:else>
+           <view  style="{{item.eggs}} " class='egg-text'>{{keywaordShareCpntent}}</view>
+          </block>
+        </view>
+     </view>
+
+      <!-- <image src='{{item.simgs}}' class='simgs'></image> -->
+  
+  <view style='position: relative; right: 0;'>
+     <view wx:if="{{switchcon == true}}">
+       <button size="mini" bindtap='goAssis' class='btns'>分享</button>
+        <image src='/img/shou.png' class='finger'></image>
+     </view>
+     <view wx:else>
+      <button size="mini" bindtap='goAssis' class='btns'>Share</button>
+       <image src='/img/shou.png' class='finger'></image>
+     </view>
+    
+   
+  </view>
+
+  <!-- <view class='egg' wx:if="{{keywaordShareCpntent !=null }}" style="{{item.eggs}} ">{{keywaordShareCpntent}}</view> -->
+</view>
+
+<view class='classification-con' wx:if="{{indexs != item.index}}" hidden='{{hiddns}}'>
+  <view class='classification-list' wx:for="{{lists}}" wx:key="{{this}}">
+     
+     <view wx:if="{{switchcon == true}}">
+      <block wx:if="{{indexs == item.index}}">
+        <image src='{{item.imgs}}' lazy-load='true' class='{{item.classimg}}'></image>
+      </block>
+    </view>
+     <view wx:else>
+      <block wx:if="{{indexs == item.index}}">
+        <image src='{{item.imgsEN}}' lazy-load='true' class='{{item.classimgen}}'></image>
+      </block>
+     </view>
+  </view>
+</view>
+
+  
+<!--显示/隐藏 -->
+<view hidden='{{show}}' class='tips'>
+ <view wx:if="{{switchcon == true}}">
+  <image src='https://7465-test-9cd88e-1258312722.tcb.qcloud.la/images/tips.png?sign=631b90520c91c73607f216c1cef8cb9d&t=1561638053' lazy-load="true"></image>
+</view>
+  <view wx:else>
+   <image src='https://7465-test-9cd88e-1258312722.tcb.qcloud.la/images/tipsEN.png?sign=143ce63f7eb6cd36e3308c40ddc9c0ce&t=1562315633' lazy-load="true" style="width:690rpx;height:526rpx;"></image>
+   </view>
+</view>
+
+
+
+
+<!-- 未搜到结果 hidden='{{wesb}}' -->
+<view class='notfound' wx:if="{{datase == '' || garbageType === 0 || chaxu === null}}" hidden='{{wesb}}'>
+  <image src='/img/ljicon.png' lazy-load="true"></image>
+  <view class='notfound-title'>
+    <block wx:if="{{switchcon == true}}">
+     <view class='notfound-hs'>抱歉，未能匹配成功。</view>
+     <view class='notfound-hp'>未能查到完全匹配字段，我们将尽快更新</view>
+    </block>
+   
+   <block wx:else>
+     <view class='notfound-hs'>Sorry, the match failed.</view>
+     <view class='notfound-hp'>Failed to find the exact match field, we will update as soon as possible</view>
+    </block>
+  </view>
+</view>
+
+<view style='position: relative;margin-bottom: 126rpx;' wx:if="{{garbageType == 101 }}">
+  <view class='notfound'>
+    <image src='/img/ljicon.png' lazy-load="true"></image>
+    <view class='notfound-title'>
+      <view class='notfound-hs1'>{{garbageTypeName}}</view>
+      <view class='eggs' wx:if="{{keywaordShareCpntent !=null }}">{{keywaordShareCpntent}}</view>
+    </view>
+  </view>
+  <view style='position: relative; right: 0;' class="fenxiang">
+      <view wx:if="{{switchcon == true}}">
+       <button size="mini" bindtap='goAssis' class='btns'>分享</button>
+       <image src='/img/shou.png' class='finger'></image>
+     </view>
+     <view wx:else>
+      <button size="mini" bindtap='goAssis' class='btns'>Share</button>
+      <image src='/img/shou.png' class='finger'></image>
+     </view>
+  </view>
+</view>
+
+<view style='position: relative;margin-bottom: 126rpx;' wx:if="{{garbageType ==510 || garbageType ==520  || garbageType ==530}}">
+  <view class='notfound'>
+    <image src='/img/ljicon.png' lazy-load="true"></image>
+    <view class='notfound-title'>
+
+      <view class='notfound-hs1' wx:if="{{garbageType ==510}}">
+          <block wx:if="{{switchcon == true}}">
+            属于<text>大件垃圾</text> 
+         </block>
+         <block wx:else>
+            Belongs to large pieces of garbag
+         </block>
+       </view>
+      <view class='notfound-hs1' wx:if="{{garbageType ==520}}">
+         <block wx:if="{{switchcon == true}}">
+            属于<text>装修垃圾</text> 
+          </block>
+          <block wx:else>
+           Belonging to the decoration garbage
+          </block>
+      </view>
+      
+      <view class='notfound-hs1' wx:if="{{garbageType ==530}}">
+        <block wx:if="{{switchcon == true}}">
+            属于<text>绿化垃圾</text>
+          </block>
+          <block wx:else>
+           Belonging to green garbage
+          </block>
+      </view>
+      <view class='notfound-hp' wx:if="{{keywaordShareCpntent == null}}">
+         <block wx:if="{{switchcon == true}}">
+            请
+        <text>询问物业</text>如何投放
+         </block>
+         <block wx:else>
+           Please ask how the property is place
+         </block>
+        </view>
+      <view class='eggs' wx:if="{{keywaordShareCpntent !=null }}">{{keywaordShareCpntent}}</view>
+    </view>
+  </view>
+  <view style='position: relative; right: 0;' class="fenxiang">
+      <view wx:if="{{switchcon == true}}">
+       <button size="mini" bindtap='goAssis' class='btns'>分享</button>
+         <image src='/img/shou.png' class='finger'></image>
+     </view>
+     <view wx:else>
+      <button size="mini" bindtap='goAssis' class='btns'>Share</button>
+        <image src='/img/shou.png' class='finger'></image>
+     </view>
+  </view>
+</view>
+
+<view wx:if="{{garbageType ==700}}" style='position: relative;margin-bottom: 126rpx;'>
+  <view class='notfound'>
+    <image src='/img/ljicon.png' lazy-load="true"></image>
+    <view class='notfound-title'>
+       <block wx:if="{{switchcon == true}}">
+        <view class='notfound-hs1'>不属于<text>日常生活垃圾</text></view>
+       </block>
+       <block wx:else>
+        <view class='notfound-hs1'>Not belonging to daily garbage</view>
+        </block>
+      <view class='eggs' wx:if="{{keywaordShareCpntent !=null }}">{{keywaordShareCpntent}}</view>
+    </view>
+  </view>
+  <view style='position: relative; right: 0;' class="fenxiang">
+     <view wx:if="{{switchcon == true}}">
+       <button size="mini" bindtap='goAssis' class='btns'>分享</button>
+        <image src='/img/shou.png' class='finger'></image>
+     </view>
+     <view wx:else>
+      <button size="mini" bindtap='goAssis' class='btns'>Share</button>
+       <image src='/img/shou.png' class='finger'></image>
+     </view>
+   
+  </view>
+</view>
+
+  
+<!-- <view bindtap='goAssis'>点击跳转</view> -->
+
+<!-- 语音弹出框 -->
+<view class='toast' wx:if="{{showmicro}}">
+  <image src='/img/boxing.gif' class='microphone' lazy-load="true"></image>
+  <!-- <text>正在识别</text> -->
+</view>
+
+<view class='toast' wx:if="{{shownull}}">
+ <block wx:if="{{switchcon == true}}">
+  <text class='warning-text'>语音时间太短...</text>
+ </block>
+ <block wx:else>
+  <text class="warning-text">Speech time is short ...</text>
+ </block>
+</view>
+
+<view class='boxfide'>
+  <view class='boxfide-bt' bindlongtap="longpress" bindtouchstart="touchStart" bindtouchend="touchEnd">
+    <image src='/img/yuyin1.png' class='yuyins' lazy-load="true"></image>
+  </view>
+</view>
+
+
+ <view class="discounts" bindtap="discount">
+  <image src="https://img.jishantech.com/common/waste_temporary/垃圾桶优惠券新.gif"></image>
+ </view>
+
+
+<!-- 小程序授权 -->
+<block wx:if="{{!isLogin}}">
+  <dialog id='dialog' title='登录提示' content='小程序需要您的授权才能提供更好的服务哦' confirmText='去授权' bind:cancleEvent='cancleEvent' bind:confirmEvent='confirmEvent' bind:bindGetUserInfo='bindGetUserInfo'></dialog>
+</block>
+
+
+<!-- 弹出框 -->
+
+<view class="modals modals-bottom-dialog" hidden="{{hideModal}}">
+    <view class="modals-cancel" bindtap="hideModal"></view>
+
+    <view class="bottom-dialog-body bottom-pos" animation="{{animationData}}">
+      <block wx:if="{{switchcon == true}}">
+     <view class="switchs-title">
+      <view class="languages">语言设置</view>
+        <view class="switchs">
+         <view>英文</view>
+         <switch  bindchange="switch1Change" checked="{{switchcon}}"/>
+         <view>中文</view>
+       </view>
+     </view>
+     <view class="dialect-con">
+     <view class="dialect">可识别方言</view>
+      <radio-group class="radio-group " bindchange="radioChange"  >
+          <label class="radio radios" wx:for="{{items}}" wx:key="this">
+           {{item.value}}<radio value="{{item.name}}" checked="{{item.selected}}" disabled="{{switchse}}"/>
+          </label>
+      </radio-group>
+     </view>
+  </block>
+  <block wx:else>
+     <view class="switchs-title">
+      <view class="languages">Set up </view>
+        <view class="switchs">
+         <view>English</view>
+         <switch  bindchange="switch1Change" checked="{{switchcon}}"/>
+         <view>Chinese</view>
+       </view>
+     </view>
+     <view class="dialect-con">
+     <view class="dialect">dialect</view>
+      <radio-group class="radio-group " bindchange="radioChange">
+          <label class="radio radios" wx:for="{{items}}" wx:key="this">
+           {{item.values}}<radio values="{{item.name}}" checked="{{item.selected}}" disabled/>
+          </label>
+      </radio-group>
+     </view>
+  </block>
+  </view>
+</view>
+

@@ -1,0 +1,12 @@
+{
+  "navigationStyle": "custom",
+  "usingComponents": {
+    "headerNavbar": "/components/headerNavbar/headerNavbar",
+    "dialog": "/components/dialog/dialog"
+  },
+  "navigationBarTitleText": "垃圾分类助手",
+ 
+  "navigationBarTextStyle": "white",
+  "navigationBarBackgroundColor": "#5DB793"
+ 
+}

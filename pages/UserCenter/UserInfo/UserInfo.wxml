@@ -1,0 +1,62 @@
+<view class="bg" style='background-color: #fff;'>
+  <view class='header'>
+    <image class='header-icon' bindtap='takePhotos' src="{{userInfo.avatarUrl}}"></image>
+    <view class="header-tips">点击修改头像</view>
+  </view>
+
+  <view class="module-bg">
+    <view class='module'>
+      <view class='cell'>
+        <view class='cell-key title'>完善个人信息</view>
+      </view>
+      
+      <view class='cell'>
+        <view class='cell-key'>昵称</view>
+        <input class='input' value="{{userInfo.nickName}}" bindfocus='bindfocus' bindblur='getName' placeholder='请填写昵称'></input>
+      </view>
+
+      <view class='cell'>
+        <view class='cell-key'>星座</view>
+        <image class='xinzuo-icon' src='/img/Constellation.png'></image>
+        <picker class="picker xinzuo" style='width: 216rpx; height: 76rpx; border:1rpx solid rgba(204,204,204,1); border-radius:8rpx;' bindchange="bindDateChange" value="{{index}}" range="{{constellationList}}">
+          <view class='cell-value'> {{userInfo.constellation}} </view>
+        </picker>
+      </view>
+
+      <view class='cell'>
+        <view class='cell-key'>性别</view>
+        <radio-group class="radio-group" bindchange="radioChange">
+          <label class='lable' wx:for="{{genderList}}" wx:key="genderList">
+            <radio class="radio" color="#fc5375" value="{{item.key}}" checked="{{item.isChecked}}" />{{item.value}}
+          </label>
+        </radio-group>
+      </view>
+    </view>
+
+    <view class='module module-bottom'>
+      <view class='cell' bindtap='cellClick' data-id='{{index}}' wx:for="{{userInfoTitles}}" wx:for-item="item" wx:for-index="index" wx:key="userInfoTitles">
+        
+        <block wx:if="{{index==0}}">
+          <view class='cell-key l'>{{item.key}}</view>
+          <view class='cell-value right'>{{userInfo.tags}}</view>
+        </block>
+
+        <block wx:elif="{{index==1}}">
+          <view class='cell-key l'>{{item.key}}</view>
+          <view class='cell-value right'> {{userInfo.intro}} </view>
+        </block>
+
+        <block wx:elif="{{index==2}}">
+          <picker mode="region" bindchange="bindRegionChange" value="{{region}}" custom-item="{{customItem}}">
+            <view class="picker-bg">
+              <view class='cell-key l'>{{item.key}}</view>
+              <view class='cell-value right'> {{userInfo.provice}} {{userInfo.city}} {{userInfo.county}}</view>
+               <!-- <view>{{provice}},{{city}},{{county}}</view> -->
+            </view>
+          </picker>
+        </block>
+        <image class='arrow-right' src='../../../img/arrow-right.png'></image>
+      </view>
+    </view>
+  </view>
+</view>

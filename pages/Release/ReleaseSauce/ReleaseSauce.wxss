@@ -1,0 +1,117 @@
+
+
+.content-first-page-bg{width: 100%; height: auto; margin-bottom: 50rpx;}
+
+.swiper{width: 100%; height: 100vh;}
+
+.scroll-view{width: 750rpx; height: 90vh}
+
+.first-page-img{width: 690rpx; margin: 60rpx 30rpx 0 30rpx; border-radius: 20rpx; box-shadow:0 2rpx 2rpx 2rpx rgba(236 , 236 , 236, 0.5);/*for Android*/ -webkit-box-shadow:0px 1px 1px 1px #99999999;/*for IOS*/}
+
+.no-image{width: 690rpx; margin: 60rpx 30rpx 0 30rpx; height: 30vh; border-radius: 20rpx;  font-size: 60rpx; font-weight: bold; color: #f1f1f1; border: 1px solid #f1f1f1; display: flex; justify-content: center; align-items: center; box-shadow:0 2rpx 2rpx 2rpx rgba(236 , 236 , 236, 0.5);/*for Android*/
+  -webkit-box-shadow:0px 0px 10px 1px rgba(236 , 236 , 236, 0.5);/*for IOS*/}
+
+.first-page-btn-bg{width: 100%; height: 10%; background: #fff;}
+
+.first-page-btn{width: 80vw; height: 80rpx; line-height: 80rpx; margin-left: 10vw; margin-top: 30rpx; text-align: center; border-radius: 10rpx; color: white; background: #96e464;}
+
+.first-page-food-title-input{width: 690rpx; height: 10vh; margin-left: 30rpx; margin-top: 100rpx; border-bottom: 1px solid #ececec; background: #fff;}
+
+.first-page-food-story-input{width: 690rpx; height: 20%; background: #fff; padding: 30rpx;  background: #fff;}
+
+.first-page-food-story-char-count{ height: 80rpx; line-height: 80rpx; font-size: 26rpx; color: #666; padding-right: 30rpx; text-align: right; background: #fff;}
+
+.second-page-form-title{width: 100%; height: 100rpx; background: #fff; font-size: 38rpx; line-height: 100rpx; padding-left: 30rpx; color: #FF5173;}
+
+.picker{width: 750rpx; height: auto;}
+
+.second-page-form-cell{width: 690rpx; height: auto; margin-left: 30rpx; padding: 20rpx 0; border-bottom: 1px solid #ececec; background: #fff; display: flex;  align-items: center;}
+
+.second-page-form-cell-title-item{width: 25%; height: 90rpx; text-align: center; line-height: 90rpx; background: #fff; color: #333; font-size: 35rpx; }
+
+.second-page-form-cell-material-item{width: 25%; height: 80rpx; text-align: center; line-height: 80rpx; background: #fff; color: #666; font-size: 30rpx; }
+
+.second-page-form-cell-material-item-btn-bg{width: 25%; height: 80rpx; display: flex; justify-content: center; align-items: center;}
+
+.second-page-form-cell-material-item-btn{width: 50%; height: 80rpx; display: flex; justify-content: center; align-items: center; }
+
+.second-page-form-cell-material-item-btn-img{width: 40rpx; height: 40rpx;}
+
+
+.info-bg{width: 600rpx; height: 100%; display: flex; align-items: center;  }
+
+.info-key{width: 300rpx; height: 100%; font-size: 30rpx; color: #666;}
+
+.info-key.value{color: #333; text-align: right;}
+
+
+.step-title{ width: 580rpx; margin-left: 30rpx; color: #333; font-size: 40rpx;}
+
+.step-content{font-size: 30rpx; color: #666; margin: 30rpx;}
+
+.step-img{width: 630rpx; margin: 0 30rpx; border: 20rpx; border-radius: 10rpx;}
+
+.step-delete{width: 60rpx; height: 60rpx;}
+
+.step-title-bg{width: 100%; height: auto; display: flex; }
+
+
+.header-bg{width: 690rpx; margin: 30rpx; height: auto; padding: 30rpx 0; background-color: rgba(255, 81, 115, 0.1); border-radius: 10rpx; box-shadow:0 2rpx 2rpx 2rpx rgba(236 , 236 , 236, 0.5);/*for Android*/ -webkit-box-shadow:0px 1px 1px 1px #99999999;/*for IOS*/}
+
+.footer-bg{width: 100%; height: auto; background: #fff; margin-top: 20rpx; margin-bottom: 30rpx;}
+
+.btn-bg{width: 100%; height: 10vh; border-top: 1px solid #ececec; background: #fff; display: flex; flex-wrap: nowrap; align-content: center;}
+
+.preview-btn{width: 210rpx; height: 80rpx; margin-left: 30rpx; margin-top: 50rpx; border: 1px solid #666; border-radius: 6rpx; text-align: center; line-height: 80rpx; color: #666; font-size: 30rpx;}
+
+.last-btn{width: 300rpx; height: 90rpx; margin-left: 50rpx; margin-top: 50rpx; border: 1px solid #666; border-radius: 6rpx; text-align: center; line-height: 90rpx; color: #666; font-size: 30rpx;}
+
+.one-btn{ width: 570rpx; height: 80rpx; font-size: 30rpx; background-color: #FF5173; color: #fff; text-align: center; line-height: 80rpx; border-radius: 10rpx;}
+
+.btns{margin: auto 30rpx; flex-grow: 1; height: 80rpx; font-size: 30rpx; background-color: #FF5173; color: #fff; text-align: center; line-height: 80rpx; border-radius: 10rpx; }
+
+
+
+
+.weui-uploader__bd {
+  margin-bottom: -4px;
+  margin-right: -9px;
+  overflow: hidden;
+}
+
+
+.weui-uploader__file {
+  float: left;
+  padding:30rpx 15rpx 0 0;
+}
+
+.weui-uploader__img {
+  display: block;
+  width: 210rpx;
+  height: 210rpx;
+  margin: 15rpx;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

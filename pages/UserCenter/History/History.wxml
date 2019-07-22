@@ -1,0 +1,75 @@
+
+
+<view class="bg">
+    <block wx:if="{{status_all == 1}}">
+        <view class='menu-bg'>
+            <view class='menu-item-bg'  wx:for="{{menuList}}" wx:key="menuList" wx:for-item="item" wx:for-index="index" >
+                <view class="menu-item {{item.isChecked ? 'isChecked' : ''}}" bindtap="swiperChange" data-index="{{index}}">{{item.title}}</view>
+            </view>
+        </view>
+        <swiper class="swiper" current="{{current}}" bindchange="bindchange">
+            <swiper-item >
+                <block wx:if="{{dishes.length != 0 && dishes != undefined}}">
+                    <scroll-view class="swiper-scroll-view" scroll-y="true">
+                        <view class='recommend-cell' wx:for="{{dishes}}" wx:for-item="item" wx:for-index="index" wx:key="dishList" data-id="{{item.dishAndUser.aboutInfo.objectId}}" data-index='{{index}}' data-type="{{item.dishAndUser.aboutInfo.objectType}}" bindtap="goDetail">
+                            <image class='recommend-cell-icon' mode='aspectFill' src="{{imgDomain + item.dishAndUser.defPhoto}}"></image>
+                            <view class='recommend-cell-right-view'>
+                                <view class='recommend-cell-title'>{{item.dishAndUser.dishName}}</view>
+                                <view class="recommend-cell-tags">
+                                  <view class="recommend-cell-tag" wx:for="{{item.aboutInfo.sauceList}}" wx:for-item="sauce" wx:key="sauceList">{{sauce.sauceName}}</view>
+                                </view>
+                                <view class='recommend-cell-creater-bg'>
+                                  <image class="recommend-cell-creater-head" src="{{item.dishAndUser.avatar}}"></image>
+                                  <view class='recommend-cell-creater-text'>{{item.dishAndUser.nickName}}</view>
+                                  <image class="recommend-cell-creater-icon" src="../../../img/follow_recommend.png"></image>
+                                  <view class='recommend-cell-creater-text'>{{item.count.likeCount}}</view>
+                                  <image class="recommend-cell-creater-icon" src="../../../img/eye_black.png"></image>
+                                  <view class='recommend-cell-creater-text'>{{item.count.browerCount}}</view>
+                                </view>
+                            </view>
+                        </view>
+                    </scroll-view>
+                </block>
+                
+                <block wx:else>
+                  <empty-view status="{{status_dish}}"></empty-view>
+                </block>
+            </swiper-item>
+
+            <swiper-item >
+                <block wx:if="{{sauces.length != 0 && sauces != undefined}}">
+                    <scroll-view class="swiper-scroll-view" scroll-y="true">
+                        <view class='recommend-cell' wx:for="{{sauces}}" wx:for-item="item" wx:for-index="index" wx:key="sauces" data-id="{{item.sauceAndUser.aboutInfo.objectId}}" data-index='{{index}}' data-type="{{item.sauceAndUser.aboutInfo.objectType}}" bindtap="goDetail">
+                            <image class='recommend-cell-icon' mode='aspectFill' src="{{imgDomain + item.sauceAndUser.defPhoto}}"></image>
+                            <view class='recommend-cell-right-view'>
+                                <view class='recommend-cell-title'>{{item.sauceAndUser.sauceName}}</view>
+                                <view class="recommend-cell-tags">
+                                 
+                                </view>
+                                <view class='recommend-cell-creater-bg'>
+                                  <image class="recommend-cell-creater-head" src="{{item.sauceAndUser.avatar}}"></image>
+                                  <view class='recommend-cell-creater-text'>{{item.sauceAndUser.nickName}}</view>
+                                  <image class="recommend-cell-creater-icon" src="../../../img/follow_recommend.png"></image>
+                                  <view class='recommend-cell-creater-text'>{{item.count == null ? 0 : item.count.likeCount}}</view>
+                                  <image class="recommend-cell-creater-icon" src="../../../img/eye_black.png"></image>
+                                  <view class='recommend-cell-creater-text'>{{item.count == null ? 0 : item.count.browerCount}}</view>
+                                </view>
+                            </view>
+                        </view>
+                    </scroll-view>
+                </block>
+
+                <block wx:else>
+                  <empty-view status="{{status_sauce}}"></empty-view>
+                </block>
+            </swiper-item>
+        </swiper>
+    </block>
+    <block wx:else>
+        <empty-view 
+              status="{{status_all}}"
+              autoLayout='false'
+              bind:confirmEvent='confirmEvent'></empty-view>
+    </block>
+  
+</view>

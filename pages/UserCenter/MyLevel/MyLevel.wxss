@@ -1,0 +1,11 @@
+/* pages/UserCenter/MyLevel/MyLevel.wxss */
+
+.header{width: 100%; height: 471rpx;}
+
+.center{width: 100%; height: 695rpx;}
+
+.bottom{width: 100%; height: 794rpx;}
+
+.wrap{position: relative;}
+
+.mask{width: 504rpx; height: 72rpx; position: absolute; top: 616rpx; left: 127rpx; z-index: 2;}

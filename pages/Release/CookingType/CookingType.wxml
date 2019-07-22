@@ -1,0 +1,49 @@
+
+<!-- <view class="bg">
+	<view class="menu-bg">
+        <block wx:for="{{selectionList}}" wx:for="{{selectionList}}" wx:for-index="index" wx:for-item="item" wx:key="selectionListItem">
+            <view class="menu-item {{item.isChecked ? 'isChecked' : ''}}"  bindtap="selectedType" data-index="{{index}}">{{ item.cookName }}</view>
+        </block>
+    </view>
+
+	<swiper class="swiper" current="{{currentPage}}" bindchange="touchScroll">
+		<block wx:for="{{selectionList}}" wx:for-item="item" wx:for-index="index" wx:key="selectionList">
+			<swiper-item>
+				<scroll-view class="swiper" scroll-y="true">
+					<checkbox-group bindchange="serviceValChange">
+				        <view class="service_selection flex">
+				          <block wx:for="{{selectionList[index].cookList}}" wx:key="cookList" wx:for-index="cookIndex">
+				            <view class=" item">
+				              <label class="checkbox {{item.checked?'is_checked':''}}">
+				                <checkbox value="{{cookIndex}}" checked="{{item.checked}}" hidden="false" />{{item.cookName}}
+				              </label>
+				            </view>
+				          </block>
+				        </view>
+					</checkbox-group>
+				</scroll-view>
+			</swiper-item>
+		</block>
+	</swiper>
+	<view class="btn-bg">
+		<view class="first-page-btn" bindtap="save">完  成</view>
+	</view>
+</view>
+ -->
+
+
+<view class="bg">
+	<block wx:for="{{selectionList}}" wx:for-item="item" wx:for-index="section" wx:for-item="type" wx:key="selectionList">
+		<view class="modal">
+			<view class="title">{{ type.cookName }}</view>
+			<view class="item-bg">
+				<block wx:for="{{selectionList[section].cookList}}" wx:key="cookList" wx:for-index="index">
+					<view class="item {{item.isChecked ? 'isChecked' : ''}}" bindtap="selectItems" data-section="{{section}}" data-index="{{index}}">{{ item.cookName }}</view>
+				</block>
+			</view>
+		</view>
+	</block>
+	<view class="btn-bg">
+		<view class="first-page-btn" bindtap="save">完  成</view>
+	</view>
+</view>

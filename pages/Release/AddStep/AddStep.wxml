@@ -1,0 +1,31 @@
+
+<view class="header-bg">
+	<view class="third-page-step-title-bg">
+		<view class="third-page-step-title">步骤 {{index}}</view>
+		<!-- <input class="third-page-step-input" value="{{item.title}}" placeholder="请输入烹饪方式"/> -->
+	</view>
+	<textarea class='third-page-step-textarea' value="{{stepItem.steptDec}}" bindinput="textareaVal" placeholder="添加步骤说明" focus="false" />
+
+  <block wx:if="{{stepItem.steptPhoto == '' || stepItem.steptPhoto == null}}">
+    <view class="no-image" bindtap="showAction">点 击 选 择 图 片</view>
+  </block>
+  <block wx:else>
+    <image mode="aspectFill" class="first-page-img" bindload='discernDish' bindtap="showAction" src="{{stepItem.steptPhoto}}"></image>
+  </block>
+	
+</view>
+<view class="next-last-btn-bg">
+	<view class="third-page-step-add" wx:if="{{stepItem.stepId != 0}}" bindtap="deleteStep">删除</view>
+	<view class="third-page-step-add" bindtap="addStep">保存</view>
+</view>
+
+
+
+
+
+
+
+
+
+
+
